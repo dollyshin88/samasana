@@ -1,0 +1,40 @@
+.header{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+#logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#logo p {
+    display: block;
+    font-family: $logo-font;
+    color: $dark-navy;
+    padding: 0 3px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#logo img {
+    width: 30px;
+    height: 30px;
+}
+
+.home-header-nav{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    height: 56px;
+
+}
+
+.nav-btn-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
