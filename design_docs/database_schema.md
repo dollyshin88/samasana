@@ -2,16 +2,16 @@
 
 ## `users`
 
-| **column name**           | **data type** | **details**               |
-| ------------------------- | ------------- | ------------------------- |
-| `id`                      | integer       | not null, primary key     |
-| `name`                    | string        | not null                  |
-| `email`                   | string        | not null, unique, indexed |
-| `password_digest`         | string        | not null                  |
-| `session_token`           | string        | not null, unique, indexed |
-| `created_at`              | datetime      | not null                  |
-| `updated_at`              | datetime      | not null                  |
-| `profile_img` [TENTATIVE] |               |                           |
+| **column name**   | **data type** | **details**               |
+| ----------------- | ------------- | ------------------------- |
+| `id`              | integer       | not null, primary key     |
+| `name`            | string        | not null                  |
+| `email`           | string        | not null, unique, indexed |
+| `password_digest` | string        | not null                  |
+| `session_token`   | string        | not null, unique, indexed |
+| `created_at`      | datetime      | not null                  |
+| `updated_at`      | datetime      | not null                  |
+| `profile_img`     |               |                           |
 
 - indexed on `email, unique: true`
 - indexed on `session_token, unique: true`
@@ -48,7 +48,7 @@
 ## `sections`
 
 | column name       | data type | details               |
-|-------------------|-----------|-----------------------|
+| ----------------- | --------- | --------------------- |
 | id                | integer   | not null, primary key |
 | name              | string    | not null              |
 | project_id        | integer   | not null, foreign key |
@@ -195,5 +195,3 @@
 - indexed on `[tag_id, user_id], unique: true`
 - `tag_id` references `tags`
 - `user_id` references `users`
-
-

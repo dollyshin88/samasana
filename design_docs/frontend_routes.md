@@ -1,48 +1,47 @@
 ## Fontend Routes and Components
-### Root Components
-`Root`
+## Root Components
+### `Root`
 * `App`
 * `WorkspaceHeaderNav`
 * `SideNav`
 * (main component - based on hash routes)
 
-### Main Component
-`/` 
-(NOT LOGGED IN)
-Redirect to `/samasana`
-    * CompanyHomeHeaderNav
-    * CompanyHomeMain
-`/samasana/signup`
-    * SessionForm
-`/samasana/login`
-    * SessionForm
+## Main Component
 
-(LOGGED IN)
-Redirect to `/home` 
-    * WorkspaceHomeMain
-        * ProjectList
-            * ProjectThumbnail
+### `/` => Redirect to `/samasana` if not logged in
+* CompanyHomeHeaderNav
+* CompanyHomeMain
+### `/samasana/signup`
+* SessionForm
+### `/samasana/login`
+* SessionForm
 
-`/createproject`
-    * ProjectForm
 
-`/project/board`
-    * ProjectHeaderNva
-    * ProjectMain
-        * Sections
-            * SectionTaskList
+### `/` => Redirect to `/` if logged in
+* WorkspaceHomeMain
+  * ProjectList
+     * ProjectThumbnail
 
-`/project/board/viewtask`
-    * TaskDetail(overlay modal) 
-    * ProjectHeaderNva
-    * ProjectMain
-        * Sections
-            * SectionTaskList
+### `/createProject`
+* ProjectForm
 
-`/mytasks`
-    * TodaySection
-        * TaskLists
-            * TaskItem
-    * UpcomingSection
-        * TaskLists
-            * TaskItem
+### `/project/board`
+* ProjectHeaderNva
+* ProjectMain
+   * Sections
+      * SectionTaskList
+
+### `/project/board/viewTask`
+* TaskDetail(overlay modal) 
+* ProjectHeaderNav
+* ProjectMain
+   * Sections
+      * SectionTaskList
+
+### `/myTasks`
+* TodaySection
+    * TaskLists
+        * TaskItem
+* UpcomingSection
+    * TaskLists
+        * TaskItem
