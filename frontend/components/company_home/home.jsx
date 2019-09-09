@@ -11,7 +11,7 @@ function Home(props) {
 
     return (
         <div id='company-home'>
-            <HomeHeaderNav />
+            <HomeHeaderNav openModal={props.openModal} />
             <HomeMain />
         </div>
     );

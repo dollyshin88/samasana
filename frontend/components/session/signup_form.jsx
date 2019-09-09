@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function SignupForm(props) {
-    const { name, setName } = useState('');
-    const { email, setEmail } = useState('');
-    const { password, setPassword } = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     function handleNameChange(e) {
         setName(e.target.value);
