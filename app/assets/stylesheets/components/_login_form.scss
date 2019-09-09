@@ -6,12 +6,14 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 80px;
-    padding: 32px;
     position: relative;
     width: 90%;
     max-width: 900px;
-    padding-left: 112px;
-    padding-right: 112px;
+    padding-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+    height: calc(100vh - 85px);
+    
 }
 
 .form-header {
@@ -21,6 +23,7 @@
     margin-bottom: 0;
     text-align: center;
     color: $dark-navy;
+
 }
 .form-close {
     color: #b7bfc6;
@@ -33,8 +36,23 @@
     top: 32px;
     transition: opacity .15s ease-in-out; 
 }
-.session-form {
-    display: flex;
-    flex-flow: column nowrap;
+
+
+#signup-text {
+    color: #9ca6af;
+    margin: 50px auto;
+}
+
+@media screen and (min-width: 768px) {
+    #login-container {
+        padding-left: 112px;
+        padding-right: 112px;
+    }
+
+}
+  
+@media screen and (min-width: 800px) {
+    
+
 }
 

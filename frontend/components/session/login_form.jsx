@@ -41,8 +41,8 @@ function LoginForm(props) {
                 </div>
 
                 <button className="btn form-btn">Log In</button>
-                <p>Don't have an account?</p>
-                <Link to='/signup'>Sign up</Link>
+                <p id='signup-text'>Don't have an account? <span className='text-link'><Link to='/signup/welcome'>Sign up</Link></span></p>
+                
 
             </form>
         </div>
