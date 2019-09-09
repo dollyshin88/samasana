@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="55px" viewBox="0 0 58 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="85.4612578%" fx="50%" fy="85.4612578%" r="98.8466005%" id="radialGradient-1">
+            <stop stop-color="#FEDE21" offset="0%"></stop>
+            <stop stop-color="#FA6F02" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="samasana" transform="translate(2.000000, 2.000000)" fill="url(#radialGradient-1)">
+            <circle id="Oval" cx="25.5" cy="8.5" r="8.5"></circle>
+            <circle id="Oval" cx="8.5" cy="21.5" r="8.5"></circle>
+            <circle id="Oval" cx="15.5" cy="41.5" r="8.5"></circle>
+            <circle id="Oval" cx="37.5" cy="41.5" r="8.5"></circle>
+            <circle id="Oval" cx="43.5" cy="21.5" r="8.5"></circle>
+        </g>
+    </g>
+</svg>
