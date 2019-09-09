@@ -19,6 +19,7 @@ html {
     width: 100%;
     text-align: center;
     height: 50px;
+    font-weight: bold;
 }
 
 input::placeholder {
@@ -30,6 +31,7 @@ input::placeholder {
     flex-flow: column nowrap;
     align-items: flex-start;
     margin-bottom: 24px;
+    width: 100%;
 }
 
 .modal-form-container form input {
@@ -50,5 +52,19 @@ input::placeholder {
     margin-bottom: 8px;
 }
 
+.text-link {
+    color: $core-purple;
+    font-weight: bold;
+}
 
+.text-link:hover {
+    text-decoration: underline $core-purple solid;
+}
+
+.session-form {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 50px auto;
+    align-items: center;
+}
 
