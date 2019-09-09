@@ -1,0 +1,40 @@
+#login-container {
+    box-sizing: border-box;
+    background-color:#f6f8f9; 
+    border-radius: 3px;
+    box-shadow: 0 20px 30px 0 rgba(36,50,66,.14);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    padding: 32px;
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    padding-left: 112px;
+    padding-right: 112px;
+}
+
+.form-header {
+    font-size: calc(33.75px + 11.25 * ((100vw - 480px) / 800));
+    line-height: 1.244;
+    display: block;
+    margin-bottom: 0;
+    text-align: center;
+    color: $dark-navy;
+}
+.form-close {
+    color: #b7bfc6;
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 0;
+    opacity: .6;
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    transition: opacity .15s ease-in-out; 
+}
+.session-form {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
