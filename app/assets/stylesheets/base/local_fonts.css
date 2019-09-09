@@ -1,0 +1,75 @@
+/*
+
+This is custom css, not compiled from Sass, and it is included in our code via
+https://github.com/typekit/webfontloader - so that we can load these in a smart
+way that doesn't impede pageload
+
+These fonts are loaded immediately when the DOM starts loading, potentially
+blocking other resources from loading, but also preventing FOUT or blank text.
+We decided splitting this was necessary because we are loading so many custom
+fonts.
+
+*/
+
+/**
+ * Regular Fonts
+ */
+     /* @font-face {
+       font-family: 'gordita';
+       src: url('../../fonts/hinted-Gordita-Light.woff') format('woff');
+       font-weight: 300;
+       font-style: normal;
+     } */
+
+ @font-face {
+    font-family: 'gorditaregular';
+    src: url('../../fonts/gordita-regular-webfont.woff2') format('woff2'),
+         url('../../fonts/gordita-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+  
+@font-face {
+    font-family: 'gorditamedium';
+    src: url('../../fonts/gordita-medium-webfont.woff2') format('woff2'),
+         url('../../fonts/gordita-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/**
+ * Italic Fonts
+ */
+/* @font-face {
+  font-family: 'gordita';
+  src: url('../../fonts/hinted-Gordita-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+} */
+
+@font-face {
+    font-family: 'gorditamedium_italic';
+    src: url('../../fonts/gordita-mediumitalic-webfont.woff2') format('woff2'),
+         url('../../fonts/gordita-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'gorditaregular_italic';
+    src: url('../../fonts/gordita-regularitalic-webfont.woff2') format('woff2'),
+         url('../../fonts/gordita-regularitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+  
+  
+
+  

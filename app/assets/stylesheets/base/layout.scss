@@ -2,6 +2,7 @@ html {
 	position: relative;
     height: 100%;
     font-family: $main-font;
+    font-size: 16px;
 }
 
 .nav-btn {
@@ -10,3 +11,44 @@ html {
     height: 30px;
     line-height: 30px;
 }
+
+.form-btn {
+    background-color: $core-purple;
+    color: white;
+    border-radius: 3px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+}
+
+input::placeholder {
+    color: #c6ccce;
+}
+
+.input-group {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.modal-form-container form input {
+    background-color: #fff;
+    border: 2px solid #e0e6e8;
+    border-radius: 3px;
+    height: 50px;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    padding-left: 16px;
+    width: 100%;
+    // transition: border .15s;
+}
+
+.modal-form-container form label {
+    color: $text-gray;//#646f79;
+    margin-bottom: 8px;
+}
+
+
+
