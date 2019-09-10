@@ -26,22 +26,22 @@ function LoginForm(props) {
     }
 
     return (
-        <div id='login-container' className='modal-form-container'>
-            <h3 className='form-header'>Log in</h3>
-            <i className="fas fa-times form-close" onClick={handleModalClose}></i>
+        <div id='login-container' className='login-container'>
+            <h3 className='login-container__header'>Log in</h3>
+            <i className="fas fa-times login-container__close-btn" onClick={handleModalClose}></i>
 
-            <form className='session-form' onSubmit={handleLogin}>
+            <form className='form' onSubmit={handleLogin}>
                 <div className='input-group'>
-                    <label className="form-label" htmlFor="email">Email Address</label>
-                    <input type="text" id="email" onChange={handleEmailChange} value={email} placeholder="name@company.com"/>
+                    <label className="form__label" htmlFor="email">Email Address</label>
+                    <input className='form__input' type="text" id="email" onChange={handleEmailChange} value={email} placeholder="name@company.com"/>
                 </div>
                 <div className='input-group'>
-                    <label className="form-label" htmlFor="password">Password</label>
-                    <input type="password" id="password" onChange={handlePasswordChange} value={password} placeholder="Password"/>
+                    <label className="form__label" htmlFor="password">Password</label>
+                    <input className='form__input' type="password" id="password" onChange={handlePasswordChange} value={password} placeholder="Password"/>
                 </div>
 
-                <button className="btn form-btn">Log In</button>
-                <p id='signup-text'>Don't have an account? <span className='text-link'><Link onClick={handleModalClose} to='/signup/welcome'>Sign up</Link></span></p>
+                <button className="form__btn form__btn--purple">Log In</button>
+                <p className='login-container__footer'>Don't have an account? <Link className='hyperlink--purple' onClick={handleModalClose} to='/signup/welcome'>Sign up</Link></p>
                 
 
             </form>

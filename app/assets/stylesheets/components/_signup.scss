@@ -1,0 +1,47 @@
+.signup-container {
+    width: 60%; 
+    margin: 30px auto;
+    padding: 30px; 
+    box-sizing: border-box;
+    height: 100%;
+    
+
+    &__content {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-between;
+
+        &__header {
+            font-size: 2rem;
+        }
+
+        &__helper-text {
+            font-size: 1.2rem;
+            color: $text-gray;
+        }
+
+        &__img {
+            //temp
+            background-color: $bright-teal;
+            //temp
+            width: 200px;
+            height: 200px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        &__footer {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    }
+
+    &__subcontent {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 30vh;
+    }
+}

@@ -10,7 +10,7 @@ import { openModal } from '../../actions/modal_actions';
 function Home(props) {
 
     return (
-        <div id='company-home'>
+        <div id='company-home' className='page-container'>
             <HomeHeaderNav openModal={props.openModal} />
             <HomeMain />
         </div>

@@ -5,21 +5,102 @@ html {
     font-size: 16px;
 }
 
-.nav-btn {
-    padding: 0 16px;
-    color: rgb(100, 111, 121);
-    height: 30px;
-    line-height: 30px;
+.page-container {
+    // currently signup flow pages are using it
+    height: 100vh;
 }
 
-.form-btn {
-    background-color: $core-purple;
-    color: white;
-    border-radius: 3px;
-    width: 100%;
-    text-align: center;
-    height: 50px;
+//refactoring css with sass and BEM
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 50px auto;
+    align-items: center;
+
+    &__input {
+        background-color: #fff;
+        border: 2px solid #e0e6e8;
+        border-radius: 3px;
+        height: 50px;
+        line-height: normal;
+        margin: 0;
+        padding: 0;
+        padding-left: 16px;
+        width: 100%;
+    }
+
+    &__label {
+        color: $text-gray;//#646f79;
+        margin-bottom: 8px;
+    }
+
+    &__btn {
+        
+        color: white;
+        border-radius: 3px;
+        width: 100%;
+        text-align: center;
+        height: 50px;
+        font-weight: bold;
+
+        &--blue {
+            background-color: $core-teal;
+        }
+        &--purple {
+            background-color: $core-purple;
+        }
+    }
+
+    &__msg--gray {
+        font-size: 0.8rem;
+        color: $text-gray;
+    }
+    &__msg--red {
+        font-size: 0.8rem;
+        color: $workspace-red;
+    }
+        
+}
+
+.nav__btn {
+    padding: 4px 12px;
+    line-height: 30px;
     font-weight: bold;
+}
+
+.btn {
+    padding: 8px 16px;
+    line-height: 30px;
+    font-weight: bold;
+    border-radius: 3px;
+
+    &--link {
+        color: $text-gray;
+    }
+    &--purple {
+        background-color: $core-purple;
+        color: white;
+    }  
+    &--blue {
+        background-color: $core-teal;
+        color: white;    
+    }  
+}
+
+
+
+.hyperlink {
+    
+
+    &--purple {
+        font-weight: bold;
+        color: $core-purple;
+    }
+
+    &--blue {
+        font-weight: bold;
+        color: $core-teal;
+    }
 }
 
 input::placeholder {
@@ -34,37 +115,47 @@ input::placeholder {
     width: 100%;
 }
 
-.modal-form-container form input {
-    background-color: #fff;
-    border: 2px solid #e0e6e8;
-    border-radius: 3px;
-    height: 50px;
-    line-height: normal;
-    margin: 0;
-    padding: 0;
-    padding-left: 16px;
-    width: 100%;
-    // transition: border .15s;
-}
+//================ old classes prior to refactoring ==================
 
-.modal-form-container form label {
-    color: $text-gray;//#646f79;
-    margin-bottom: 8px;
-}
 
-.text-link {
-    color: $core-purple;
-    font-weight: bold;
-}
 
-.text-link:hover {
-    text-decoration: underline $core-purple solid;
-}
+// .form-btn { // form__btn--purple // MOVED
+//     background-color: $core-purple;
+//     color: white;
+//     border-radius: 3px;
+//     width: 100%;
+//     text-align: center;
+//     height: 50px;
+//     font-weight: bold;
+// }
 
-.session-form {
-    display: flex;
-    flex-flow: column nowrap;
-    margin: 50px auto;
-    align-items: center;
-}
+// .modal-form-container form input { //.login-form-container//MOVED
+//     background-color: #fff;
+//     border: 2px solid #e0e6e8;
+//     border-radius: 3px;
+//     height: 50px;
+//     line-height: normal;
+//     margin: 0;
+//     padding: 0;
+//     padding-left: 16px;
+//     width: 100%;
+//     // transition: border .15s;
+// }
+
+// .modal-form-container form label { //MOVED 
+//     color: $text-gray;//#646f79;
+//     margin-bottom: 8px;
+// }
+
+// .text-link { // MOVED
+//     color: $core-purple;
+//     font-weight: bold;
+// }
+
+// .session-form {
+//     display: flex;
+//     flex-flow: column nowrap;
+//     margin: 50px auto;
+//     align-items: center;
+// }
 

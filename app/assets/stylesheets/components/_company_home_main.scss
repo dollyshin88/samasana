@@ -1,3 +1,54 @@
-.home-main-section {
+.home-main-section { // refactor as below
     padding: 128px 0 96px 0
 }; 
+
+// refactored
+// mobile first appraoch
+.home-container {
+    position: relative;
+    top: 56px;
+    margin: 0 10px;
+
+    &__section {
+        padding: 128px 0 96px 0;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+
+
+        &__header {
+            font-size: calc(33.75px + (11.25 * ((100vw - 480px) / 800)));
+            line-height: 1.244;
+            margin-bottom: 32px;
+        }
+
+        &__subheader {
+
+        }
+
+        &__blob-text {
+            color: $text-gray;
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+        }
+
+    }
+}
+
+//============ media queries=================//
+@media screen and (min-width: 768px) {
+    .home-container__section {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+
+}
+  
+@media screen and (min-width: 1120px) {
+    .home-container__section {
+        margin-left: 16.67%;
+        margin-right: 16.67%;
+    }    
+
+}

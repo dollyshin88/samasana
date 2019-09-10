@@ -18,16 +18,16 @@ class HomeHeaderNav extends React.Component{
                 <div className='home-header-nav'>
                     <Logo />
                     <div className='nav-btn-container'>
-                        <button 
+                        <div 
                             id='login-btn' 
-                            className='btn nav-btn'
+                            className='nav__btn btn--link'
                             onClick={this.handleLoginBtn}
-                        >Log In</button>
+                        >Log In</div>
 
-                        <button 
+                        <div 
                             id='signup-btn' 
-                            className='btn nav-btn accent-btn'
-                        >Try for free</button>
+                            className='nav__btn btn--purple'
+                        >Try for free</div>
 
                     </div>
                 </div>

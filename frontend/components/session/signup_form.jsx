@@ -19,31 +19,34 @@ function SignupProfileForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        this.props.signup({ name, email, password });
-        this.props.history.push('/signup/team');
+        props.signup({ name, email, password });
+        props.history.push('/signup/team');
     }
 
     return (
-        <div id='signup-form' className='form session-form'>
-            <form className='session-form' onSubmit={handleSubmit}>
-                <ProfilePhoto />
+        <div id='signup-form' className='page-container'>
+            <div className='signup-container'>
+                <div className='signup-container__header'>Set up your profile</div>
+                <form className='form' onSubmit={handleSubmit}>
+                    <ProfilePhoto />
 
-                <div className='input-group'>
-                    <label className="form-label" htmlFor="name">Name</label>
-                    <input type="text" id="name" onChange={handleNameChange} value={name}/>
-                </div>
-                <div className='input-group'>
-                    <label className="form-label" htmlFor="email">Email</label>
-                    <input type="text" id="email" onChange={handleEmailChange} value={email}/>
-                    
-                </div>
-                <div className='input-group'>
-                    <label className="form-label" htmlFor="password">Name</label>
-                    <input type="password" id="password" onChange={handlePasswordChange} value={password}/>
-                    
-                </div>
-                <button id='signup-btn-cont' className='btn form-btn' >Continue</button>
-            </form>
+                    <div className='input-group'>
+                        <label className="form__label" htmlFor="name">Name</label>
+                        <input className="form__input" type="text" id="name" onChange={handleNameChange} value={name}/>
+                    </div>
+                    <div className='input-group'>
+                        <label className="form__label" htmlFor="email">Email</label>
+                        <input className="form__input" type="text" id="email" onChange={handleEmailChange} value={email}/>
+                        
+                    </div>
+                    <div className='input-group'>
+                        <label className="form__label" htmlFor="password">Password</label>
+                        <input className="form__input" type="password" id="password" onChange={handlePasswordChange} value={password}/>
+                        
+                    </div>
+                    <button id='signup-btn-cont' className="form__btn form__btn--blue" >Continue</button>
+                </form>
+            </div>
         </div>
     );
 }
