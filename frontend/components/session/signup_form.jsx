@@ -20,7 +20,7 @@ function SignupProfileForm(props) {
     function handleSubmit(e) {
         e.preventDefault();
         props.signup({ name, email, password });
-        props.history.push('/signup/team');
+        props.history.push('/setup/team');
     }
 
     return (
