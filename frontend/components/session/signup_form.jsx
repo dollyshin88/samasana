@@ -17,7 +17,7 @@ function SignupForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        
+        this.props.signup({ name, email, password });
     }
 
     return (
