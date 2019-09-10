@@ -3,7 +3,7 @@ import React from 'react';
 function Logo(props) {
     return (
         <div id='logo'>
-            <img src="/assets/samasana.svg" alt="samasana logo"/>
+            <img src={window.logoURL} alt="samasana logo"/>
             <p>samasana</p>
         </div>
     );
