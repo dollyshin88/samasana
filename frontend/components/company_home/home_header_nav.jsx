@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../shared/logo';
 
 class HomeHeaderNav extends React.Component{
     constructor(props) {
@@ -15,10 +16,7 @@ class HomeHeaderNav extends React.Component{
         return (
             <div className='header'>
                 <div className='home-header-nav'>
-                    <div id='logo'>
-                        <img src="/assets/samasana.svg" alt="samasana logo"/>
-                        <p>samasana</p>
-                    </div>
+                    <Logo />
                     <div className='nav-btn-container'>
                         <button 
                             id='login-btn' 
