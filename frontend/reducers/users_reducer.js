@@ -5,7 +5,7 @@ const usersReducer = (state={}, action) => {
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return { [action.user.id]: user };
+            return { [action.user.id]: action.user };
         case LOGOUT_CURRENT_USER:
             return {};
 

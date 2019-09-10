@@ -6,8 +6,6 @@ function LoginForm(props) {
     const [password, setPassword]  = useState('');
     
     function handleEmailChange(e) {
-        console.log(e.target.value);
-        console.log(email);
         setEmail(e.target.value);
     }
     
@@ -18,7 +16,12 @@ function LoginForm(props) {
 
     function handleLogin(e) {
         e.preventDefault();
-        props.login({ email, password });
+        props.login({ email, password })
+            .then(()=> {
+                props.closeModal();
+                props.history.push('/');
+            });
+        // close modal and redirect to '/' on success
     }
     
     function handleModalClose(e) {

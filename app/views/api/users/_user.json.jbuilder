@@ -1,4 +1,4 @@
-json.extract! user, :name, :email
+json.extract! user, :id, :name, :email
 
 # to add later
 # - workspace membership

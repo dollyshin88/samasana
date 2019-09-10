@@ -38,7 +38,7 @@ class User < ApplicationRecord
     end
 
     def generate_session_token
-        SecureRandom::ursafe_base64
+        SecureRandom::urlsafe_base64
     end
 
     def reset_session_token!

@@ -15,9 +15,8 @@ function App(props) {
             <Modal />
     
             <AuthRoute exact path='/signup/welcome' component={Welcome} />
-            {/* <AuthRoute exact path='/login' component={} /> */}
             <ProtectedRoute exact path='/' component={WorkspaceHome} />
-            <Route exact path='/samasana' component={CompanyHome} />
+            <AuthRoute exact path='/samasana' component={CompanyHome} />
             <Route exact path='/signup/profile' component={SignupProfileForm} />
             <Route exact path='/setup/team' component={Setup} />
 
