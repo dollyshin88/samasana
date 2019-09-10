@@ -15,9 +15,11 @@ function Setup(props) {
     );
 
     return (
-        <div>
+        <div className='page-container setup-grid-container'>
             <EmptySideNav />
-            {setupComp}
+            <div className='signup-container'>
+                {setupComp}
+            </div>
         </div>
     );
 }

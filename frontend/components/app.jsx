@@ -18,8 +18,8 @@ function App(props) {
             <ProtectedRoute exact path='/' component={WorkspaceHome} />
             <AuthRoute exact path='/samasana' component={CompanyHome} />
             <Route exact path='/signup/profile' component={SignupProfileForm} />
-            <Route exact path='/setup/team' component={Setup} />
-
+            <Route path='/setup' component={Setup} />
+            
         </div>
     )
 }

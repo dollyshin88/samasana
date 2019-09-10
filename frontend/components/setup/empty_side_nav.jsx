@@ -12,3 +12,5 @@ function EmptySideNav (prop) {
         </div>
     );
 }
+
+export default EmptySideNav;
