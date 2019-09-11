@@ -47,7 +47,14 @@ class User < ApplicationRecord
         self.session_token
     end
 
+    has_many :workspace_memberships,
+    foreign_key: :member_id,
+    class_name: :WorkspaceMembership,
+    dependent: :destroy
 
+    has_many :workspaces,
+    through: :workspace_memberships,
+    source: :workspace 
 
 
 end
