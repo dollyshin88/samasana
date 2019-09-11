@@ -16,7 +16,9 @@ function TeamForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.history.push('/setup/invite');
+
+        // future bonus scope:
+        // props.history.push('/setup/invite');
     }
 
 

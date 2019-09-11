@@ -16,7 +16,9 @@ function Setup(props) {
 
     return (
         <div className='page-container setup-grid-container'>
-            <EmptySideNav />
+            <div className='setup-grid-item-sidebar'>
+                <EmptySideNav />
+            </div>
             <div className='setup-grid-item-main'>
                 {setupComp}
             </div>

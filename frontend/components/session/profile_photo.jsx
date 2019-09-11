@@ -3,7 +3,7 @@ import React from 'react';
 function ProfilePhoto(props){
 
     return (
-        <div id='photo-upload-container'>
+        <div id='photo-upload-container' className="photo-upload-wrap">
             <div className='form__label'>Your photo</div>
             <div id="photo-upload-cluster">
                 <div className='clickable-photo-display'>

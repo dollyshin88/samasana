@@ -42,34 +42,6 @@
 }
 
 
-// ============= old =========
-.form-header { //nest under login-container
-    font-size: calc(33.75px + 11.25 * ((100vw - 480px) / 800));
-    line-height: 1.244;
-    display: block;
-    margin-bottom: 0;
-    text-align: center;
-    color: $dark-navy;
-
-}
-.form-close { //nest under login-container
-    color: #b7bfc6;
-    cursor: pointer;
-    font-size: 2rem;
-    margin: 0;
-    opacity: .6;
-    position: absolute;
-    right: 32px;
-    top: 32px;
-    transition: opacity .15s ease-in-out; 
-}
-
-
-#signup-text { // change to .hyperlink--purple
-    color: #9ca6af;
-    margin: 50px auto;
-}
-
 
 //============ media queries=================//
 @media screen and (min-width: 768px) {

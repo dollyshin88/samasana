@@ -5,3 +5,51 @@
     grid-template-areas: "sidebar main";
 }
 
+.setup-grid-item-sidebar {
+    grid-area: sidebar;
+    justify-item: stretch;
+}
+
+.setup-grid-item-main {
+    grid-area: main;
+    justify-self: stretch;
+}
+
+.workspace-side-nav-container {
+    background-color: $dark-navy;
+    min-height: 100vh;
+    padding: 10px;
+}
+.empty-nav-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: 60vh;
+    padding: 20px 0;
+}
+
+
+
+.empty-nav {
+    min-height: 15px;
+    background-color: $nav-highlight;
+    &--long {
+        width: 70%;
+        border-radius: 15px;
+    }
+    &--medium {
+        width: 50%;
+        border-radius: 15px;
+    }
+
+    &--short{
+        width: 30%;
+        border-radius: 15px;
+    }
+
+    &--circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+}

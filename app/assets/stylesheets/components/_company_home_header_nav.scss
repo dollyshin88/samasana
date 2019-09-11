@@ -1,21 +1,4 @@
-#logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-#logo p {
-    display: block;
-    font-family: $logo-font;
-    color: $dark-navy;
-    padding: 0 3px;
-    font-size: 32px;
-    
-}
 
-#logo img {
-    width: 30px;
-    height: 30px;
-}
 
 .header{
     position: fixed;
@@ -39,3 +22,4 @@
     justify-content: flex-end;
     align-items: center;
 }
+

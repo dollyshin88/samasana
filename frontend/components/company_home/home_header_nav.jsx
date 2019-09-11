@@ -16,7 +16,9 @@ class HomeHeaderNav extends React.Component{
         return (
             <div className='header'>
                 <div className='home-header-nav'>
+                <div className='logo-wrap-company-home'>
                     <Logo />
+                </div>
                     <div className='nav-btn-container'>
                         <div 
                             id='login-btn' 

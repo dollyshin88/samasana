@@ -26,9 +26,9 @@ function SignupProfileForm(props) {
     return (
         <div id='signup-form' className='page-container'>
             <div className='signup-container'>
-                <div className='signup-container__header'>Set up your profile</div>
+                <div className='signup-container__content__header'>Set up your profile</div>
+                <ProfilePhoto />
                 <form className='form' onSubmit={handleSubmit}>
-                    <ProfilePhoto />
 
                     <div className='input-group'>
                         <label className="form__label" htmlFor="name">Name</label>
