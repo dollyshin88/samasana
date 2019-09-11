@@ -1,7 +1,9 @@
 class Api::SessionsController < ApplicationController
     def create
         @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
-        @user_memberships = @user.workspace_memberships
+        # @user_memberships = @user.workspace_memberships
+        @workspaces = @user.workspaces.includes(:members)
+        
         if @user
             login(@user)
             render '/api/users/show'

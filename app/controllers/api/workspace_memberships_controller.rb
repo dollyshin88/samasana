@@ -1,8 +1,17 @@
 class Api::WorkspaceMembershipsController < ApplicationController
     def create
+        #this will be called only for invited member and not admin member - is_admin value will be set to false by default
+        @workspace_membership = WorkspaceMembership.new(workspace_memberships_params)
+        if @workspace_membership.save
+            render :show
+        else
+            render json: @workspace.errors.full_messages
+        end
     end
 
     def destroy
+        @workspace_membership = WorkspaceMembership.find_by(id: params[:id])
+        @workspace_membership.destroy
     end
 
     private
