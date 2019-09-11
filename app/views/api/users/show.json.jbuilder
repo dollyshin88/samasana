@@ -3,11 +3,26 @@ json.user do
 end
 
 
-json.user_memberships do
-    @user_memberships.each do |membership| 
-        json.partial! 'api/workspace_memberships/workspace_membership', membership: membership
+# json.user_memberships do
+#     @user_memberships.each do |membership| 
+#         json.partial! 'api/workspace_memberships/workspace_membership', membership: membership
+#     end
+# end
+
+
+    @workspaces.each do |workspace|
+        json.workspaces do 
+            json.partial! 'api/workspaces/workspace', workspace: workspace
+        end
+        json.members do 
+            workspace.members.each do |member|
+                json.set! member.id do
+                    json.partial! 'api/users/user', user: member
+                end
+            end
+        end
     end
-end
+
 
 # sample
 # {
@@ -16,9 +31,14 @@ end
 #         email: ''
 #        },
 
-#     user_memberships: { 1: {
+#     members: { 1: {
 #         id: 1,
-#         workspace_id: 1, 
-#         member_id: 1 }
+#         name: 'tester', 
+#         email: 'tester@test.com' }
 #     }
+#     workspaces: { 1: {
+#           id: 1, 
+#           name: 'stuff'
+#           }
+#      } 
 # }
