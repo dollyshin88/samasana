@@ -11,7 +11,10 @@
 class Workspace < ApplicationRecord
     validates :name, presence: true
 
-    has_many :workspace_memberships, dependent: :destroy
+    has_many :workspace_memberships,
+    foreign_key: :workspace_id,
+    class_name: :WorkspaceMembership,
+    dependent: :destroy
 
     has_many :members,
     through: :workspace_memberships,
