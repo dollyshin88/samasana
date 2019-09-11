@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import usersReducer from './users_reducer';
-import userMembershipsReducer from './user_membership_reducer';
+import workspacesReducer from './workspaces_reducer';
+import membersReducer from './members_reducer';
 
 const entitiesReducer = combineReducers({
     users: usersReducer,
-    userMemberships: userMembershipsReducer,
+    workspaces: workspacesReducer,
+    members: membersReducer,
 });
 
 export default entitiesReducer;
