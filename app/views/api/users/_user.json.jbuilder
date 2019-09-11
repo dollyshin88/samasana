@@ -1,6 +1,5 @@
+
 json.extract! user, :id, :name, :email
 
-# to add later
-# - workspace membership
-# - task likings
-# - task followings
+
+
