@@ -31,7 +31,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    
+    //createWorkspace and create workspaceMembership
 }); 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Setup);

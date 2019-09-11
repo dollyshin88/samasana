@@ -6,6 +6,7 @@ function WorkspaceHome(props){
     function handleLogout() {
         props.logout();
     }
+
     return (
         <div>
         <div onClick={handleLogout}>logout</div>
@@ -15,7 +16,7 @@ function WorkspaceHome(props){
 }
 
 const mapStateToProps = state => ({
-    
+    currentUserId: state.session.currenUserId,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -67,6 +67,10 @@ html {
     padding: 4px 12px;
     line-height: 30px;
     font-weight: bold;
+    border-radius: 3px;
+}
+.nav__btn:hover {
+    cursor: pointer;
 }
 
 .btn {
@@ -88,11 +92,14 @@ html {
     }  
 }
 
+//Todo: refactor to have .clickable class with hover pointer defined
+.btn:hover {
+    cursor: pointer;
+}
 
 
 .hyperlink {
     
-
     &--purple {
         font-weight: bold;
         color: $core-purple;
