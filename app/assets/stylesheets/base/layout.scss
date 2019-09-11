@@ -17,7 +17,7 @@ html {
     margin: 30px 0;
     align-items: center;
     width: 100%;
-
+    
     &__input {
         background-color: #fff;
         border: 2px solid #e0e6e8;
@@ -147,4 +147,69 @@ input::placeholder {
     color: $dark-navy;
     font-size: 32px;
     padding: 0 3px;
+}
+
+
+.btn-buff-32 {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.ctnr-buff--fullpage {
+    margin: 30px 5%;
+    padding: 30px 0; 
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.ctnr-buff--gridpage {
+    margin: 30px 5vw;
+    padding: 30px 0; 
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.form-buff--signup {
+    //come back after profile photo feature is built out to adjust the width
+    width: 354px;
+}
+
+//============ media queries=================//
+
+@media screen and (min-width: 375px) {
+
+
+    .ctnr-buff--fullpage {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    
+
+}
+@media screen and (min-width: 768px) {
+    .ctnr-buff--gridpage {
+        margin: 30px 20vw;
+    }
+
+    .ctnr-buff--fullpage {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    
+
+}
+
+
+  
+@media screen and (min-width: 1120px) {
+    .ctnr-buff--gridpage {
+        // margin-left: 30%;
+        // margin-right: 30%;
+    }
+
+    .ctnr-buff--fullpage {
+        margin-left: 28%;
+        margin-right: 28%;
+    }
+
 }

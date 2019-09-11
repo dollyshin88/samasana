@@ -25,27 +25,31 @@ function SignupProfileForm(props) {
 
     return (
         <div id='signup-form' className='page-container'>
-            <div className='signup-container'>
-                <div className='signup-container__content__header'>Set up your profile</div>
-                <ProfilePhoto />
-                <form className='form' onSubmit={handleSubmit}>
+            <div className='ctnr-buff--fullpage'>
+                <div className='signup-container'>
+                    <div className='signup-container__header'>Set up your profile</div>
+                    <ProfilePhoto />
+                    <div className='form-buff--signup'>
+                    <form className='form' onSubmit={handleSubmit}>
 
-                    <div className='input-group'>
-                        <label className="form__label" htmlFor="name">Name</label>
-                        <input className="form__input" type="text" id="name" onChange={handleNameChange} value={name}/>
+                        <div className='input-group'>
+                            <label className="form__label" htmlFor="name">Name</label>
+                            <input className="form__input" type="text" id="name" onChange={handleNameChange} value={name}/>
+                        </div>
+                        <div className='input-group'>
+                            <label className="form__label" htmlFor="email">Email</label>
+                            <input className="form__input" type="text" id="email" onChange={handleEmailChange} value={email}/>
+                            
+                        </div>
+                        <div className='input-group'>
+                            <label className="form__label" htmlFor="password">Password</label>
+                            <input className="form__input" type="password" id="password" onChange={handlePasswordChange} value={password}/>
+                            
+                        </div>
+                        <button id='signup-btn-cont' className="form__btn form__btn--blue" >Continue</button>
+                    </form>
                     </div>
-                    <div className='input-group'>
-                        <label className="form__label" htmlFor="email">Email</label>
-                        <input className="form__input" type="text" id="email" onChange={handleEmailChange} value={email}/>
-                        
-                    </div>
-                    <div className='input-group'>
-                        <label className="form__label" htmlFor="password">Password</label>
-                        <input className="form__input" type="password" id="password" onChange={handlePasswordChange} value={password}/>
-                        
-                    </div>
-                    <button id='signup-btn-cont' className="form__btn form__btn--blue" >Continue</button>
-                </form>
+                </div>
             </div>
         </div>
     );

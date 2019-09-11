@@ -1,42 +1,34 @@
 //mobile first approach
 
+
 .signup-container {
-    margin: 30px 5%;
-    padding: 30px 0; 
-    box-sizing: border-box;
-    height: 100%;
-    
-    
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
 
-    &__content {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        justify-content: space-between;
+    &__header {
+        font-size: 2rem;
+    }
 
-        &__header {
-            font-size: 2rem;
-        }
+    &__helper-text {
+        font-size: 1.2rem;
+        color: $text-gray;
+    }
 
-        &__helper-text {
-            font-size: 1.2rem;
-            color: $text-gray;
-        }
+    &__img {
+        //temp
+        background-color: $bright-teal;
+        //temp
+        width: 200px;
+        height: 200px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 
-        &__img {
-            //temp
-            background-color: $bright-teal;
-            //temp
-            width: 200px;
-            height: 200px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        &__footer {
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
+    &__footer {
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
     &__subcontent {
@@ -48,24 +40,21 @@
     }
 }
 
+
+
+
 .photo-upload-wrap {
     margin-top: 30px;
     margin-bottom: -10px;
 }
 
+
 //============ media queries=================//
 @media screen and (min-width: 768px) {
-    .signup-container {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+
 
 }
   
 @media screen and (min-width: 1120px) {
-    .signup-container {
-        margin-left: 20%;
-        margin-right: 20%;
-    }
 
 }

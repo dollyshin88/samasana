@@ -23,11 +23,11 @@ function TeamForm(props) {
 
 
     return(
-        <div className='signup-container'>
+        <div className='ctnr-buff--gridpage'>
             
-            <div className='signup-container__content'>
-                <div className='signup-container__content__header'>Tell us about your team</div>
-                <p className='signup-container__content__helper-text'>Teams are groups of people in your organization who work together on projects.</p>
+            <div className='signup-container'>
+                <div className='signup-container__header'>Tell us about your team</div>
+                <p className='signup-container__helper-text'>Teams are groups of people in your organization who work together on projects.</p>
 
                 <form className='form' onSubmit={handleSubmit}>
                     <div className='input-group'>
