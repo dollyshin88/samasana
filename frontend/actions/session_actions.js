@@ -4,12 +4,12 @@ import * as APIUtil from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
-
+export const RECEIVE_USER_MEMBERSHIP = 'RECEIVE_USER_MEMBERSHIP';
 
 // session regular action creators
-export const receiveCurrentUser = user => ({
+export const receiveCurrentUser = payload => ({
     type: RECEIVE_CURRENT_USER,
-    user
+    payload
 });
 
 export const logoutCurrentUser = () => ({
@@ -21,9 +21,18 @@ export const receiveSessionErrors = errors => ({
     errors
 });
 
+export const receiveUserMembership = payload => ({
+    type: RECEIVE_USER_MEMBERSHIP,
+    payload
+});
+
 // session thunk action creators
 export const login = user => dispatch => APIUtil.login(user)
-    .then(user => dispatch(receiveCurrentUser(user)), errors => dispatch(receiveSessionErrors(errors.responseJSON)));
+    .then(payload => {
+            dispatch(receiveCurrentUser(payload));
+            dispatch(receiveUserMembership(payload));
+            }, 
+          errors => dispatch(receiveSessionErrors(errors.responseJSON)));
 
 export const logout = () => dispatch => APIUtil.logout()
     .then(() => dispatch(logoutCurrentUser()), errors => dispatch(receiveSessionErrors(errors.responseJSON)));
