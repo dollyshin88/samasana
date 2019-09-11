@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
  
 const mapStateToProps = (state, ownProps) => ({
     closeModal: ownProps.closeModal,
+    errors: state.errors.session
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
 
 
 
-export default withRouter(connect(null, mapDispatchToProps)(LoginForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));

@@ -104,7 +104,7 @@
         loading: true/false
     },
     errors: {
-        login: ["Incorrect username/password combination"],
+        session: ["Incorrect username/password combination"],
     },
     session: {
         currentUserId: 1

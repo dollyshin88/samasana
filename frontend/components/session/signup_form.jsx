@@ -19,8 +19,16 @@ function SignupProfileForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.signup({ name, email, password });
-        props.history.push('/setup/team');
+        props.signup({ name, email, password })
+            .then(() => props.history.push('/setup/team'));
+    }
+
+    function renderErrors() {
+        if (props.errors.length) {
+            return ( props.errors.map((error, i) => (
+                <div key={i} className='form__msg--red'>{error}</div>
+            )))
+        }
     }
 
     return (
@@ -31,7 +39,7 @@ function SignupProfileForm(props) {
                     <ProfilePhoto />
                     <div className='form-buff--signup'>
                     <form className='form' onSubmit={handleSubmit}>
-
+                        {renderErrors()}
                         <div className='input-group'>
                             <label className="form__label" htmlFor="name">Name</label>
                             <input className="form__input" type="text" id="name" onChange={handleNameChange} value={name}/>

@@ -23,6 +23,14 @@ function LoginForm(props) {
             });
         // close modal and redirect to '/' on success
     }
+
+    function renderErrors() {
+        if (props.errors.length) {
+            return ( props.errors.map((error, i) => (
+                <div key={i} className='form__msg--red'>{error}</div>
+            )))
+        }
+    }
     
     function handleModalClose(e) {
         props.closeModal();
@@ -34,6 +42,7 @@ function LoginForm(props) {
             <i className="fas fa-times login-container__close-btn" onClick={handleModalClose}></i>
 
             <form className='form' onSubmit={handleLogin}>
+                {renderErrors()}
                 <div className='input-group'>
                     <label className="form__label" htmlFor="email">Email Address</label>
                     <input className='form__input' type="text" id="email" onChange={handleEmailChange} value={email} placeholder="name@company.com"/>
