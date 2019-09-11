@@ -5,11 +5,15 @@ class HomeHeaderNav extends React.Component{
     constructor(props) {
         super(props);
         this.handleLoginBtn = this.handleLoginBtn.bind(this);
+        this.handleSignupBtn = this.handleSignupBtn.bind(this);
     }
     
     handleLoginBtn(e){
-        e.preventDefault();
         this.props.openModal('login');
+    }
+
+    handleSignupBtn(e){
+        this.props.history.push('signup/profile');
     }
 
     render(){
@@ -29,6 +33,7 @@ class HomeHeaderNav extends React.Component{
                         <div 
                             id='signup-btn' 
                             className='nav__btn btn--purple'
+                            onClick={this.handleSignupBtn}
                         >Try for free</div>
 
                     </div>

@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import HomeHeaderNav from './home_header_nav';
 import HomeMain from './home_main';
 import { openModal } from '../../actions/modal_actions';
@@ -11,20 +12,20 @@ function Home(props) {
 
     return (
         <div id='company-home' className='page-container'>
-            <HomeHeaderNav openModal={props.openModal} />
-            <HomeMain />
+            <HomeHeaderNav openModal={props.openModal} history={props.history} />
+            <HomeMain history={props.history} />
         </div>
     );
 }
 
-// const mapStateToProps = (state) => ({
-//     modal: state.ui.modal,
-// });
+
+const mapStateToProps = state => ({
+
+});
 
 const mapDispatchToProps = dispatch => ({
     openModal: (contentType) => dispatch(openModal(contentType)),
 });
 
-export default connect(null, mapDispatchToProps)(Home);
-
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
 
