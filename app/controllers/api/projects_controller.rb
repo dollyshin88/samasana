@@ -1,7 +1,7 @@
 class Api::ProjectsController < ApplicationController
     def index
         # project index is nested under workspaces
-        @projects = Project.find_by(workspace_id: params[:workspace_id])
+        @projects = Project.where(workspace_id: params[:workspace_id])
         render :index
     end
 
