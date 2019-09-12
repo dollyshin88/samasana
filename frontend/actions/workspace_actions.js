@@ -13,5 +13,5 @@ export const receiveWorkspaceErrors = errors => ({
 });
 
 //thunk action
-export const createWorkspace = workspace => dispatch => APIUtil.createWorkspace(workspace)
-    .then(payload => dispatch(receiveNewWorkspace(payload)), errors => dispatch(receiveWorkspaceErrors(errors.responsJSON)));
+export const createWorkspace = workspace => dispatch => (APIUtil.createWorkspace(workspace)
+    .then(payload => dispatch(receiveNewWorkspace(payload)), errors => dispatch(receiveWorkspaceErrors(errors.responsJSON))));

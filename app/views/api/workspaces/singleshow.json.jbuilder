@@ -1,6 +1,6 @@
 # payload
 
-json.worksapces do 
+json.workspaces do 
     json.partial! 'api/workspaces/workspace', workspace: @workspace
 end
 

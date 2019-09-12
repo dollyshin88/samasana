@@ -3,7 +3,7 @@ import { RECEIVE_NEW_WORKSPACE } from '../actions/workspace_actions';
 
 const workspacesReducer = (state={}, action) => {
     Object.freeze(state);
-
+   
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return action.payload.workspaces;
@@ -12,6 +12,7 @@ const workspacesReducer = (state={}, action) => {
             return {};
 
         case RECEIVE_NEW_WORKSPACE:
+            debugger
             return action.payload.workspaces;
 
         default:

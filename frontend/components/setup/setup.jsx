@@ -3,13 +3,14 @@ import React from 'react';
 import TeamForm from './team_form';
 import InviteForm from './invite_form';
 import EmptySideNav from './empty_side_nav';
+import { createWorkspace } from '../../actions/workspace_actions';
 
 
 
 function Setup(props) {
 
     const setupComp = (props.location.pathname === '/setup/team') ? (
-        <TeamForm />
+        <TeamForm createWorkspace={props.createWorkspace} />
     ) : (
         <InviteForm />
     );
@@ -31,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    //createWorkspace and create workspaceMembership
+    createWorkspace: workspace => dispatch(createWorkspace(workspace)),
 }); 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Setup);
