@@ -6,6 +6,7 @@ import configureStore from './store/store';
 //for testing only
 import { signup } from './actions/session_actions';
 import { createWorkspace } from './actions/workspace_actions';
+import { fetchAllProjects, createProject, deleteProject } from './actions/project_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -35,4 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.dispatch = store.dispatch;
     window.signup = signup;
     window.createWorkspace = createWorkspace;
+    window.fetchAllProjects = fetchAllProjects;
+    window.createProject = createProject;
+    window.deleteProject = deleteProject;
 });
