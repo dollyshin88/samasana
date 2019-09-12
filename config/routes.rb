@@ -5,11 +5,24 @@ Rails.application.routes.draw do
   namespace :api, default: { format: :json } do
     resources :users, only: [:create] do
       resources :workspaces, only: [:index]
+      resources :tasks, only: [:index]
     end
 
     resource :session, only: [:create, :destroy]
     
-    resources :workspaces, only: [:create, :update, :show, :destroy]
+    resources :workspaces, only: [:create, :update, :show, :destroy] do
+      resources :projects, only: [:index]
+    end
+    
     resources :workspace_memberships, only: [:create, :destroy]
+
+    resources :projects, only: [:show, :create, :update, :destroy] do
+      resources :tasks, only: [:index]
+    end
+
+    resources :tasks, only: [:show, :create, :update, :delete]
   end
 end
+
+# to be added: sections --- nest task index 
+# & nest section index under projects
