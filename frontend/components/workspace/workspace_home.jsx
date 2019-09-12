@@ -6,7 +6,6 @@ function WorkspaceHome(props){
     function handleLogout() {
         props.logout();
     }
-    console.log(props);
     function renderMembers() {
         if (props.members.length) {
 
