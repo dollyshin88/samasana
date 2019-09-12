@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_022008) do
+ActiveRecord::Schema.define(version: 2019_09_12_163946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "owner_id", null: false
+    t.integer "workspace_id", null: false
+    t.text "notes"
+    t.string "color", null: false
+    t.date "due_on"
+    t.date "start_on"
+    t.string "layout", default: "software implementation", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id", "name"], name: "index_projects_on_owner_id_and_name", unique: true
+    t.index ["workspace_id", "name"], name: "index_projects_on_workspace_id_and_name", unique: true
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "creator_id", null: false
+    t.integer "assignee_id"
+    t.string "assignee_status"
+    t.boolean "completed", default: false
+    t.date "completed_at"
+    t.date "due_on"
+    t.date "start_on"
+    t.integer "project_id"
+    t.integer "workspace_id", null: false
+    t.integer "parent_task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assignee_id"], name: "index_tasks_on_assignee_id"
+    t.index ["assignee_status"], name: "index_tasks_on_assignee_status"
+    t.index ["creator_id"], name: "index_tasks_on_creator_id"
+    t.index ["due_on"], name: "index_tasks_on_due_on"
+    t.index ["parent_task_id"], name: "index_tasks_on_parent_task_id"
+    t.index ["workspace_id"], name: "index_tasks_on_workspace_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false

@@ -33,7 +33,7 @@
 | `start_on`        | datetime      | optional                          |
 | `modified_at`     | datetime      | not null                          |
 | `project_id`      | integer       | not null, foreign key             |
-| `workspace_id`    | integer       | not null, foreign key             |
+| `workspace_id`    | integer       | not null, foreign key, indexed    |
 | `parent_task_id`  | integer       | foreign key, indexed              |
 
 - values allowed for assignee_status: inbox, today, upcomning, later
@@ -41,6 +41,7 @@
 - indexed on `assignee_status`
 - indexed on `due_on`
 - indexed on `parent_task_id`
+- indexed on `workspace_id`
 - `assignee_id` references `users`
 - `workspace_id` references `workspaces`
 - `parent_task_id` references `tasks`
