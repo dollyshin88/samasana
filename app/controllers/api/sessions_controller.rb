@@ -1,11 +1,10 @@
 class Api::SessionsController < ApplicationController
     def create
         @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
-        # @user_memberships = @user.workspace_memberships
-        @workspaces = @user.workspaces.includes(:members)
         
         if @user
             login(@user)
+            @workspaces = @user.workspaces.includes(:members)
             render '/api/users/show'
         else
             render json: ['invalid email or password'], status: 401

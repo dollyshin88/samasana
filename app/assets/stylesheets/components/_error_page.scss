@@ -1,0 +1,16 @@
+.error-page-container {
+    margin: 10vh 20vw;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.error-img {
+    width: 50%;
+}
+
+.error-msg {
+    font-size: 2rem;
+    color: $dark-navy;
+}

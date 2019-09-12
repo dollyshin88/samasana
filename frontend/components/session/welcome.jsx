@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../shared/logo';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 function Welcome(props) {
-
+    function handleHomeRedirect(e) {
+        props.history.push('/samasana');
+    }
     return (
         <div className='page-container'>
-            <div className='logo-wrap-company-home'>
+            <div onClick={handleHomeRedirect} className='btn logo-wrap-company-home'>
                 <Logo />
             </div>
 
@@ -29,4 +33,8 @@ function Welcome(props) {
     );
 }
 
-export default Welcome;
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Welcome));

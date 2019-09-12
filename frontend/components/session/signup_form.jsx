@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProfilePhoto from './profile_photo';
+import Logo from '../shared/logo';
 
 
 function SignupProfileForm(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        return () => {
+            props.clearSessionErrors();
+        };
+    }, []);
 
     function handleNameChange(e) {
         setName(e.target.value);
@@ -23,6 +30,10 @@ function SignupProfileForm(props) {
             .then(() => props.history.push('/setup/team'));
     }
 
+    function handleHomeRedirect(e) {
+        props.history.push('/samasana');
+    }
+
     function renderErrors() {
         if (props.errors.length) {
             return ( props.errors.map((error, i) => (
@@ -33,6 +44,9 @@ function SignupProfileForm(props) {
 
     return (
         <div id='signup-form' className='page-container'>
+            <div onClick={handleHomeRedirect} className='btn logo-wrap-company-home'>
+                <Logo />
+            </div>
             <div className='ctnr-buff--fullpage'>
                 <div className='signup-container'>
                     <div className='signup-container__header'>Set up your profile</div>

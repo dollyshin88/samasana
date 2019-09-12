@@ -58,7 +58,7 @@ html {
     }
     &__msg--red {
         font-size: 0.8rem;
-        color: $workspace-red;
+        color: $workspace-red; 
     }
         
 }
@@ -190,7 +190,7 @@ input::placeholder {
         margin-left: 20%;
         margin-right: 20%;
     }
-    
+     
 
 }
 @media screen and (min-width: 768px) {

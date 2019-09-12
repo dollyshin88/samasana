@@ -3,7 +3,7 @@ import React from 'react';
 function HomeMain(props) {
     
     function handleSignupBtn(e) {
-        props.history.push('signup/profile');
+        props.history.push('signup/welcome');
     }
 
     return (
@@ -17,8 +17,35 @@ function HomeMain(props) {
                         onClick={handleSignupBtn}
                     >Try for free</div>
                 </div>
-                <div>video goes here</div>
             </div>
+
+            <div className='home-visuals'>
+
+                <div className='carousel'>
+                    <div className='carousel__block'>
+                        <div className='carousel-content-wrap'>
+                            <div className='carousel__block__header'>Get Organized</div>
+                            <div className='carousel__block__text'>Plan and structure work in a way that’s best for you. Set priorities and deadlines. Share details and assign tasks. All in one place.</div>
+                        </div>
+                        <div className='video-buff'>
+                            <video className='main-video' src="https://d1gwm4cf8hecp4.cloudfront.net/videos/homepage/v4/Boards.mp4"></video>
+                        </div>
+                    </div>
+
+                    <div className='carousel__block'>
+                        <div className='carousel-content-wrap'>
+                            <div className='carousel__block__header'>Stay on track</div>
+                            <div className='carousel__block__text'>Follow projects and tasks through every stage. You know where work stands and can keep everyone aligned on goals.</div>
+                        </div>
+                        <div className='video-buff'>
+                            <video className='main-video' src="https://d1gwm4cf8hecp4.cloudfront.net/videos/homepage/v4/Boards.mp4"></video>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     );
 

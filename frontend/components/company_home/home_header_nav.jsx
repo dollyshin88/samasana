@@ -6,6 +6,7 @@ class HomeHeaderNav extends React.Component{
         super(props);
         this.handleLoginBtn = this.handleLoginBtn.bind(this);
         this.handleSignupBtn = this.handleSignupBtn.bind(this);
+        this.handleHomeRedirect = this.handleHomeRedirect.bind(this);
     }
     
     handleLoginBtn(e){
@@ -13,14 +14,18 @@ class HomeHeaderNav extends React.Component{
     }
 
     handleSignupBtn(e){
-        this.props.history.push('signup/profile');
+        this.props.history.push('signup/welcome');
+    }
+
+    handleHomeRedirect(e) {
+        this.props.history.push('/samasana');
     }
 
     render(){
         return (
             <div className='header'>
                 <div className='home-header-nav'>
-                <div className='logo-wrap-company-home'>
+                <div onClick={this.handleHomeRedirect} className='btn logo-wrap-company-home'>
                     <Logo />
                 </div>
                     <div className='nav-btn-container'>

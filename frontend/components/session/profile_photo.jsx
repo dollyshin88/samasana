@@ -5,6 +5,7 @@ function ProfilePhoto(props){
     return (
         <div id='photo-upload-container' className="photo-upload-wrap">
             <div className='form__label'>Your photo</div>
+            <div className='profile-photo-container'></div>
             <div id="photo-upload-cluster">
                 <div className='clickable-photo-display'>
                     <div className="profile-photo" style={{backgroundImage: "url('')"}}>

@@ -12,7 +12,6 @@ const workspacesReducer = (state={}, action) => {
             return {};
 
         case RECEIVE_NEW_WORKSPACE:
-            debugger
             return action.payload.workspaces;
 
         default:

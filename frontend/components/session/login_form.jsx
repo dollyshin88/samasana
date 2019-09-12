@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function LoginForm(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword]  = useState('');
     
+    useEffect(() => {
+
+        return () => {
+            props.clearSessionErrors();
+        };
+    }, []);
+
     function handleEmailChange(e) {
         setEmail(e.target.value);
     }

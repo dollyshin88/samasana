@@ -5,6 +5,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_NEW_USER = 'RECEIVE_NEW_USER';
+export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
 // session regular action creators
 export const receiveCurrentUser = payload => ({
@@ -20,6 +21,10 @@ export const receiveSessionErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
 });
+
+export const clearSessionErrors = () => ({
+    type: CLEAR_SESSION_ERRORS,
+})
 
 
 export const receiveNewUser = user => ({
