@@ -19,6 +19,7 @@ function WorkspaceHome(props){
             );
         }
     }
+    // add useEffect and launch receiveCurrentWorkspace after setting a defaultworkspace
     const defaultWorkspace = props.workspaces[0];
     return (
         <div>

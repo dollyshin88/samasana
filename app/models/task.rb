@@ -23,6 +23,8 @@ class Task < ApplicationRecord
     validates :name, :creator_id, :workspace_id
     validates :completed, inclusion: BOOL
 
+    #note: when sections and association with secion is added -- section_id is required if project_id is present
+
     belongs_to :creator, 
     foreign_key: :creator_id,
     class_name: :User
