@@ -19,8 +19,8 @@ function TeamForm(props) {
 
         // call createWorkspace for the current user
         const workspace = { name: teamName };
-        props.createWorkspace(workspace); 
-        props.history.push('/');
+        props.createWorkspace(workspace) 
+        .then(()=>(props.history.push('/')));
 
         // future bonus scope:
         // props.history.push('/setup/invite');
