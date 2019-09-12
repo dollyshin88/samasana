@@ -20,7 +20,7 @@
 
 class Task < ApplicationRecord
     BOOL = [true, false]
-    validates :name, :creator_id, :workspace_id, presnece: true
+    validates :name, :creator_id, :workspace_id, presence: true
     validates :completed, inclusion: BOOL
 
     #note: when sections and association with secion is added -- section_id is required if project_id is present
