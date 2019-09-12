@@ -17,7 +17,7 @@ class Workspace < ApplicationRecord
     dependent: :destroy
 
     has_many :members,
-    through: :workspace_memberships,
+    through: :workspace_memberships, 
     source: :member
 
     has_many :projects,

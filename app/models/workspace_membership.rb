@@ -12,7 +12,7 @@
 
 class WorkspaceMembership < ApplicationRecord
     BOOL = [true, false];
-    validates :member, :workspace, presence: true
+    validates :member_id, :workspace_id, presence: true
     validates :member_id, uniqueness: { scope: :workspace_id }
     validates :is_admin, inclusion: BOOL
 
