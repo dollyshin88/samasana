@@ -12,6 +12,7 @@ class Api::WorkspaceMembershipsController < ApplicationController
     def destroy
         @workspace_membership = WorkspaceMembership.find_by(id: params[:id])
         @workspace_membership.destroy
+        render :show
     end
 
     private
