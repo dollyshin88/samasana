@@ -20,5 +20,14 @@ class Workspace < ApplicationRecord
     through: :workspace_memberships,
     source: :member
 
-    
+    has_many :projects,
+    foreign_key: :project_id,
+    class_name: :Project,
+    dependent: :destroy
+
+    has_many :tasks,
+    foreign_key: :workspace_id,
+    class_name: :tasks,
+    dependent: :destroy 
+
 end

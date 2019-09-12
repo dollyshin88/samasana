@@ -57,5 +57,20 @@ class User < ApplicationRecord
     through: :workspace_memberships,
     source: :workspace 
 
+    has_many :projects,
+    foreign_key: :project_id,
+    class_name: :Project 
+    # do not destroy projects even when the owner is removed
+    # remove project when workspace is removed
 
+    has_many :created_tasks,
+    foreign_key: :creator_id,
+    class_name: :Task
+    # do not destroy tasks even when the creator is removed
+
+    has_many :assigned_tasks,
+    foreign_key: :assignee_id,
+    class_name: :Task
+
+    
 end
