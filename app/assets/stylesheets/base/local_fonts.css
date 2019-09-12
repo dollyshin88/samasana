@@ -23,8 +23,8 @@ fonts.
 
  @font-face {
     font-family: 'gorditaregular';
-    src: url('../../fonts/gordita-regular-webfont.woff2') format('woff2'),
-         url('../../fonts/gordita-regular-webfont.woff') format('woff');
+    src: url('gordita-regular-webfont.woff2') format('woff2'),
+         url('gordita-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -32,8 +32,8 @@ fonts.
   
 @font-face {
     font-family: 'gorditamedium';
-    src: url('../../fonts/gordita-medium-webfont.woff2') format('woff2'),
-         url('../../fonts/gordita-medium-webfont.woff') format('woff');
+    src: url('gordita-medium-webfont.woff2') format('woff2'),
+         url('gordita-medium-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -52,8 +52,8 @@ fonts.
 
 @font-face {
     font-family: 'gorditamedium_italic';
-    src: url('../../fonts/gordita-mediumitalic-webfont.woff2') format('woff2'),
-         url('../../fonts/gordita-mediumitalic-webfont.woff') format('woff');
+    src: url('gordita-mediumitalic-webfont.woff2') format('woff2'),
+         url('gordita-mediumitalic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -62,8 +62,8 @@ fonts.
 
 @font-face {
     font-family: 'gorditaregular_italic';
-    src: url('../../fonts/gordita-regularitalic-webfont.woff2') format('woff2'),
-         url('../../fonts/gordita-regularitalic-webfont.woff') format('woff');
+    src: url('gordita-regularitalic-webfont.woff2') format('woff2'),
+         url('gordita-regularitalic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
