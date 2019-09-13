@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(window.currentWorkspace) {
             preloadedState.entities['currentWorkspace'] = window.currentWorkspace;
         }
-        debugger
+        
         store = configureStore(preloadedState);
         delete window.currentUser;
         

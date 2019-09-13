@@ -6,10 +6,11 @@ function LoginForm(props) {
     const [password, setPassword]  = useState('');
     
     useEffect(() => {
-
-        return () => {
-            props.clearSessionErrors();
-        };
+        if (props.errors.length) {
+            return () => {
+                props.clearSessionErrors();
+            };
+        }
     }, []);
 
     function handleEmailChange(e) {
@@ -29,6 +30,7 @@ function LoginForm(props) {
                 props.history.push('/');
             });
         // close modal and redirect to '/' on success
+        // note to investigate: seems that pushing '/' to history is not required since user after login will be redirected to '/' due to the authRoute logic
     }
 
     function renderErrors() {
