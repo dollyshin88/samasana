@@ -18,6 +18,7 @@ class Api::TasksController < ApplicationController
 
     def create 
         @task = Task.new(task_params)
+        @task.creator_id = current_user.id 
         if @task.save
             render :show
         else
@@ -42,6 +43,6 @@ class Api::TasksController < ApplicationController
 
     private
     def task_params
-        params.require(:task).permit(:name, :assignee_id, :assignee_status, :completed, :completed_at, :due_on, :start_on, :project_id, :parent_task_id)
+        params.require(:task).permit(:name, :assignee_id, :workspace_id, :assignee_status, :completed, :completed_at, :due_on, :start_on, :project_id, :parent_task_id)
     end
 end

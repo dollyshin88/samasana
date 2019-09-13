@@ -7,6 +7,7 @@ import configureStore from './store/store';
 import { signup } from './actions/session_actions';
 import { createWorkspace } from './actions/workspace_actions';
 import { fetchAllProjects, createProject, deleteProject } from './actions/project_actions';
+import { fetchAllTasks, fetchTask, createTask, deleteTask } from './actions/task_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -44,4 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchAllProjects = fetchAllProjects;
     window.createProject = createProject;
     window.deleteProject = deleteProject;
+    window.fetchAllTasks = fetchAllTasks;
+    window.fetchTask = fetchTask;
+    window.createTask = createTask;
+    window.deleteTask = deleteTask;
 });
