@@ -1,0 +1,40 @@
+.workspace-grid-container {
+    display: grid;
+    grid-template-columns: 244px auto;
+    grid-template-rows: 70px auto;
+    grid-template-areas: 
+        "sidebar headernav"
+        "sidebar main";
+}
+
+.workspace-grid-item-sidebar {
+    grid-area: sidebar;
+    justify-item: stretch;
+}
+
+.workspace-grid-item-main {
+    grid-area: main;
+    justify-self: stretch;
+}
+
+//for header nav
+.workspace-grid-item-header {
+    grid-area: headernav;
+    justify-self: stretch;
+    //temporary
+        background-color: $light-gray;
+}
+
+//for side nav
+.workspace-side-nav-container {
+    background-color: $dark-navy;
+    min-height: 100vh;
+    padding: 10px;
+}
+.nav-subcontainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: 60vh;
+    padding: 20px 0;
+}
