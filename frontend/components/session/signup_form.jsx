@@ -14,6 +14,7 @@ function SignupProfileForm(props) {
         };
     }, []);
 
+    // set store functions
     function handleNameChange(e) {
         setName(e.target.value);
     }
@@ -32,6 +33,10 @@ function SignupProfileForm(props) {
 
     function handleHomeRedirect(e) {
         props.history.push('/samasana');
+    }
+
+    function handleLoginBtn(e){
+        props.openModal('login');
     }
 
     function renderErrors() {
@@ -69,6 +74,11 @@ function SignupProfileForm(props) {
                             
                         </div>
                         <button id='signup-btn-cont' className="form__btn form__btn--blue" >Continue</button>
+                        <div 
+                            id='login-btn' 
+                            className='hyperlink hyperlink--blue'
+                            onClick={handleLoginBtn}
+                        >Log in instead</div>
                     </form>
                     </div>
                 </div>

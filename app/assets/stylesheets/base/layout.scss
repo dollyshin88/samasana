@@ -43,6 +43,7 @@ html {
         text-align: center;
         height: 50px;
         font-weight: bold;
+        margin-bottom: 24px;
 
         &--blue {
             background-color: $core-teal;
@@ -111,6 +112,9 @@ html {
         font-weight: bold;
         color: $core-teal;
     }
+}
+.hyperlink:hover {
+    cursor: pointer;
 }
 
 input::placeholder {
