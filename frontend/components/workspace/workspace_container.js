@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
     members: Object.values(state.entities.members),
     
 });
-// note: perhaps better to only send currentworkspace and current userID and make subcomponents connected comp so they get their own props
+
 
 
 const mapDispatchToProps = dispatch => ({

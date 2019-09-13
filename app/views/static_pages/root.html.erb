@@ -5,6 +5,16 @@
       user: current_user
     ).html_safe %>
   </script>
+
+  <% if !current_user.workspaces.empty? %>
+    <script type="text/javascript">
+      window.currentWorkspace = <%= render(
+        "api/workspaces/current_workspace.json.jbuilder",
+        workspace: current_user.workspaces.first
+      ).html_safe %>
+    </script>
+  <% end %>
 <% end %>
+
 
 <div id='root'><div>

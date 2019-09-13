@@ -8,18 +8,7 @@ function Workspace(props){
     function handleLogout() {
         props.logout();
     }
-    function renderMembers() {
-        if (props.members.length) {
-
-            return (
-                <>
-                {props.members.map((member, i) => (
-                <div key={i}>{member.name}</div>
-                ))}
-                </>
-            );
-        }
-    }
+    
 
     //conditionally render grid item main
 
@@ -31,15 +20,15 @@ function Workspace(props){
     return (
         
         <div className='page-container workspace-grid-container'>
-            <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
             <div className='workspace-grid-item-sidebar'>
-                <SideNav />
+                <SideNav members={props.members} projects={props.projects}/>
             </div>
             <div className='workspace-grid-item-header'>
                 <WorkspaceHeaderNav />
             </div>
             <div className='workspace-grid-item-main'>
-                <WorkspaceHome />
+                <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
+                <WorkspaceHome projects={props.projects} />
             </div>
         </div>
     );
