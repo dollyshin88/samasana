@@ -11,8 +11,8 @@ const projectsReducer = (state={}, action) => {
             return Object.assign({}, state, action.payload.project);
 
         case REMOVE_PROJECT:
-            const nextState = Object.assign({}, state)
-            delete nextState.projects[action.projectId]
+            const nextState = Object.assign({}, state);
+            delete nextState.entities.projects[action.projectId];
             return nextState;
 
         default:
