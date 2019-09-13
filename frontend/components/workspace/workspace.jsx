@@ -24,7 +24,7 @@ function Workspace(props){
     //conditionally render grid item main
 
     useEffect(() => {
-        props.fetchAllProjects(props.currentWorkspace);
+        props.fetchAllProjects(props.currentWorkspace.id);
     }, []);
 
     // make side nav and workspace home connected components

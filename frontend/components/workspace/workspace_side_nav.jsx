@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../shared/logo';
-import { connect } from 'react-redux';
+
 
 function SideNav (props) {
 
@@ -44,13 +44,4 @@ function SideNav (props) {
     );
 }
 
-const mapStateToProps = (state) => ({
-   members: Object.values(state.entities.members), 
-   projects: Object.values(state.entities.projects),
-});
-
-const mapDispatchToProps = dispatch => ({
-}); 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(SideNav);
+export default SideNav;
