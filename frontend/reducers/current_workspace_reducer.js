@@ -8,7 +8,7 @@ const currentWorkspaceReducer = (state={}, action) => {
             return action.workspace;
     
         default:
-            state;
+            return state;
     }
 };
 
