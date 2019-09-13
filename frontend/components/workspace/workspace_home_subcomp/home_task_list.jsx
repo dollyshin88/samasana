@@ -16,4 +16,4 @@ function HomeTaskList(props) {
     );
 }
 
-export const HomeTaskList
+export default HomeTaskList

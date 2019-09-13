@@ -23,10 +23,13 @@ function HomeProjectListItem(props) {
 }
 
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => {
+    const initial = (Object.values(state.entities.members).length === 0) ? '' : initialsSelector(state.entities.members[ownProps.project.owner_id].name);
+
+    return ({
     project: ownProps.project,
-    projectOwnerInitial: initialsSelector(state.entities.members[ownProps.projects.owner_id]),
-});
+    projectOwnerInitial: initial,
+})};
 
 const mapDispatchToProps = dispatch => ({
 

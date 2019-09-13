@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeProjectList from './home_project_list';
+import HomeTaskList from './home_task_list';
 
 function HomeSection (props) {
 
@@ -17,11 +18,11 @@ function HomeSection (props) {
     }
 
     return (
-        <div>
+        <div className='workspace-home-section-container'>
             <div>{sectionTitle}</div>
             {component}
         </div>
     );
 }
 
-export default HomeSectiom;
+export default HomeSection;
