@@ -50,6 +50,7 @@ html {
         &--purple {
             background-color: $core-purple;
         }
+        
     }
 
     &__msg--gray {
@@ -91,6 +92,7 @@ html {
         color: white;    
     }  
 }
+
 
 //Todo: refactor to have .clickable class with hover pointer defined
 .btn:hover {

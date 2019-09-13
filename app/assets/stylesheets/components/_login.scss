@@ -41,7 +41,11 @@
     }
 }
 
-
+.demo-btn {
+    width: 100%;
+    text-align: center;
+    color: $core-purple;
+}
 
 //============ media queries=================//
 @media screen and (min-width: 768px) {

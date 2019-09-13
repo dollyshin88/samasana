@@ -26,7 +26,6 @@ function LoginForm(props) {
         props.login({ email, password })
             .then(()=> {
                 props.closeModal();
-                
                 props.history.push('/');
             });
         // close modal and redirect to '/' on success
@@ -38,6 +37,17 @@ function LoginForm(props) {
                 <div key={i} className='form__msg--red'>{error}</div>
             )))
         }
+    }
+
+    function handleDemoLogin(e) {
+        // todo: modify to have ghost typing as a bonus feature
+        const demoEmail = 'demouser@demo.com';
+        const demoPassword = 'password'
+        props.login({ email: demoEmail, password: demoPassword })
+            .then(()=> {
+                props.closeModal();
+                props.history.push('/');
+            });
     }
     
     function handleModalClose(e) {
@@ -61,6 +71,7 @@ function LoginForm(props) {
                 </div>
 
                 <button className="form__btn form__btn--purple">Log In</button>
+                <div onClick={handleDemoLogin} className="btn demo-btn">Demo Log In</div>
                 <p className='login-container__footer'>Don't have an account? <Link className='hyperlink--purple' onClick={handleModalClose} to='/signup/welcome'>Sign up</Link></p>
                 
 
