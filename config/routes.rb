@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :workspaces, only: [:create, :update, :show, :destroy] do
       resources :projects, only: [:index]
       resources :tasks, only: [:index]
+      resources :users, only: [:index]
     end
     
     resources :workspace_memberships, only: [:create, :destroy]

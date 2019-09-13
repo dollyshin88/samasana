@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Workspace from './workspace';
+import { fetchAllMembers } from '../../actions/member_actions';
 
 const mapStateToProps = state => ({
     currentUserId: state.session.currenUserId,
@@ -16,8 +17,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
     fetchAllProjects: workspace_id => dispatch(fetchAllProjects(workspace_id)),
-    //fetch all tasks and fetch all project members
+    fetchAllMembers: workspace_id => dispatch(fetchAllMembers(workspace_id)),
+    fetchAllTasks: workspace_id => dispatch(fetchAllTask(workspace_id)),
     
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Workspace);
 

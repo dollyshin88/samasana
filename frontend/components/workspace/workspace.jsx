@@ -13,6 +13,8 @@ function Workspace(props){
 
     useEffect(() => {
         props.fetchAllProjects(props.currentWorkspace.id);
+        props.fetchAllMembers(props.currentWorkspace.id);
+        props.fetchAllTasks(props.currentWorkspace.id);
         //fetch all tasks and workspace members
     }, []);
 

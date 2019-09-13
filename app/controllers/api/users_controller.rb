@@ -1,4 +1,9 @@
 class Api::UsersController < ApplicationController
+    def index
+        @users = Workspace.find_by(id: params[:workspace_id]).members
+        render :index
+    end
+    
     def create
         @user = User.new(user_params)
         if @user.save
