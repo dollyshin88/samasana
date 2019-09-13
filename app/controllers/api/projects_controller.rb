@@ -32,7 +32,7 @@ class Api::ProjectsController < ApplicationController
     def destroy
         @project = Project.find_by(id: params[:id])
         @project.destroy
-        render :show
+        render json: @project
     end
 
     private

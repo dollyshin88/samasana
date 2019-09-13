@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Modal from './modal/modal';
 import CompanyHome from './company_home/home';
-import WorkspaceHome from './workspace/workspace_home';
+import WorkspaceContainer from './workspace/workspace_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Welcome from './session/welcome';
 import SignupProfileForm from './session/signup_container';
@@ -19,7 +19,7 @@ function App(props) {
                 <AuthRoute exact path='/signup/welcome' component={Welcome} />
                 <AuthRoute exact path='/signup/profile' component={SignupProfileForm} />
                 <ProtectedRoute path='/setup' component={Setup} />
-                <ProtectedRoute exact path='/' component={WorkspaceHome} />
+                <ProtectedRoute exact path='/' component={WorkspaceContainer} />
                 <Route component={ErrorPage} />
             </Switch>
         </div>

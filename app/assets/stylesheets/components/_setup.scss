@@ -15,11 +15,7 @@
     justify-self: stretch;
 }
 
-.workspace-side-nav-container {
-    background-color: $dark-navy;
-    min-height: 100vh;
-    padding: 10px;
-}
+
 .empty-nav-container {
     display: flex;
     flex-flow: column nowrap;
