@@ -23,23 +23,21 @@ function SideNav (props) {
             return proj;
         }   
     }
-
+    //create SideNavItem, MembersList, and ProjectNavList component
     return (
         <div className='workspace-side-nav-container'>
             <div className='logo-wrap-workspace'>
                 <Logo />
             </div>
-            <div className='nav-subcontainer'>
-                nav sub container
-                <div className='nav-circles-container'>
-                    nav circles
-                </div>
+            <div className='nav-subcontainer__main'>
+                {/* <SideNavItem label={'Home'} />
+                <SideNavItem label={'My Tasks'} /> */}
+            </div>
+            <div className='nav-subcontainer__workspace'>
+                {/* <MembersList /> */}
 
             </div>
-            <div className='onlyfortesting'>
-                {renderMembers()}
-                {renderProjects()}
-            </div>
+            
         </div>
     );
 }
