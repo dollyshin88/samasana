@@ -8,12 +8,12 @@ function Workspace(props){
     function handleLogout() {
         props.logout();
     }
-    
 
-    //conditionally render grid item main
+    // REFACTOR: conditionally render grid item main - workspace container is rendered by ProtectedRoute - this comp has router props - utilize location
 
     useEffect(() => {
         props.fetchAllProjects(props.currentWorkspace.id);
+        //fetch all tasks and workspace members
     }, []);
 
     // make side nav and workspace home connected components
@@ -22,13 +22,14 @@ function Workspace(props){
         <div className='page-container workspace-grid-container'>
             <div className='workspace-grid-item-sidebar'>
                 <SideNav members={props.members} projects={props.projects}/>
+                <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
             </div>
             <div className='workspace-grid-item-header'>
                 <WorkspaceHeaderNav />
             </div>
             <div className='workspace-grid-item-main'>
-                <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
-                <WorkspaceHome projects={props.projects} />
+                
+                <WorkspaceHome projects={props.projects} tasks={props.tasks} />
             </div>
         </div>
     );

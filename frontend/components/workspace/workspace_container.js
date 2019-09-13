@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
     projects: Object.values(state.entities.projects),
     currentWorkspace: state.entities.currentWorkspace,
     members: Object.values(state.entities.members),
-    
+    tasks: Object.values(state.entities.tasks),
 });
 
 
@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
     fetchAllProjects: workspace_id => dispatch(fetchAllProjects(workspace_id)),
-
-    //eventually send down actions to fetch projects and tasks data
+    //fetch all tasks and fetch all project members
+    
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Workspace);
 

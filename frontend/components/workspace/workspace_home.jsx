@@ -1,27 +1,19 @@
 import React from 'react';
+import HomeSection from './workspace_home_subcomp/home_section';
 
 
 function WorkspaceHome (props) {
 
-    function renderProjects() {
-        if (props.projects.length) {
-            const list = props.projects.map((project, i) => (
-                    <div key={i}>{project.name}</div>
-                ))
-            return list;
-        }
-    }
-
     return (
         <div className='workspace-home-container'>
     
-            <p>Task due soon section</p>
-            <div>
-
+            <div className='workspace-home-section-container'>
+                <p>Task due soon section</p>
+                <HomeSection section='tasks' tasks={props.tasks} />
             </div>
-            <p>Recent projects section</p>
-            <div>
-                {renderProjects()}
+            <div className='workspace-home-section-container'>
+                <p>Recent projects section</p>
+                <HomeSection section='projects' projects={props.projects} /> 
             </div>
 
         </div>
