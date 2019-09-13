@@ -7,11 +7,9 @@ import { setCurrentWorkspace } from '../../actions/workspace_actions';
 const mapStateToProps = (state, ownProps) => ({
     closeModal: ownProps.closeModal,
     errors: state.errors.session,
-    workspaces: Object.values(state.entities.workspaces),
 });
 
 const mapDispatchToProps = dispatch => ({
-    setCurrentWorkspace: workspace => dispatch(setCurrentWorkspace),
     login: user => dispatch(login(user)),
     clearSessionErrors: () => dispatch(clearSessionErrors()),
 });

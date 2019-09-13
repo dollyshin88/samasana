@@ -26,8 +26,7 @@ function LoginForm(props) {
         props.login({ email, password })
             .then(()=> {
                 props.closeModal();
-                const defaultWorkspace = (props.workspaces.length) ? props.workspaces[0] : {};
-                props.setCurrentWorkspace(defaultWorkspace);
+                
                 props.history.push('/');
             });
         // close modal and redirect to '/' on success
