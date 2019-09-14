@@ -11,8 +11,8 @@ function HomeProjectListItem(props) {
             <div className='hover-effect-container'>
                 <div className='project-item-square'>
                     <div className='mininav-container'>
-                        <div className='project-item-square__mininav'>fav-btn</div>
-                        <div className='project-item-square__mininav'>menu</div>
+                        <img className='project-item-square__mininav' src={window.unfilledStar} />
+                        <div className='project-item-square__mininav'>...</div>
                     </div>
                     
                     <div className='project-item-square__center'>
