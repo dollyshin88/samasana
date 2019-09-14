@@ -114,16 +114,6 @@
         }
         &__profile-circle {
             display: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: $core-purple;
-            color: white;
-            text-align: center;
-            font-size: 0.9rem;
-            line-height: 20px;
-            vertical-align: middle;
-            font-weight: 300;
         }
     }
 }
@@ -148,6 +138,7 @@
     border: 2px solid $lightest-gray;
     border-radius: 8px;
     min-width: 616px;
+    
     
 }
 

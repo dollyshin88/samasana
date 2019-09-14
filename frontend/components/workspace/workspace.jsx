@@ -3,6 +3,7 @@ import SideNav from './workspace_side_nav';
 import WorkspaceHome from './workspace_home';
 import WorkspaceHeaderNav from './workspace_header_nav';
 import { useEffect } from 'react';
+//create and import workspace project view and mytask view
 
 function Workspace(props){
     function handleLogout() {
@@ -10,6 +11,19 @@ function Workspace(props){
     }
 
     // REFACTOR: conditionally render grid item main - workspace container is rendered by ProtectedRoute - this comp has router props - utilize location
+    let mainComp =<div></div>;
+    switch (props.location.pathname) {
+        case '/projects':
+            mainComp = <WorkapceProject />;
+            break;
+        default:
+            mainComp = <WorkspaceHome 
+                            projects={props.projects} 
+                            tasks={props.tasks} 
+                        />;
+            
+            break;
+    }
 
     useEffect(() => {
         props.fetchAllProjects(props.currentWorkspace.id);
@@ -26,13 +40,14 @@ function Workspace(props){
                 <SideNav members={props.members} projects={props.projects}/>
                 <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
             </div>
-            <div className='workspace-grid-item-header'>
-                <WorkspaceHeaderNav />
-            </div>
-            <div className='workspace-grid-item-main'>
-                
-                <WorkspaceHome projects={props.projects} tasks={props.tasks} />
-            </div>
+            
+            <WorkspaceHome 
+                projects={props.projects} 
+                tasks={props.tasks} 
+                currentUserInitial={props.currentUserInitial}
+                currentUserId={props.currentUserId}
+            />
+            
         </div>
     );
 }

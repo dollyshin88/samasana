@@ -19,7 +19,7 @@ function App(props) {
                 <AuthRoute exact path='/signup/welcome' component={Welcome} />
                 <AuthRoute exact path='/signup/profile' component={SignupProfileForm} />
                 <ProtectedRoute path='/setup' component={Setup} />
-                <ProtectedRoute exact path='/' component={WorkspaceContainer} />
+                <ProtectedRoute path='/' component={WorkspaceContainer} />
                 <Route component={ErrorPage} />
             </Switch>
         </div>

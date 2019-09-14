@@ -21,13 +21,11 @@
 .workspace-grid-item-header {
     grid-area: headernav;
     justify-self: stretch;
-    //temporary
-        background-color: $light-gray;
 }
 
 //for side nav
 .workspace-side-nav-container {
-    background-color: $dark-navy;
+    background-color: $nav-navy;
     min-height: 100vh;
     padding: 10px;
 }

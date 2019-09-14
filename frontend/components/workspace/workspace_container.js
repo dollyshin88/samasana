@@ -4,9 +4,11 @@ import Workspace from './workspace';
 import { fetchAllMembers } from '../../actions/member_actions';
 import { fetchAllProjects } from '../../actions/project_actions';
 import { fetchAllTasks } from '../../actions/task_actions';
+import { initialsSelector } from '../../reducers/selector_util';
 
 const mapStateToProps = state => ({
-    currentUserId: state.session.currenUserId,
+    currentUserId: state.session.id,
+    currentUserInitial: initialsSelector(state.entities.users[state.session.id].name),
     workspaces: Object.values(state.entities.workspaces),
     projects: Object.values(state.entities.projects),
     currentWorkspace: state.entities.currentWorkspace,

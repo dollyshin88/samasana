@@ -1,14 +1,24 @@
 import React from 'react';
 import HomeSection from './workspace_home_subcomp/home_section';
-
+import WorkspaceHeaderNav from './workspace_header_nav';
 
 function WorkspaceHome (props) {
 
     return (
-        <div className='workspace-home-container'>
-            <HomeSection section='tasks' tasks={props.tasks} />
-            <HomeSection section='projects' projects={props.projects} /> 
+        <>
+        <div className='workspace-grid-item-header'>
+            <WorkspaceHeaderNav
+                currentUserInitial={props.currentUserInitial}
+                currentUserId={props.currentUserId}
+            />
         </div>
+        <div className='workspace-grid-item-main'>
+            <div className='workspace-home-container'>
+                <HomeSection section='tasks' tasks={props.tasks} />
+                <HomeSection section='projects' projects={props.projects} /> 
+            </div>
+        </div>
+        </>
     );
 }
 

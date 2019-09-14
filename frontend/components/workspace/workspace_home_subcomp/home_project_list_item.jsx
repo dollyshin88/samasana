@@ -17,7 +17,7 @@ function HomeProjectListItem(props) {
                     
                     <div className='project-item-square__center'>
                         <div className='project-item-square__center__icon'><img src={window.kanbanIconURL} /></div>
-                        <div className='project-item-square__center__profile-circle'>{props.projectOwnerInitial}</div>
+                        <div className='project-item-square__center__profile-circle user-circle'>{props.projectOwnerInitial}</div>
                     </div>
                 </div>
 
