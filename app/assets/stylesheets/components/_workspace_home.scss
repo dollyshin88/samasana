@@ -1,0 +1,198 @@
+// this keeps the workspace home at minimum 680px width at all time
+@media (max-width: 1213px) {
+    .workspace-home-container {
+        width: 680px;
+    }
+}
+
+.workspace-home-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 120px;
+}
+
+.home-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 90px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+
+    &__title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 14px; 
+    }
+}
+
+//==========project section=============//
+.workspace-home-project-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items:  flex-start;
+    min-width: 616px;
+    border-top: 2px solid $lightest-gray;
+}
+
+.hover-effect-container {
+    height: 221px;
+    width: 150px;
+    padding: 15px 0;
+    border-radius: 20px;
+    background-color: transparent;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    
+
+}
+.hover-effect-container:hover {
+    background-color: $hover-gray;
+    
+}
+.hover-effect-container:hover .project-item-square__mininav {
+    color: $lightest-gray;
+    
+}
+.hover-effect-container:hover .project-item-square__center__profile-circle {
+    display: block;
+    
+}
+.mininav-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.project-item-square {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    //temporary until building dynamic coloring
+    background-color: $workspace-orange;
+    box-shadow: inset 0 -2px rgba(0,0,0,.05);
+    &__mininav {
+        margin-top: 3px;
+        color: transparent;
+    }
+    &__center {
+        margin-top: 30px;
+        text-align: center;
+        &__icon {
+            margin: auto;
+    
+        }
+        &__profile-circle {
+            display: none;
+
+        }
+    }
+}
+
+//testing it out
+.project-item-square__center__icon img {
+    width: 50px;
+    color: white;
+}
+.project-item-label {
+    font-weight: bold;
+}
+
+//====================tasks section===================//
+.workspace-home-task-list {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items:  flex-start;
+    margin: 0 auto;
+    border: 2px solid $lightest-gray;
+    border-radius: 8px;
+    min-width: 616px;
+    
+}
+
+.task-row {
+    padding: 0 5px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $lightest-gray;
+
+    // transition: box-shadow 100ms ease-in-out;
+    // transition-property: box-shadow;
+    // transition-duration: 100ms;
+    // transition-timing-function: ease-in-out;
+    // transition-delay: 0s;
+
+    &__main {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        flex: 1 1000 auto;
+        &__text {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+    }
+    &__aside {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        flex: 0 1 auto;
+    }
+}
+.task-row:last-child {
+    border-bottom: none;
+}
+
+.pill-link-container {
+    flex: 0 1 auto;
+    min-width: 1px;
+    overflow: hidden;
+    margin-left: 5px;
+
+}
+.pill-link {
+    flex: 0 1 auto;
+    max-width: 75px;
+    min-width: 1px;
+    color: white;
+    border-radius: 15px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding-bottom: 2px;
+    //temp color
+    background-color: $workspace-green;
+}
+
+.task-due-text {
+    color: rgb(15, 195, 163);
+    font-size: 0.7rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+//===========media query===========//
+@media (min-width: 1213px) {
+    .workspace-home-task-list {
+        min-width: 796px;
+    }
+
+    .workspace-home-project-list {
+        min-width: 796px;
+    }
+}

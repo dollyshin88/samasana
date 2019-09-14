@@ -10,7 +10,7 @@ function HomeProjectList(props) {
     }
     // render project items with flexbox row wrap
     return (
-        <div>
+        <div className='workspace-home-project-list'>
             {renderListItems()}
         </div>
     );

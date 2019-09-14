@@ -4,19 +4,24 @@ import { Link } from 'react-router-dom';
 import { initialsSelector } from '../../../reducers/selector_util';
 
 function HomeProjectListItem(props) {
-
+    const projColor = props.project.color;
     return (
         <div>
             {/* change this div into Link-to */}
             <div className='hover-effect-container'>
                 <div className='project-item-square'>
-                    <div className='project-item-square__mininav'>fav-btn</div>
-                    <div className='project-item-square__mininav'>menu</div>
-                    <div className='project-item-square__icon'>icon</div>
-                    <div className='project-item-square__profile-circle'>{props.projectOwnerInitial}</div>
+                    <div className='mininav-container'>
+                        <div className='project-item-square__mininav'>fav-btn</div>
+                        <div className='project-item-square__mininav'>menu</div>
+                    </div>
+                    
+                    <div className='project-item-square__center'>
+                        <div className='project-item-square__center__icon'><img src={window.kanbanIconURL} /></div>
+                        <div className='project-item-square__center__profile-circle'>{props.projectOwnerInitial}</div>
+                    </div>
                 </div>
 
-                <div>{props.project.name}</div>
+                <div className='project-item-label'>{props.project.name}</div>
             </div>
         </div>
     );

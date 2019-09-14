@@ -18,8 +18,8 @@ function HomeSection (props) {
     }
 
     return (
-        <div className='workspace-home-section-container'>
-            <div>{sectionTitle}</div>
+        <div className='home-section'>
+            <div className='home-section__title'>{sectionTitle}</div>
             {component}
         </div>
     );

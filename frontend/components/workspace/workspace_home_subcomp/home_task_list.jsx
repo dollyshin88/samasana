@@ -10,7 +10,7 @@ function HomeTaskList(props) {
     }
     // render task items with flexbox column nowrap, justify-content: center
     return (
-        <div>
+        <div className='workspace-home-task-list'>
             {renderListItems()}
         </div>
     );

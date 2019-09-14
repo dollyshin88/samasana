@@ -5,6 +5,7 @@ html {
     font-size: 16px;
 }
 
+//============ session flows============//
 .page-container {
     // currently signup flow pages are using it
     height: 100vh;
@@ -186,6 +187,42 @@ input::placeholder {
     //come back after profile photo feature is built out to adjust the width
     width: 354px;
 }
+
+//============workspace=================//
+
+.checkbox-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $light-gray;
+    margin-left: 3px;
+    margin-right: 3px;
+    color: $light-gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.checkbox-circle:hover {
+    border-color: $workspace-green;
+}
+.checkbox-circle:hover .fa-check {
+    color: $workspace-green;
+}
+
+
+.truncate {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+//checkbox transition
+// {transition: 200ms box-shadow,200ms color,200ms background,200ms fill,200ms border-color;
+// }
 
 //============ media queries=================//
 
