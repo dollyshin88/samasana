@@ -10,6 +10,7 @@ function WorkspaceHome (props) {
             <WorkspaceHeaderNav
                 currentUserInitial={props.currentUserInitial}
                 currentUserId={props.currentUserId}
+                title='Home'
             />
         </div>
         <div className='workspace-grid-item-main'>

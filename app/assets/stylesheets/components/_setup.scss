@@ -49,3 +49,11 @@
         border-radius: 50%;
     }
 }
+
+.empty-circles-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}

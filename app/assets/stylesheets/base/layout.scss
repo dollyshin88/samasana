@@ -223,15 +223,20 @@ input::placeholder {
     box-shadow: 0 5px 20px 0 rgba(21,27,38,.08);
 }
 
+.scrolly {
+    overflow-y: scroll;
+}
+
 .user-circle {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    background-color: $core-purple;
+    background-color: $workspace-purple;
+    border: 1px solid rgb(165, 93, 247);
     color: white;
     text-align: center;
     font-size: 0.9rem;
-    line-height: 20px;
+    line-height: 25px;
     vertical-align: middle;
     font-weight: 300;
 }

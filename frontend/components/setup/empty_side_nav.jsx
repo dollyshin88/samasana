@@ -14,7 +14,7 @@ function EmptySideNav (prop) {
                 
                 <div className='empty-nav empty-nav--short'></div>
                 <div className='empty-nav empty-nav--medium'></div>
-                <div className='nav-circles-container'>
+                <div className='empty-circles-container'>
                     <div className='empty-nav empty-nav--circle'></div>
                     <div className='empty-nav empty-nav--circle'></div>
                     <div className='empty-nav empty-nav--circle'></div>

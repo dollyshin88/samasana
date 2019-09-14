@@ -27,7 +27,9 @@
 .workspace-side-nav-container {
     background-color: $nav-navy;
     min-height: 100vh;
+    height: 100%;
     padding: 10px;
+    color: $nav-text-gray;
 }
 .nav-subcontainer {
     display: flex;

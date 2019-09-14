@@ -14,8 +14,10 @@ function Workspace(props){
     let mainComp =<div></div>;
     switch (props.location.pathname) {
         case '/projects':
-            mainComp = <WorkapceProject />;
+            mainComp = <WorkspaceProject />;
             break;
+        case '/mytasks':
+            mainComp = <WorkspaceMyTasks />;
         default:
             mainComp = <WorkspaceHome 
                             projects={props.projects} 

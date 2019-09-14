@@ -1,7 +1,105 @@
-.nav-circles-container {
+
+// nav main list
+.nav-main-list {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    &__item {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        height: 24px;
+        // box-sizing: border-box;
+        margin: 2px 0;
+
+        &__icon {
+        }
+        img {
+            width: 33px;
+            height: 33px;
+            padding-bottom: 14px;
+        }
+
+        &__text {
+            font-size: 0.9rem;
+            font-weight: 400;
+            height: 20px;
+            line-height: 20px;
+            padding: 3px;   
+            margin-left: 3px;     
+        }
+    }
+}
+
+//nav workspace list
+.nav-workspace-list {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: space-around;
+    padding-left: 8px;
+    max-height: 500px;
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 400;
+        height: 20px;
+        line-height: 20px;
+        margin: 8px 0;
+    }
+}
+
+
+.member-list-container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    width: 80%;
+    margin: 8px 0;
+}
+
+.nav-circle {
+    margin-right: 7px;
+    color: white;
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.project-list-container {
+    margin: 8px 0;
+    &__item {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    &__item-name {
+        font-size: 0.9rem;
+        font-weight: 300;
+    }
+}
+
+.color-bullet {
+    height:8px;
+    width: 8px;
+    border-radius: 2.5px;
+    background-color: $workspace-green;
+    margin-right: 14px;
+}
+
+
+.side-nav-bottom-img {
+    margin-top: 100px;
+    margin-right: 10px;
+    width: 100px;
+    align-self: center;
 }

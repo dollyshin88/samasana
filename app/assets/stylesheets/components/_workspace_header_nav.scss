@@ -13,7 +13,7 @@
     
     &__title {
         font-size: 1.3rem;
-        font-weight: 400;
+        font-weight: 500;
 
     }
 
@@ -25,7 +25,16 @@
     }
 
     &__btn {
-
+        border-radius: 3px;
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: white;
+        height: 30px;
+        line-height: 30px;
+        min-width: 60px;
+        text-align: center;
+        background-image: linear-gradient(to top right, #ff5263 0%, #ff7381 35%, #fcbd01 100%);
+        margin-right:10px;
     }
 }
 

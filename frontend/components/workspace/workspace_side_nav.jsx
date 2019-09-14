@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../shared/logo';
-
+import NavMainList from './side_nav_subcomp/nav_main_list';
+import NavWorkspaceList from './side_nav_subcomp/nav_workspace_list';
 
 function SideNav (props) {
 
@@ -29,15 +30,9 @@ function SideNav (props) {
             <div className='logo-wrap-workspace'>
                 <Logo />
             </div>
-            <div className='nav-subcontainer__main'>
-                {/* <SideNavItem label={'Home'} />
-                <SideNavItem label={'My Tasks'} /> */}
-            </div>
-            <div className='nav-subcontainer__workspace'>
-                {/* <MembersList /> */}
-
-            </div>
-            
+            <NavMainList />
+            <NavWorkspaceList />
+           
         </div>
     );
 }
