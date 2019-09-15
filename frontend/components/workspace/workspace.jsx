@@ -3,28 +3,41 @@ import SideNav from './workspace_side_nav';
 import WorkspaceHome from './workspace_home';
 import WorkspaceHeaderNav from './workspace_header_nav';
 import { useEffect } from 'react';
+import ProjectView from './projects/project_view';
 //create and import workspace project view and mytask view
 
 function Workspace(props){
     function handleLogout() {
         props.logout();
     }
-
+    
     // REFACTOR: conditionally render grid item main - workspace container is rendered by ProtectedRoute - this comp has router props - utilize location
-    let mainComp =<div></div>;
-    switch (props.location.pathname) {
-        case '/projects':
-            mainComp = <WorkspaceProject />;
-            break;
-        case '/mytasks':
-            mainComp = <WorkspaceMyTasks />;
-        default:
-            mainComp = <WorkspaceHome 
-                            projects={props.projects} 
-                            tasks={props.tasks} 
-                        />;
+    function renderMainComp() {
+        
+        const projectRegex = new RegExp('\/project\/.*');
+        const myTaskRegex = new RegExp('\/mytasks\/.*');
+        
+        if (projectRegex.test(props.location.pathname)) {
             
-            break;
+            return (
+                <ProjectView />
+            );
+        
+        // } else if (props.locaiton.pathname === '/mytasks') {
+        //     return (
+        //         <WorkspaceMyTasks />
+        //     );
+        } else {
+            return (
+                <WorkspaceHome
+                    projects={props.projects}
+                    tasks={props.tasks}
+                    currentUserInitial={props.currentUserInitial}
+                    currentUserId={props.currentUserId}
+                />
+            );
+        }
+
     }
 
     useEffect(() => {
@@ -43,12 +56,7 @@ function Workspace(props){
                 <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
             </div>
             
-            <WorkspaceHome 
-                projects={props.projects} 
-                tasks={props.tasks} 
-                currentUserInitial={props.currentUserInitial}
-                currentUserId={props.currentUserId}
-            />
+            {renderMainComp()}
             
         </div>
     );
