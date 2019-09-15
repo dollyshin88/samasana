@@ -10,7 +10,7 @@ function NavWorkspaceList(props) {
             <div className='nav-workspace-list__title'>Workspace Title</div>
             <MemberList members={props.members}/>
             <ProjectNavList projects={props.projects}/>
-            <img className='side-nav-bottom-img' src={window.invitePeeps} alt="" />
+            <img className='side-nav-bottom-img' src={window.invitePeepsImgURL} alt="" />
         </div>
     );
 }

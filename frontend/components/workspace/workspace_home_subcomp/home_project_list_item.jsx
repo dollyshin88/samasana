@@ -6,12 +6,12 @@ import { initialsSelector } from '../../../reducers/selector_util';
 function HomeProjectListItem(props) {
     const projColor = props.project.color;
     return (
-        <div>
-            {/* change this div into Link-to */}
-            <div className='hover-effect-container'>
-                <div className='project-item-square'>
+        <Link to={`/project/${props.project.id}/board`}>
+            
+            <div className='hover-effect-container clickable'>
+                <div className='project-item-square project-item-square--proj'>
                     <div className='mininav-container'>
-                        <img className='project-item-square__mininav' src={window.unfilledStar} />
+                        <img className='project-item-square__mininav' src={window.unfilledStarIconURL} />
                         <div className='project-item-square__mininav'>...</div>
                     </div>
                     
@@ -23,7 +23,7 @@ function HomeProjectListItem(props) {
 
                 <div className='project-item-label'>{props.project.name}</div>
             </div>
-        </div>
+        </Link>
     );
 }
 

@@ -1,19 +1,24 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 function NavMainList(props) {
+    function handleRoutingHome() {
+        props.history.push('/');
+    }
 
+    function handleRoutingMyTasks() {
+        props.history.push('/mytasks');
+    }
 
     return (
         <div className='nav-main-list'>
-            <div className='nav-main-list__item'>
-               
-                <img src={window.home} />
-                
+            <div onClick={handleRoutingHome} className='nav-main-list__item clickable'>
+                <img src={window.homeIconURL} />
                 <div className='nav-main-list__item__text'>Home</div>
             </div>
-            <div className='nav-main-list__item'>
+            <div onClick={handleRoutingMyTasks} className='nav-main-list__item clickable'>
                 <div className='nav-main-list__item__icon'>
-                    <img src={window.check} />
+                    <img src={window.checkIconURL} />
                 </div>
                 <div className='nav-main-list__item__text'>My Tasks</div>
             </div>
@@ -21,4 +26,4 @@ function NavMainList(props) {
     );
 }
 
-export default NavMainList;
+export default withRouter(NavMainList);

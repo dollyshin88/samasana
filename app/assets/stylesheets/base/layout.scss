@@ -100,7 +100,9 @@ html {
 .btn:hover {
     cursor: pointer;
 }
-
+.clickable:hover {
+    cursor: pointer;
+}
 
 .hyperlink {
     
@@ -241,6 +243,13 @@ input::placeholder {
     font-weight: 300;
 }
 
+.color-bullet {
+    height:8px;
+    width: 8px;
+    border-radius: 2.5px;
+    background-color: $workspace-green;
+    margin-right: 14px;
+}
 
 //checkbox transition
 // {transition: 200ms box-shadow,200ms color,200ms background,200ms fill,200ms border-color;

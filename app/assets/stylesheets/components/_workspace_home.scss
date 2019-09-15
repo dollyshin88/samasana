@@ -50,25 +50,47 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
-    
 
 }
+
 .hover-effect-container:hover {
     background-color: $hover-gray;
-    
+    transition: background-color 0.2s ease-in;
 }
 .hover-effect-container:hover .project-item-square__mininav {
     color: $lightest-gray;
-    
+    transition: color 0.2s ease-in;
 }
 .hover-effect-container:hover .project-item-square img {
     opacity: 1;
-    
+    transition: opacity 0.2s ease-in;
+}
+
+//---------------------------
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}  
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
 }
 .hover-effect-container:hover .project-item-square__center__profile-circle {
     display: block;
-    
+    -webkit-animation: fadeIn 0.3s;
+    animation: fadeIn 0.3s;
 }
+//----------------------------------
+
+.hover-effect-container:hover .proj-add {
+    border: 2px dashed $text-gray;
+    transition: border-color 0.3s ease-in;
+}
+.hover-effect-container:hover .proj-add__icon {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
 .mininav-container {
     display: flex;
     flex-flow: row nowrap;
@@ -81,16 +103,22 @@
     height: 20px;
     opacity: 0;
 }
+
 .project-item-square {
     width: 120px;
     height: 120px;
     border-radius: 20px;
-    //temporary until building dynamic coloring
-    background-color: $workspace-orange;
     box-shadow: inset 0 -2px rgba(0,0,0,.05);
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
+
+    
+
+    &--proj {
+        //temporary until building dynamic coloring
+        background-color: $workspace-orange;
+    }
 
     &__mininav {
         margin-top: 5px;
@@ -114,10 +142,20 @@
         }
         &__profile-circle {
             display: none;
+            
         }
     }
 }
-
+.proj-add {
+    border: 2px dashed rgb(156, 166, 175);
+    box-shadow: none;
+    background-color: white;
+    justify-content: center;
+    &__icon {
+        margin-bottom: 26px;
+        opacity: 0.7;
+    }
+}
 //testing it out
 .project-item-square__center__icon img {
     width: 50px;
