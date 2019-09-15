@@ -1,22 +1,19 @@
 import React from 'react';
 
 function ProjectNavList(props) {
-    //need array of projects
+    
+    function handleProjectLink(e, projectId) {
+        //redirect to project show page
+    }
+    
     return (
         <div className='project-list-container'>
-            {/* {props.projects.map((project, i) => (
-                <div key={i}>{project.name}</div>
-            ))} */}
-            <div className='project-list-container__item'>
-                <div className='color-bullet'></div>
-                <div className='project-list-container__item-name'>Samasana</div>
-            </div>
-            <div className='project-list-container__item'>
-                <div className='color-bullet'></div>
-                <div className='project-list-container__item-name'>Asana Basic Training</div>
-            </div>
-            
-    
+            {props.projects.map((project, i) => (
+                <div key={project.id} onClick={(e)=>handleProjectLink(e, project.id)} className='project-list-container__item'>
+                    <div className='color-bullet'></div>
+                    <div className='project-list-container__item-name'>{project.name}</div>
+                </div>
+            ))}            
         </div>
     );
 }

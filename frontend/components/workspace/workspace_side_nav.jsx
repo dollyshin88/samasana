@@ -24,14 +24,13 @@ function SideNav (props) {
             return proj;
         }   
     }
-    //create SideNavItem, MembersList, and ProjectNavList component
     return (
         <div className='workspace-side-nav-container'>
             <div className='logo-wrap-workspace'>
                 <Logo />
             </div>
             <NavMainList />
-            <NavWorkspaceList />
+            <NavWorkspaceList members={props.members} projects={props.projects} />
            
         </div>
     );
