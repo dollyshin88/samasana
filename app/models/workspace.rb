@@ -27,7 +27,7 @@ class Workspace < ApplicationRecord
 
     has_many :tasks,
     foreign_key: :workspace_id,
-    class_name: :tasks,
+    class_name: :Task,
     dependent: :destroy 
 
 end

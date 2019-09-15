@@ -44,7 +44,7 @@ function Workspace(props){
         props.fetchAllProjects(props.currentWorkspace.id);
         props.fetchAllMembers(props.currentWorkspace.id);
         props.fetchAllTasks(props.currentWorkspace.id);
-        //fetch all tasks and workspace members
+        props.fetchAllWorkspaces();
     }, []);
 
     // make side nav and workspace home connected components

@@ -6,3 +6,9 @@ export const createWorkspace = workspace => (
     })
 );
 
+export const fetchAllWorkspaces = () => (
+    $.ajax({
+        method: 'GET',
+        url: 'api/workspaces',
+    })
+);

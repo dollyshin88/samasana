@@ -12,23 +12,23 @@ class Api::WorkspacesController < ApplicationController
     end
 
 
-    ## NOTE: may not need index action
+   
     def index 
-        #index sends a list of workspaces for the user
-        user = User.find(params[:user_id])
-        @workspaces = user.workspaces.includes(:members)
-        render :index
+        #index sends a list of workspaces for the current user
+        @workspaces = current_user.workspaces.includes(:tasks)
+        
+        render :index 
     end
 
-    def show
-        @workspace = Workspace.find_by(id: params[:id])
-        @members = @workspace.members
-        if @workspace 
-            render :show
-        else
-            render json: ['No workspace found']
-        end
-    end
+    # def show
+    #     @workspace = Workspace.find_by(id: params[:id])
+    #     @members = @workspace.members
+    #     if @workspace 
+    #         render :show
+    #     else
+    #         render json: ['No workspace found']
+    #     end
+    # end
 
     def update
     end

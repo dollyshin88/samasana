@@ -6,9 +6,9 @@ export const REMOVE_TASK = 'REMOVE_TAKS';
 export const RECEIVE_TASK_ERRORS = 'RECEIVE_TASK_ERRORS';
 
 // regular actions creators
-export const receiveAllTasks = payload => ({
+export const receiveAllTasks = tasks => ({
     type: RECEIVE_ALL_TASKS,
-    payload
+    tasks
 });
 
 export const receiveTask = payload => ({
@@ -28,7 +28,7 @@ export const receiveTaskErrors = errors => ({
 
 // thunk action creators
 export const fetchAllTasks = workspace_id => dispatch => APIUtil.fetchAllTasks(workspace_id)
-    .then(tpayload => dispatch(receiveAllTasks(tpayload)));
+    .then(tasks => dispatch(receiveAllTasks(tasks)));
 
 export const fetchTask = id => dispatch => APIUtil.fetchTask(id)
     .then(payload => dispatch(receiveTask(payload)));

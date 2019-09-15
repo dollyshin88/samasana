@@ -2,10 +2,10 @@ import { RECEIVE_ALL_TASKS, RECEIVE_TASK, REMOVE_TASK } from '../actions/task_ac
 
 const tasksReducer = (state={}, action) => {
     Object.freeze(state);
-
+    
     switch (action.type) {
         case RECEIVE_ALL_TASKS:
-            return action.payload.tasks;
+            return action.tasks;
         
         case RECEIVE_TASK:
             return Object.assign({}, state, action.payload.tasks);

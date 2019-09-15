@@ -16,12 +16,24 @@
 #  parent_task_id  :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  general_order   :integer          not null
 #
 
 class Task < ApplicationRecord
     BOOL = [true, false]
     validates :name, :creator_id, :workspace_id, presence: true
     validates :completed, inclusion: BOOL
+    after_initialize :ensure_general_order
+
+    def ensure_general_order
+        self.general_order ||= calculate_general_order
+    end
+
+    def calculate_general_order
+        workspace_tasks = Task.where(workspace_id: self.workspace_id) 
+        highest_order_task = workspace_tasks.max_by { |task| task.general_order }
+        return highest_order_task.general_order + 1
+    end
 
     #note: when sections and association with secion is added -- section_id is required if project_id is present
 
