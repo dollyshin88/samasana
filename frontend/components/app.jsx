@@ -8,6 +8,7 @@ import Welcome from './session/welcome';
 import SignupProfileForm from './session/signup_container';
 import Setup from './setup/setup';
 import ErrorPage from './shared/error_page';
+import NewProjectForm from './workspace/projects/new_project_form';
 
 function App(props) {
 
@@ -19,6 +20,9 @@ function App(props) {
                 <AuthRoute exact path='/signup/welcome' component={Welcome} />
                 <AuthRoute exact path='/signup/profile' component={SignupProfileForm} />
                 <ProtectedRoute path='/setup' component={Setup} />
+                <ProtectedRoute path='/project/new' component={NewProjectForm} />
+                {/* <ProtectedRoute path='/mytasks' component={MyTasks} /> */}
+
                 <ProtectedRoute path='/' component={WorkspaceContainer} />
                 <Route component={ErrorPage} />
             </Switch>

@@ -28,7 +28,7 @@ export const receiveProjectErrors = errors => ({
 
 // thunk actions
 export const fetchAllProjects = workspace_id => dispatch => APIUtil.fetchAllProjects(workspace_id)
-    .then(projects => dispatch(receiveAllProjects(projects)))
+    .then(projects => dispatch(receiveAllProjects(projects)));
 
 export const fetchProject = id => dispatch => APIUtil.fetchProject(id)
     .then(payload => dispatch(receiveProject(payload)));

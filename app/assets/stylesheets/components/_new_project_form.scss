@@ -1,0 +1,13 @@
+.bullet-item{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 8px;
+    
+
+    &__text {
+        font-size: 0.9rem;
+        font-weight: 300;
+    }
+}
