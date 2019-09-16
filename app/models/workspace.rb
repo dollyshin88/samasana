@@ -21,7 +21,7 @@ class Workspace < ApplicationRecord
     source: :member
 
     has_many :projects,
-    foreign_key: :project_id,
+    foreign_key: :workspace_id,
     class_name: :Project,
     dependent: :destroy
 

@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+WorkspaceMembership.destroy_all
 User.destroy_all
 Task.destroy_all
 Project.destroy_all
 Workspace.destroy_all
-WorkspaceMembership.destroy.all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('projects')
 ActiveRecord::Base.connection.reset_pk_sequence!('tasks')

@@ -31,8 +31,11 @@ class Task < ApplicationRecord
 
     def calculate_general_order
         workspace_tasks = Task.where(workspace_id: self.workspace_id) 
-        highest_order_task = workspace_tasks.max_by { |task| task.general_order }
-        return highest_order_task.general_order + 1
+        if !workspace_tasks.empty?
+            highest_order_task = workspace_tasks.max_by { |task| task.general_order }
+            return highest_order_task.general_order + 1
+        end
+        return 0
     end
 
     #note: when sections and association with secion is added -- section_id is required if project_id is present
