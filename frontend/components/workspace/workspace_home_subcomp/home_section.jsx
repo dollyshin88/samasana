@@ -9,11 +9,11 @@ function HomeSection (props) {
     // let clickables; bonus scope
 
     if (props.section === 'tasks') {
-        component = <HomeTaskList tasks={props.tasks}/>;
+        component = <HomeTaskList tasks={props.tasks} projects={props.projects}/>;
         sectionTitle = 'Tasks Due Soon'; 
 
     } else {
-        component = <HomeProjectList projects={props.projects}/>;
+        component = <HomeProjectList projectsArr={props.projectsArr}/>;
         sectionTitle = 'Recent Projects';
     }
 

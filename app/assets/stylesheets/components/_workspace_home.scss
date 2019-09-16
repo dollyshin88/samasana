@@ -217,6 +217,10 @@
         flex: 0 1 auto;
     }
 }
+.task-row:hover {
+    background-color: $hover-gray;
+    transition: background-color 0.2s ease-in;
+}
 .task-row:last-child {
     border-bottom: none;
 }

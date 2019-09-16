@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function HomeTaskRow(props) {
+    function renderProjectPillLink() {
+        return (Object.values(props.projects).length && props.projects[props.task.project_id]) ? (
+            <div className='pill-link truncate'>{props.projects[props.task.project_id].name}</div>
+        ) : (<></>)
+    }
+
     // the whole div should dispatch modalOpen with taskshow
     const projectName = (props.task.project_id) ? ('') : ('');
     return (
@@ -14,11 +20,11 @@ function HomeTaskRow(props) {
             </div>
             <div className='task-row__aside'>
                 <div className='pill-link-container'>
-                <div className='pill-link truncate'>project show page btn</div>
+                    {renderProjectPillLink()}
                 </div>
                 {/* link to project show page */}
 
-                <div className='task-due-text'>Tomorrow</div>
+                <div className='task-due-text'>{props.task.due_on}</div>
             </div>
         </div>
     );

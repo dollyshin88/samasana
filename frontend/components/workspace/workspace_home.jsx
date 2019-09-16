@@ -15,8 +15,8 @@ function WorkspaceHome (props) {
         </div>
         <div className='workspace-grid-item-main'>
             <div className='workspace-home-container'>
-                <HomeSection section='tasks' tasks={props.tasks} />
-                <HomeSection section='projects' projects={props.projects} /> 
+                <HomeSection section='tasks' tasks={props.tasks} projects={props.projects}/>
+                <HomeSection section='projects' projectsArr={props.projectsArr} /> 
             </div>
         </div>
         </>

@@ -5,7 +5,7 @@ function HomeTaskList(props) {
 
     function renderListItems() {
         return (props.tasks.map((task, i) => (
-        <HomeTaskRow key={i} task={task} />
+        <HomeTaskRow key={i} task={task} projects={props.projects}/>
         )));
     }
     // render task items with flexbox column nowrap, justify-content: center

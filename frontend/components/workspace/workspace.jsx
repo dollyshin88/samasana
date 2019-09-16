@@ -32,6 +32,7 @@ function Workspace(props){
             return (
                 <WorkspaceHome
                     projects={props.projects}
+                    projectsArr={props.projectsArr}
                     tasks={props.tasks}
                     currentUserInitial={props.currentUserInitial}
                     currentUserId={props.currentUserId}
@@ -54,7 +55,7 @@ function Workspace(props){
         
         <div className='page-container workspace-grid-container'>
             <div className='workspace-grid-item-sidebar'>
-                <SideNav members={props.members} projects={props.projects}/>
+                <SideNav members={props.members} projects={props.projectsArr}/>
                 <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
             </div>
             

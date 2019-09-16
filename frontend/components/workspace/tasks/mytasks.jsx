@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 import ReactDOM from 'react-dom';
-import { taskIdsByDateSelector, tasksFromIdsSelector } from '../../../reducers/selector_util';
+import { taskIdsByDateSelector, tasksFromIdsSelector, initialsSelector } from '../../../reducers/selector_util';
 import { updateTask } from '../../../actions/task_actions';
 import { fetchAllWorkspaces } from '../../../actions/workspace_actions';
 import TaskListSection from './task_list_section';
+import WorkspaceHeaderNav from '../workspace_header_nav';
 
 function MyTasks(props) {
 
@@ -88,26 +89,38 @@ function MyTasks(props) {
 
     
     return (
-        <div className='mytasks-page-container'>
-        <div className='mytasks-all-dnd'>
-            <div className='mytasks-dnd'>
-                <DragDropContext onDragEnd={onDragEndToday}>
-                    <TaskListSection list='Today' tasks={props.todayTasks} />
-                </DragDropContext>
-            </div>
-            <div className='mytasks-dnd'>
-                <DragDropContext onDragEnd={onDragEndUpcoming}>
-                    <TaskListSection list='Upcoming' tasks={props.upcomingTasks} />
-                </DragDropContext>
-            </div>
-            <div className='mytasks-dnd'>
-                <DragDropContext onDragEnd={onDragEndLater}>
-                    <TaskListSection list='Later' tasks={props.laterTasks} />
-                </DragDropContext>
+        <>
+        <div className='workspace-grid-item-header'>
+            <WorkspaceHeaderNav
+                currentUserInitial={props.currentUserInitial}
+                currentUserId={props.currentUserId}
+                title={`${props.currentUser.name}'s Tasks - ${props.currentWorkspace.name}`}
+            />
+        </div>
+        <div className='workspace-grid-item-main mytasks-page'>
+            
+            <div className='sub-header-nav'>will become a subheader nav</div>
+            <div className='mytasks-all-dnd-buff'>
+                <div className='mytasks-all-dnd'>
+                    <div className='mytasks-dnd'>
+                        <DragDropContext onDragEnd={onDragEndToday}>
+                            <TaskListSection list='Today' tasks={props.todayTasks} projects={props.projects}/>
+                        </DragDropContext>
+                    </div>
+                    <div className='mytasks-dnd'>
+                        <DragDropContext onDragEnd={onDragEndUpcoming}>
+                                <TaskListSection list='Upcoming' tasks={props.upcomingTasks} projects={props.projects}/>
+                        </DragDropContext>
+                    </div>
+                    <div className='mytasks-dnd'>
+                        <DragDropContext onDragEnd={onDragEndLater}>
+                                <TaskListSection list='Later' tasks={props.laterTasks} projects={props.projects}/>
+                        </DragDropContext>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-
+        </>
     );
 }
 
@@ -136,6 +149,11 @@ const mapStateToProps = state => {
     todayTasks: todayTasks,
     upcomingTasks: upcomingTasks,
     laterTasks: laterTasks,
+    currentUser: state.entities.users[state.session.id],
+    currentWorkspace: state.entities.currentWorkspace,
+    currentUserId: state.session.id,
+    currentUserInitial: initialsSelector(state.entities.users[state.session.id].name),
+    projects: state.entities.projects,
 })};
 
 const mapDispatchToProps = dispatch => ({

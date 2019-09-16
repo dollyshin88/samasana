@@ -9,7 +9,7 @@ function HomeProjectList(props) {
     }
 
     function renderListItems() {
-        return (props.projects.map((project, i) => (
+        return (props.projectsArr.map((project, i) => (
         <HomeProjectListItem key={i} project={project} />
         )));
     }

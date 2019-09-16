@@ -1,0 +1,32 @@
+.mytasks-page {
+    background-color: rgb(242, 244, 245);
+}
+.mytasks-all-dnd-buff {
+    width: 100%;
+    padding: 20px;
+}
+.mytasks-all-dnd {
+    min-width: 756px;
+    max-width: 1223px;
+    margin: 20px auto;
+    background-color: white;
+}
+
+.mytasks-dnd {
+
+}
+
+.sub-header-nav {
+
+}
+
+img.dragHandleIcon {
+    margin-top: -10px;
+    margin-bottom: 5px;
+    width: 30px;
+    opacity: 0;
+}
+.task-row:hover img.dragHandleIcon{
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in;
+}

@@ -3,31 +3,51 @@ import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 const Container = styled.div`
-    background-color: lightgrey;
-    display: flex;
+   
 `;
 const Handle = styled.div`
-    background-color: yellow;
-    height: 20px;
-    width: 20px;
+    display: flex;
+    justify-content: center;
+    :hover img.dragHandleIcon {
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+    }
 `;
 
+
+
 function TaskItem(props) {
-    
+    function renderProjectPillLink() {
+        return (Object.values(props.projects).length && props.projects[props.task.project_id]) ? (
+            <div className='pill-link truncate'>{props.projects[props.task.project_id].name}</div>
+        ) : (<></>)
+    }
     return (
         <Draggable draggableId={props.task.id} index={props.index}>
             {(provided, snapshot) => (
                 <Container
                     {...provided.draggableProps}
-                    {...provided.dragHandleProps}
                     ref={provided.innerRef}
                     isDragging={snapshot.isDraggin}
                 >
+                    <div className='task-row'>
                     <Handle
-                        // having  drag handle props in the handle only makes it draggable only from this div
                         {...provided.dragHandleProps}>
+                            <img className='dragHandleIcon' src={window.dragHandleIconURL} alt=""/>
                     </Handle>
-                        {props.task.name}
+                    <div className='task-row__main'>
+                        <div className='checkbox-circle'>
+                            <i className="fas fa-check fa-xs"></i>
+                        </div>
+                        <div className='task-row__main__text'>{props.task.name}</div>
+                    </div>
+                    <div className='task-row__aside'>
+                        <div className='pill-link-container'>
+                            {renderProjectPillLink()}
+                        </div>
+                        <div className='task-due-text'>{props.task.due_on}</div>
+                    </div>
+                    </div>
                 </Container>
             )}
         </Draggable>
