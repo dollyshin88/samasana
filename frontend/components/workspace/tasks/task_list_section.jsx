@@ -7,6 +7,19 @@ const TaskList = styled.div`
     padding: 8px;
 `;
 
+class InnerList extends React.Component {
+    shouldComponentUpdate(nextProps) {
+        if (nextProps.tasks === this.props.tasks) {
+            return false;
+        }
+        return true;
+    }
+    render() {
+        return this.props.tasks.map((task, i) => (
+                <TaskItem key={task.id} task={task} index={i} />
+            ));
+    }
+}
 
 function TaskListSection(props) {
     
@@ -19,9 +32,7 @@ function TaskListSection(props) {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
-                        {props.tasks.map((task, i) => (
-                            <TaskItem key={task.id} task={task} index={i}/>
-                        ))}
+                        <InnerList tasks={props.tasks}/>
                         {provided.placeholder}
                     </TaskList>
 

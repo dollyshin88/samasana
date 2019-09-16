@@ -7,7 +7,7 @@ import configureStore from './store/store';
 import { signup } from './actions/session_actions';
 import { createWorkspace } from './actions/workspace_actions';
 import { fetchAllProjects, createProject, deleteProject } from './actions/project_actions';
-import { fetchAllTasks, fetchTask, createTask, deleteTask } from './actions/task_actions';
+import { fetchAllTasks, fetchTask, createTask, updateTask, deleteTask } from './actions/task_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -49,4 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchTask = fetchTask;
     window.createTask = createTask;
     window.deleteTask = deleteTask;
+    window.updateTask = updateTask;
 });

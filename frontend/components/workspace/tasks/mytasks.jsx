@@ -11,57 +11,101 @@ function MyTasks(props) {
 
     let todayListLength = props.todayTasks.length;
     let upcomingListLength = props.upcomingTasks.length;
-    let laterListLength = props.laterTasks.length;
+    // let laterListLength = props.laterTasks.length;
 
     function onDragEndToday(result){
-        debugger
         const { destination, source, draggableId } = result;
         if (!destination) {
-            debugger
             return;
         }
-        
+    
         if (
             destination.droppableId === source.droppableId &&
             destination.index === source.index
         ) {
-            debugger
             return;
         }
 
-        debugger
         const newTaskIds = Array.from(props.todayTasksIds);
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
         
-        debugger
         newTaskIds.forEach((id, order) => (
             props.updateTask({id: id, general_order: order})
         ));
-        
-        //refetching workspaces necessary?
         props.fetchAllWorkspaces();
 
         return;
     }
-    function onDragEndUpcoming() { }
-    function onDragEndLater() { }
+    function onDragEndUpcoming(result) {
+        const { destination, source, draggableId } = result;
+        if (!destination) {
+            return;
+        }
+
+        if (
+            destination.droppableId === source.droppableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+
+        const newTaskIds = Array.from(props.upcomingTasksIds);
+        newTaskIds.splice(source.index, 1);
+        newTaskIds.splice(destination.index, 0, draggableId);
+
+        newTaskIds.forEach((id, order) => (
+            props.updateTask({ id: id, general_order: order + todayListLength })
+        ));
+        props.fetchAllWorkspaces();
+
+        return;
+    }
+    function onDragEndLater(result) {
+        const { destination, source, draggableId } = result;
+        if (!destination) {
+            return;
+        }
+
+        if (
+            destination.droppableId === source.droppableId &&
+            destination.index === source.index
+        ) {
+            return;
+        }
+
+        const newTaskIds = Array.from(props.laterTasksIds);
+        newTaskIds.splice(source.index, 1);
+        newTaskIds.splice(destination.index, 0, draggableId);
+
+        newTaskIds.forEach((id, order) => (
+            props.updateTask({ id: id, general_order: order + todayListLength + upcomingListLength })
+        ));
+        props.fetchAllWorkspaces();
+
+        return;
+    }
 
     
     return (
-        <div>
-            testing
-            <DragDropContext onDragEnd={onDragEndToday}>
-                <TaskListSection list='Today' tasks={props.todayTasks} />
-            </DragDropContext>
-
-            {/* <DragDropContext onDragEnd={onDragEndUpcoming}>
-                <TaskListSection list='Upcoming' tasks={props.upcomingTasks} />
-            </DragDropContext>
-
-            <DragDropContext onDragEnd={onDragEndLater}>
-                <TaskListSection list='Later' tasks={props.laterTasks} />
-            </DragDropContext> */}
+        <div className='mytasks-page-container'>
+        <div className='mytasks-all-dnd'>
+            <div className='mytasks-dnd'>
+                <DragDropContext onDragEnd={onDragEndToday}>
+                    <TaskListSection list='Today' tasks={props.todayTasks} />
+                </DragDropContext>
+            </div>
+            <div className='mytasks-dnd'>
+                <DragDropContext onDragEnd={onDragEndUpcoming}>
+                    <TaskListSection list='Upcoming' tasks={props.upcomingTasks} />
+                </DragDropContext>
+            </div>
+            <div className='mytasks-dnd'>
+                <DragDropContext onDragEnd={onDragEndLater}>
+                    <TaskListSection list='Later' tasks={props.laterTasks} />
+                </DragDropContext>
+            </div>
+        </div>
         </div>
 
     );
