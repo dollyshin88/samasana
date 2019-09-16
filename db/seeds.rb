@@ -21,24 +21,24 @@ ActiveRecord::Base.connection.reset_pk_sequence!('workspace_memberships')
 
 user1 = User.create({name: 'Ernie Man', email:'ernie@test.com', password: 'password'})
 workspace1 = Workspace.create({name: 'Workspace One'})
-wk_mem1 = WorkspaceMembership.create({member_id: user1.id, workspace_id: workspace1.id, is_admin: true})
+WorkspaceMembership.create({member_id: user1.id, workspace_id: workspace1.id, is_admin: true})
 
 user2 = User.create({name: 'Alia Shafi', email:'alia@test.com', password: 'password'})
 workspace2 = Workspace.create({name: 'Workspace Two'})
-wk_mem2 = WorkspaceMembership.create({member_id: user2.id, workspace_id: workspace2.id, is_admin: true})
+WorkspaceMembership.create({member_id: user2.id, workspace_id: workspace2.id, is_admin: true})
 
 user3 = User.create({name: 'Owen', email:'owem@test.com', password: 'password'})
-workspace3 = {name: 'Workspace Three'}
-wk_mem3 = WorkspaceMembership.create({member_id: user3.id, workspace_id: workspace3.id, is_admin: true})
+workspace3 = Workspace.create({name: 'Workspace Three'})
+WorkspaceMembership.create({member_id: user3.id, workspace_id: workspace3.id, is_admin: true})
 
-wk_mem4 = WorkspaceMembership.create({member_id: user1.id, workspace_id: workspace2.id, is_admin: false})
-wk_mem5 = WorkspaceMembership.create({member_id: user3.id, workspace_id: workspace2.id, is_admin: false})
+WorkspaceMembership.create({member_id: user1.id, workspace_id: workspace2.id, is_admin: false})
+WorkspaceMembership.create({member_id: user3.id, workspace_id: workspace2.id, is_admin: false})
 
 
 project1 = Project.create({name: 'Develop Hipcamp', owner_id: user1.id, workspace_id: workspace1.id})
 project2 = Project.create({name: 'Develop Strava', owner_id: user2.id, workspace_id: workspace2.id})
 project3 = Project.create({name: 'MERN Stack', owner_id: user2.id, workspace_id: workspace2.id})
-project4 = Project.create({name: 'Depop Fullstack', owner_id: user3.id, workspace_id: workspace3.id})
+Project.create({name: 'Depop Fullstack', owner_id: user3.id, workspace_id: workspace3.id})
 
 
 Task.create([
