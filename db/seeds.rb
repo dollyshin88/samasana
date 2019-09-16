@@ -24,18 +24,18 @@ User.create([
     {name: 'Alia Shafi', email:'alia@test.com', password: 'password'},
 ])
 Workspace.create([
-    {name: 'Ernie Workspace One'},
-    {name: 'Andrew Workspace One'},
-    {name: 'Alia Workspace One'},
+    {name: 'Workspace One'},
+    {name: 'Workspace Two'},
+    {name: 'Workspace Three'},
 ])
-WorkspaceMembership.create([
-    {member_id: 1, workspace_id: 1, is_admin: true},
-    {member_id: 3, workspace_id: 1, is_admin: false},
-    {member_id: 2, workspace_id: 2, is_admin: true},
-    {member_id: 4, workspace_id: 3, is_admin: true},
-    {member_id: 1, workspace_id: 3, is_admin: false},
-    {member_id: 2, workspace_id: 3, is_admin: false},
-])
+#WorkspaceMembership.create([
+#    {member_id: 1, workspace_id: 1, is_admin: true},
+#    {member_id: 3, workspace_id: 1, is_admin: false},
+#    {member_id: 2, workspace_id: 2, is_admin: true},
+#    {member_id: 4, workspace_id: 3, is_admin: true},
+#    {member_id: 1, workspace_id: 3, is_admin: false},
+#    {member_id: 2, workspace_id: 3, is_admin: false},
+#])
 
 Project.create([
     {name: 'Develop Hipcamp', owner_id: 1, workspace_id: 1},

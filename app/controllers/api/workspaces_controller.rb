@@ -3,7 +3,7 @@ class Api::WorkspacesController < ApplicationController
         @workspace = Workspace.new(workspace_params)
         if @workspace.save
             #create workspace membership when current user creates a new workspace
-            #WorkspaceMembership.create(member_id: current_user.id, workspace_id: @workspace.id, is_admin: true)
+            WorkspaceMembership.create(member_id: current_user.id, workspace_id: @workspace.id, is_admin: true)
             @member = current_user
             render :singleshow
         else
