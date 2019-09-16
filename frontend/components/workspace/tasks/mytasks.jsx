@@ -1,12 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import ReactDOM from 'react-dom';
-import { taskIdsByDateSelector, tasksFromIdsSelector, initialsSelector } from '../../../reducers/selector_util';
-import { updateTask } from '../../../actions/task_actions';
-import { fetchAllWorkspaces } from '../../../actions/workspace_actions';
 import TaskListSection from './task_list_section';
 import WorkspaceHeaderNav from '../workspace_header_nav';
+import NewTaskForm from './new_task_form';
+
 
 function MyTasks(props) {
 
@@ -86,7 +84,20 @@ function MyTasks(props) {
 
         return;
     }
+    //=================================================
+    const [newTask, setNewTask] = useState('false');
 
+    function handleNewTaskClick(e) {
+        e.preventDefault();
+        (newTask === 'false') ? setNewTask('true') : setNewTask('false');
+    }
+
+    function renderNewTaskForm() {
+        return (newTask === 'true') ? (
+                <NewTaskForm />
+            ) : ( null ) 
+    }
+    //==================================================
     
     return (
         <>
@@ -97,11 +108,16 @@ function MyTasks(props) {
                 title={`${props.currentUser.name}'s Tasks - ${props.currentWorkspace.name}`}
             />
         </div>
+
         <div className='workspace-grid-item-main mytasks-page'>
             
             <div className='sub-header-nav'>will become a subheader nav</div>
-            <div className='mytasks-all-dnd-buff'>
-                <div className='mytasks-all-dnd'>
+            
+            <div className='mytasks-all-dnd__buff'>
+                <div className='mytasks-all-dnd__main'>
+                    <div className='mytasks-all-dnd__header'>
+                        <button onClick={handleNewTaskClick} className='mytasks-all-dnd__btn'>Add Task</button>
+                    </div>
                     <div className='mytasks-dnd'>
                         <DragDropContext onDragEnd={onDragEndToday}>
                             <TaskListSection list='Today' tasks={props.todayTasks} projects={props.projects}/>
@@ -118,47 +134,13 @@ function MyTasks(props) {
                         </DragDropContext>
                     </div>
                 </div>
+                {renderNewTaskForm()}
             </div>
+
         </div>
         </>
     );
 }
 
-const mapStateToProps = state => {
-    let todayTasksIds = [];
-    let upcomingTasksIds = [];
-    let laterTasksIds = [];
-    let todayTasks = [];
-    let upcomingTasks = [];
-    let laterTasks = [];
-    
-    if (Object.values(state.entities.tasks).length && Object.values(state.entities.workspaces).length) {
-        
-        todayTasksIds = taskIdsByDateSelector(state, 'today');
-        upcomingTasksIds = taskIdsByDateSelector(state, 'upcoming');
-        laterTasksIds = taskIdsByDateSelector(state, 'later');
-        todayTasks = tasksFromIdsSelector(state, todayTasksIds);
-        upcomingTasks = tasksFromIdsSelector(state, upcomingTasksIds);
-        laterTasks = tasksFromIdsSelector(state, laterTasksIds);
-    } 
-    
-    return ({
-    todayTasksIds: todayTasksIds,
-    upcomingTasksIds: upcomingTasksIds,
-    laterTasksIds: laterTasksIds,
-    todayTasks: todayTasks,
-    upcomingTasks: upcomingTasks,
-    laterTasks: laterTasks,
-    currentUser: state.entities.users[state.session.id],
-    currentWorkspace: state.entities.currentWorkspace,
-    currentUserId: state.session.id,
-    currentUserInitial: initialsSelector(state.entities.users[state.session.id].name),
-    projects: state.entities.projects,
-})};
 
-const mapDispatchToProps = dispatch => ({
-    updateTask: task => dispatch(updateTask(task)),
-    fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyTasks);
+export default MyTasks;

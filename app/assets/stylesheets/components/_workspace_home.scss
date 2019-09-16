@@ -190,7 +190,6 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid $lightest-gray;
 
     // transition: box-shadow 100ms ease-in-out;
     // transition-property: box-shadow;
@@ -221,9 +220,7 @@
     background-color: $hover-gray;
     transition: background-color 0.2s ease-in;
 }
-.task-row:last-child {
-    border-bottom: none;
-}
+
 
 .pill-link-container {
     flex: 0 1 auto;

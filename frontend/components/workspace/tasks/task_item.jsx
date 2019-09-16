@@ -29,25 +29,26 @@ function TaskItem(props) {
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                     isDragging={snapshot.isDraggin}
-                >
-                    <div className='task-row'>
-                    <Handle
-                        {...provided.dragHandleProps}>
-                            <img className='dragHandleIcon' src={window.dragHandleIconURL} alt=""/>
-                    </Handle>
-                    <div className='task-row__main'>
-                        <div className='checkbox-circle'>
-                            <i className="fas fa-check fa-xs"></i>
+                > 
+                    <div className='task-row zero-pad'>
+                        <Handle
+                            {...provided.dragHandleProps}>
+                                <img className='dragHandleIcon' src={window.dragHandleIconURL} alt=""/>
+                        </Handle>
+                        <div className='task-row__main'>
+                            <div className='checkbox-circle'>
+                                <i className="fas fa-check fa-xs"></i>
+                            </div>
+                            <div className='task-row__main__text'>{props.task.name}</div>
                         </div>
-                        <div className='task-row__main__text'>{props.task.name}</div>
-                    </div>
-                    <div className='task-row__aside'>
-                        <div className='pill-link-container'>
-                            {renderProjectPillLink()}
+                        <div className='task-row__aside'>
+                            <div className='pill-link-container'>
+                                {renderProjectPillLink()}
+                            </div>
+                            <div className='task-due-text'>{props.task.due_on}</div>
                         </div>
-                        <div className='task-due-text'>{props.task.due_on}</div>
                     </div>
-                    </div>
+                    <div className='task-divider'></div>
                 </Container>
             )}
         </Draggable>

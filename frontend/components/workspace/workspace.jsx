@@ -4,7 +4,7 @@ import WorkspaceHome from './workspace_home';
 import WorkspaceHeaderNav from './workspace_header_nav';
 import { useEffect } from 'react';
 import ProjectView from './projects/project_view';
-import MyTasks from './tasks/mytasks';
+import MyTasksContainer from './tasks/mytask_container';
 
 
 function Workspace(props){
@@ -26,7 +26,7 @@ function Workspace(props){
         
         } else if (myTaskRegex.test(props.location.pathname)) {
             return (
-                <MyTasks />
+                <MyTasksContainer />
             );
         } else {
             return (

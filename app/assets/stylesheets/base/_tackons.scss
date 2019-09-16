@@ -1,0 +1,47 @@
+// tac-on sytlings 
+.truncate {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.zero-pad {
+    padding: 0px
+}
+.shadow-std {
+    box-shadow: 0 5px 20px 0 rgba(21,27,38,.08);
+}
+
+.scrolly {
+    overflow-y: scroll;
+}
+
+.user-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: $workspace-purple;
+    border: 1px solid rgb(165, 93, 247);
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 25px;
+    vertical-align: middle;
+    font-weight: 300;
+}
+
+.color-bullet {
+    height:8px;
+    width: 8px;
+    border-radius: 2.5px;
+    background-color: $workspace-green;
+    margin-right: 14px;
+}
+
+.divider {
+    border-bottom: 1px solid $lightest-gray;
+}
+
+.divider:last-child {
+    border-bottom: none;
+}

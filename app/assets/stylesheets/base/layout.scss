@@ -3,6 +3,7 @@ html {
     height: 100%;
     font-family: $main-font;
     font-size: 16px;
+    width: 100vw;
 }
 
 //============ session flows============//
@@ -220,43 +221,7 @@ input::placeholder {
 }
 
 
-// tac-on sytlings 
-.truncate {
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
-.shadow-std {
-    box-shadow: 0 5px 20px 0 rgba(21,27,38,.08);
-}
-
-.scrolly {
-    overflow-y: scroll;
-}
-
-.user-circle {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: $workspace-purple;
-    border: 1px solid rgb(165, 93, 247);
-    color: white;
-    text-align: center;
-    font-size: 0.9rem;
-    line-height: 25px;
-    vertical-align: middle;
-    font-weight: 300;
-}
-
-.color-bullet {
-    height:8px;
-    width: 8px;
-    border-radius: 2.5px;
-    background-color: $workspace-green;
-    margin-right: 14px;
-}
 
 //checkbox transition
 // {transition: 200ms box-shadow,200ms color,200ms background,200ms fill,200ms border-color;
