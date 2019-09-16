@@ -1,6 +1,6 @@
 import * as APIUtil from '../util/workspaces_api_util';
 export const RECEIVE_NEW_WORKSPACE = 'RECEIVE_NEW_WORKSPACE';
-export const RECEIVE_ALL_WORKSPACES = 'RECEIVE_ALL_WORKSPACE';
+export const RECEIVE_ALL_WORKSPACES = 'RECEIVE_ALL_WORKSPACES';
 export const RECEIVE_WORKSPACE_ERRORS = 'RECEIVE_WORKSPACE_ERRORS';
 
 export const receiveNewWorkspace = payload => ({

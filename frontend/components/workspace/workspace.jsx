@@ -4,7 +4,8 @@ import WorkspaceHome from './workspace_home';
 import WorkspaceHeaderNav from './workspace_header_nav';
 import { useEffect } from 'react';
 import ProjectView from './projects/project_view';
-//create and import workspace project view and mytask view
+import MyTasks from './tasks/mytasks';
+
 
 function Workspace(props){
     function handleLogout() {
@@ -15,18 +16,18 @@ function Workspace(props){
     function renderMainComp() {
         
         const projectRegex = new RegExp('\/project\/.*');
-        const myTaskRegex = new RegExp('\/mytasks\/.*');
-        
+        const myTaskRegex = new RegExp('\/mytasks.*');
+    
         if (projectRegex.test(props.location.pathname)) {
             
             return (
                 <ProjectView />
             );
         
-        // } else if (props.locaiton.pathname === '/mytasks') {
-        //     return (
-        //         <WorkspaceMyTasks />
-        //     );
+        } else if (myTaskRegex.test(props.location.pathname)) {
+            return (
+                <MyTasks />
+            );
         } else {
             return (
                 <WorkspaceHome
@@ -45,6 +46,7 @@ function Workspace(props){
         props.fetchAllMembers(props.currentWorkspace.id);
         props.fetchAllTasks(props.currentWorkspace.id);
         props.fetchAllWorkspaces();
+        console.log('fetched projects, members, tasks, workspaces');
     }, []);
 
     // make side nav and workspace home connected components
