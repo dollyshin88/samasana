@@ -6,6 +6,10 @@ html {
 }
 
 //============ session flows============//
+
+.home-style {
+    font-family: $home-font;
+}
 .page-container {
     // currently signup flow pages are using it
     height: 100vh;
@@ -79,7 +83,7 @@ html {
 .btn {
     padding: 8px 16px;
     line-height: 30px;
-    font-weight: 500;
+    font-weight: 400;
     border-radius: 3px;
 
     &--link {
@@ -112,12 +116,14 @@ html {
     }
 
     &--blue {
-        font-weight: 500;
+        font-weight: 400;
         color: $core-teal;
     }
 }
 .hyperlink:hover {
     cursor: pointer;
+    text-decoration: underline;
+    
 }
 
 input::placeholder {
@@ -143,11 +149,12 @@ input::placeholder {
         display: block;
         font-family: $logo-font;
         background-color: transparent;
+
     }
 
     &__img {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
         background-color: transparent;
     }
 }
@@ -161,7 +168,7 @@ input::placeholder {
 
 .logo-wrap-company-home p {
     color: $dark-navy;
-    font-size: 32px;
+    font-size: 30px;
     padding: 0 3px;
 }
 

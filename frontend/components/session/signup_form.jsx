@@ -48,7 +48,7 @@ function SignupProfileForm(props) {
     }
 
     return (
-        <div id='signup-form' className='page-container'>
+        <div id='signup-form' className='page-container home-style'>
             <div onClick={handleHomeRedirect} className='btn logo-wrap-company-home'>
                 <Logo />
             </div>

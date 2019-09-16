@@ -43,7 +43,7 @@ function LoginForm(props) {
 
     function handleDemoLogin(e) {
         // todo: modify to have ghost typing as a bonus feature
-        const demoEmail = 'demouser@demo.com';
+        const demoEmail = 'alia@test.com';
         const demoPassword = 'password'
         props.login({ email: demoEmail, password: demoPassword })
             .then(()=> {
@@ -57,7 +57,7 @@ function LoginForm(props) {
     }
 
     return (
-        <div id='login-container' className='login-container'>
+        <div id='login-container' className='login-container home-style'>
             <h3 className='login-container__header'>Log in</h3>
             <i className="fas fa-times login-container__close-btn" onClick={handleModalClose}></i>
 
