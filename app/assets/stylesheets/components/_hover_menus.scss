@@ -1,7 +1,28 @@
+//todo: remove the -btn classes and use the generic .dropdown-parent-btn
 .project-item-squre_mininav-btn {
     position: relative;
 }
+.project-list__mininav-btn {
+    position: relative;
+}
+
+.project-list__mininav {
+    padding-bottom: 5px;
+    margin-top: -8px;
+    opacity: 0;
+}
+.project-list-container__item:hover .project-list__mininav {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+
+.dropdown-parent-btn {
+    position: relative
+}
+
 .mininav-dropdown {
+    z-index: 3;
     position: absolute;
     top: 33px;
     left: 0px;
@@ -21,6 +42,35 @@
         color: $dark-navy;
     }
 }
+
+
+.create-all-dropdown {
+    z-index: 3;
+    position: absolute;
+    top: 41px;
+    right: 7px;
+    font-size: 0.85rem;
+    width: 150px;
+    height: 100px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(100,111,121,.15), 0 5px 20px 0 rgba(21,27,38,.08);
+    // -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &__item {
+        margin: 10px;
+        color: $text-gray;
+    }
+    &__item:hover {
+        color: $dark-navy;
+    }
+}
+.side {
+    top: 26px;
+    left: -138px;
+    z-index: 3;
+}
+
 
 .hidden {
     display: none;

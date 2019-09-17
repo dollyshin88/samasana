@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => ({
     fetchAllMembers: workspace_id => dispatch(fetchAllMembers(workspace_id)),
     fetchAllTasks: workspace_id => dispatch(fetchAllTasks(workspace_id)),
     fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
-    openModal: contentType => dispatch(openModal(contentType))
+    openModal: (contentName, data) => dispatch(openModal(contentName, data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Workspace);

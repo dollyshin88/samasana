@@ -12,7 +12,7 @@ const projectsReducer = (state={}, action) => {
 
         case REMOVE_PROJECT:
             const nextState = Object.assign({}, state);
-            delete nextState.entities.projects[action.projectId];
+            delete nextState[action.projectId];
             return nextState;
 
         default:

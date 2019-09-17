@@ -35,7 +35,24 @@ document.addEventListener("DOMContentLoaded", () => {
         <Root store={store} /> 
         , root
     );
-
+    
+    window.setTimeout(() => {
+        const menus = document.querySelectorAll('.menu');
+        
+        document.addEventListener('click', (e) => {
+            let children = e.target.parentElement.children;
+            children = Array.from(children);
+            if (children.some((child) => child.classList.contains('menu'))) return;
+            if(e.target.closest('.menu')) return;
+        
+            menus.forEach(menu => {
+                if(!menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
+            });
+        });
+    }, 3000);
+    
 
     // FOR TESTING ONLY
     window.getState = store.getState;
@@ -51,3 +68,4 @@ document.addEventListener("DOMContentLoaded", () => {
     window.deleteTask = deleteTask;
     window.updateTask = updateTask;
 });
+

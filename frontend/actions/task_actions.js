@@ -4,6 +4,7 @@ export const RECEIVE_ALL_TASKS = 'RECEIVE_ALL_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
 export const REMOVE_TASK = 'REMOVE_TAKS';
 export const RECEIVE_TASK_ERRORS = 'RECEIVE_TASK_ERRORS';
+export const CLEAR_TASK_ERRORS = 'CLEAR_TASK_ERRORS';
 
 // regular actions creators
 export const receiveAllTasks = tasks => ({
@@ -24,6 +25,10 @@ export const removeTask = id => ({
 export const receiveTaskErrors = errors => ({
     type: RECEIVE_TASK_ERRORS,
     errors
+});
+
+export const clearTaskErrors = () => ({
+    type: CLEAR_TASK_ERRORS,
 });
 
 // thunk action creators

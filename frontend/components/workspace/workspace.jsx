@@ -1,7 +1,6 @@
 import React from 'react';
 import SideNav from './workspace_side_nav';
 import WorkspaceHome from './workspace_home';
-import WorkspaceHeaderNav from './workspace_header_nav';
 import { useEffect } from 'react';
 import ProjectView from './projects/project_view';
 import MyTasksContainer from './tasks/mytask_container';
@@ -48,7 +47,6 @@ function Workspace(props){
         props.fetchAllMembers(props.currentWorkspace.id);
         props.fetchAllTasks(props.currentWorkspace.id);
         props.fetchAllWorkspaces();
-        console.log('fetched projects, members, tasks, workspaces');
     }, []);
 
     // make side nav and workspace home connected components

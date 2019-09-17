@@ -7,6 +7,7 @@
     align-items: flex-start;
     margin-top: 20px;
     margin-bottom: 50px;
+    margin-left: 10px;
     &__item {
         display: flex;
         flex-flow: row nowrap;
@@ -41,7 +42,7 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: space-around;
-    padding-left: 8px;
+    // padding-left: 8px;
     max-height: 500px;
 
     &__title {
@@ -49,7 +50,8 @@
         font-weight: 400;
         height: 20px;
         line-height: 20px;
-        margin: 8px 0;
+        margin: 8px 0px;
+        padding-left: 18px;
     }
 }
 
@@ -60,6 +62,7 @@
     justify-content: flex-start;
     align-items: center;
     margin: 8px 0;
+    padding-left: 18px;
 }
 
 .nav-circle {
@@ -74,20 +77,36 @@
 
 .project-list-container {
     margin: 8px 0;
+    width: 244px;
     &__item {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
+        padding-left: 18px;
+        padding-right: 10px;
+        height: 25px;
+        background-color: transparent
     }
 
     &__item-name {
         font-size: 0.9rem;
         font-weight: 300;
     }
+    &__item-wrap {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        
+    }
 }
 
+.project-list-container__item:hover  {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease-in;
+}
 
 
 

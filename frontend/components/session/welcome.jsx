@@ -46,7 +46,7 @@ function Welcome(props) {
 }
 
 const mapDispatchToProps = dispatch => ({
-    openModal: contentType => dispatch(openModal(contentType)),
+    openModal: (contentName, data) => dispatch(openModal(contentName, data)),
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Welcome));

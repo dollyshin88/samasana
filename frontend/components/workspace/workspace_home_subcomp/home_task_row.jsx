@@ -8,10 +8,13 @@ function HomeTaskRow(props) {
         ) : (<></>)
     }
 
+    function handleTaskModal() {
+        props.openModal('edit task', props.task)
+    }
     // the whole div should dispatch modalOpen with taskshow
     const projectName = (props.task.project_id) ? ('') : ('');
     return (
-        <div className='task-row divider'>
+        <div onClick={handleTaskModal} className='task-row divider'>
             <div className='task-row__main'>
                 <div className='checkbox-circle'>
                 <i className="fas fa-check fa-xs"></i>

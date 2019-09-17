@@ -3,7 +3,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import ReactDOM from 'react-dom';
 import TaskListSection from './task_list_section';
 import WorkspaceHeaderNav from '../workspace_header_nav';
-import NewTaskForm from './new_task_form';
+import NewTaskFormContainer from './new_form_container';
 
 
 function MyTasks(props) {
@@ -101,7 +101,7 @@ function MyTasks(props) {
 
     function renderNewTaskForm() {
         return (newTask === 'true') ? (
-                <NewTaskForm />
+                <NewTaskFormContainer />
             ) : ( null ) 
     }
     //==================================================
@@ -113,6 +113,7 @@ function MyTasks(props) {
                 currentUserInitial={props.currentUserInitial}
                 currentUserId={props.currentUserId}
                 title={`${props.currentUser.name}'s Tasks - ${props.currentWorkspace.name}`}
+                openModal={props.openModal}
             />
         </div>
 

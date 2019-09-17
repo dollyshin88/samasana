@@ -11,6 +11,7 @@ function WorkspaceHome (props) {
                 currentUserInitial={props.currentUserInitial}
                 currentUserId={props.currentUserId}
                 title='Home'
+                openModal={props.openModal}
             />
         </div>
         <div className='workspace-grid-item-main'>
@@ -19,6 +20,7 @@ function WorkspaceHome (props) {
                     section='tasks' 
                     tasks={props.tasks} 
                     projects={props.projects}
+                    openModal={props.openModal}
                 />
                 <HomeSection 
                     section='projects' 

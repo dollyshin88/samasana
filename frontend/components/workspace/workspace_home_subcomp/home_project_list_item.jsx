@@ -11,12 +11,16 @@ function HomeProjectListItem(props) {
     
     function toggleDropdown(e) {
         e.stopPropagation();
-        const dropdown = document.getElementById('mininav-dropdown');
+        const dropdown = document.getElementById(`mininav-dropdown-${props.project.id}`);
         dropdown.classList.toggle('hidden');
     }
 
     function handleProjectShowRouting(e) {
         props.history.push(`/project/${props.project.id}/board`);
+    }
+
+    function handleEditProject() {
+        props.openModal('edit project', props.project);
     }
 
     const projColor = props.project.color;
@@ -28,9 +32,10 @@ function HomeProjectListItem(props) {
                     <div className='mininav-container'>
                         <img className='project-item-square__mininav' src={window.unfilledStarIconURL} />
                         
-                        <div onClick={toggleDropdown} className='project-item-squre_mininav-btn'>
+                        <div onClick={toggleDropdown} className='project-item-squre_mininav-btn menu-btn'>
                             <div className='project-item-square__mininav'>...</div>
-                            <div id='mininav-dropdown' className='mininav-dropdown hidden'>
+                            <div id={`mininav-dropdown-${props.project.id}`} className='mininav-dropdown menu hidden'>
+                                <div className='mininav-dropdown__item' onClick={handleEditProject}>Edit Project Detail</div>
                                 <div className='mininav-dropdown__item' onClick={handleRemoveProject}>Remove Project</div>
                             </div>
                         </div>

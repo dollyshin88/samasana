@@ -1,26 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { createProject } from '../../../actions/project_actions';
+
 
 
 //this component is wrapped in router and has router props
 function NewProjectForm(props) {
-    const [projectName, setProjectName] = useState('');
-    const [projectNotes, setProjectNotes] = useState('');
+    const [projectName, setProjectName] = useState(props.project.name);
+    const [projectNotes, setProjectNotes] = useState(props.project.notes);
     
+    const formHeaderText = (props.formType === 'new') ? 'Add Project Details' : 'Edit Project Details';
+    const formButtonText = (props.formType === 'new') ? 'Create Project' : 'Update Project';
+
     function handleSubmitProject(e) {
         e.preventDefault();
-        const newProject = { name: projectName, workspace_id: props.currentWorkspaceId };
-        if (projectNotes !== '') {
-            newProject.notes = projectNotes;
+ 
+        const thisProject = Object.assign(props.project);
+        thisProject.name = projectName;
+        thisProject.notes = projectNotes;
+
+        if (props.formType === 'new') {
+            props.projectAction(thisProject)
+                .then(action => {
+                    props.closeModal();
+                    props.history.push(`/project/${Object.keys(action.payload.project)[0]}/board`);
+                }); 
+        } else {
+            props.projectAction(thisProject)
+                .then(action => {
+                    props.closeModal();
+                }); 
         }
-        props.createProject(newProject)
-            .then(action => {
-                props.closeModal();
-                props.history.push(`/project/${Object.keys(action.payload.project)[0]}/board`);
-            });
-            
     }
 
     function handleProjectNameChange(e) {
@@ -47,12 +55,13 @@ function NewProjectForm(props) {
             };
         }
     }, []);
+
  
     return(
         <div className='page-container'>
             <div id='project-form-container' className='modal-comp-container'>
             <i className="fas fa-times modal-comp-container__close-btn" onClick={handleModalClose}></i>
-                <div className='modal-comp-container__header'>Add Project Details</div>
+                <div className='modal-comp-container__header'>{formHeaderText}</div>
                 {renderErrors()}
                 <form onSubmit={handleSubmitProject} className='project-form'>
                     <div className='form-item-wrap'>
@@ -64,7 +73,13 @@ function NewProjectForm(props) {
                     </div>
                     <div className='form-item-wrap'>
                         <label className='project-form__label' htmlFor="name">Project Name</label>
-                        <input className='project-form__input' type="text" id='name' onChange={handleProjectNameChange} value={projectName}/>
+                        <input 
+                            className='project-form__input' 
+                            type="text" 
+                            id='name' 
+                            onChange={handleProjectNameChange} 
+                            value={projectName}
+                        />
                     </div>
                     <div className='form-item-wrap'>
                         <label className='project-form__label' htmlFor="description">Project Description</label>
@@ -76,22 +91,13 @@ function NewProjectForm(props) {
                             value={projectNotes}>
                         </textarea>
                     </div>
-                    <button className='project-form__btn project-form__btn--blue'>Create Project</button>
+                    <button className='project-form__btn project-form__btn--blue'>{formButtonText}</button>
                 </form>
             </div>
         </div>
     );
 }
 
-const mapStateToProps = (state, ownProps) => ({
-    currentWorkspaceId: state.entities.currentWorkspace.id,
-    closeModal: ownProps.closeModal,
-    errors: state.errors.project,
-});
 
-const mapDispatchToProps = dispatch => ({
-    createProject: project => dispatch(createProject(project)),
-    clearProjectErrors: () => dispatch(clearProjectErrors()),
-});
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewProjectForm));
+export default NewProjectForm;

@@ -11,7 +11,7 @@ function HomeProjectList(props) {
 
     function renderListItems() {
         return (props.projectsArr.map((project, i) => (
-        <HomeProjectListItem key={i} project={project} />
+        <HomeProjectListItem key={i} project={project} openModal={props.openModal}/>
         )));
     }
     // render project items with flexbox row wrap

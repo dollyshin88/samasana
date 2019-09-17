@@ -4,19 +4,36 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/login_container';
-import NewProjectForm from '../workspace/projects/new_project_form';
+import NewProjectFormConatiner from '../workspace/projects/new_form_container';
+import EditProjectFormContainer from '../workspace/projects/edit_form_container';
+import NewTaskFormConatiner from '../workspace/tasks/new_form_container';
+import EditTaskFormContainer from '../workspace/tasks/edit_form_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
     let modalComponent;
-    switch (modal) {
+    
+    switch (modal.type) {
         case 'login':
             modalComponent = <LoginFormContainer closeModal={closeModal} />;
             break;
         
         case 'new project':
-            modalComponent = <NewProjectForm closeModal={closeModal} />;
+            modalComponent = <NewProjectFormConatiner closeModal={closeModal} />;
             break;
+
+        case 'edit project':
+            modalComponent = <EditProjectFormContainer closeModal={closeModal} project={modal.data} />
+            break;
+
+        case 'new task':
+            modalComponent = <NewTaskFormConatiner closeModal={closeModal} />;
+            break;
+    
+        case 'edit task':
+            modalComponent = <EditTaskFormContainer closeModal={closeModal} task={modal.data} />
+            break; 
+
         default:
             return null;
     }
@@ -34,9 +51,11 @@ function Modal({ modal, closeModal }) {
     );
 }
 
-const mapStateToProps = state => ({
-    modal: state.ui.modal,
-});
+const mapStateToProps = state => {
+    const modal = (state.ui.modal) ? state.ui.modal : null;
+    return ({
+    modal: modal,
+})};
 
 const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal()),

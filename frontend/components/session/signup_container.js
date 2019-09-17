@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
     signup: user => dispatch(signup(user)),
     clearSessionErrors: () => dispatch(clearSessionErrors()),
-    openModal: contentType => dispatch(openModal(contentType)),
+    openModal: (contentName, data) => dispatch(openModal(contentName, data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupProfileForm);
