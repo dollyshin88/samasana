@@ -4,6 +4,7 @@ export const RECEIVE_ALL_PROJECTS = 'RECEIVE_ALL_PROJECTS';
 export const RECEIVE_PROJECT = 'RECEIVE_PROJECTS';
 export const REMOVE_PROJECT = 'REMOVE_PROJECT';
 export const RECEIVE_PROJECT_ERRORS = 'RECEIVE_PROJECT_ERRORS';
+export const CLEAR_PROJECT_ERRORS = 'CLEAR_PROJECT_ERRORS';
 
 // regular actions
 export const receiveAllProjects = projects => ({
@@ -24,6 +25,10 @@ export const removeProject = id => ({
 export const receiveProjectErrors = errors => ({
     type: RECEIVE_PROJECT_ERRORS,
     errors
+});
+
+export const clearProjectErrors = () => ({
+    type: CLEAR_PROJECT_ERRORS,
 });
 
 // thunk actions

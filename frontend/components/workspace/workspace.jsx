@@ -36,6 +36,7 @@ function Workspace(props){
                     tasks={props.tasks}
                     currentUserInitial={props.currentUserInitial}
                     currentUserId={props.currentUserId}
+                    openModal={props.openModal}
                 />
             );
         }

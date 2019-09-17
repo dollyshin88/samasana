@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/login_container';
+import NewProjectForm from '../workspace/projects/new_project_form';
 
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
@@ -12,7 +13,10 @@ function Modal({ modal, closeModal }) {
         case 'login':
             modalComponent = <LoginFormContainer closeModal={closeModal} />;
             break;
-    
+        
+        case 'new project':
+            modalComponent = <NewProjectForm closeModal={closeModal} />;
+            break;
         default:
             return null;
     }

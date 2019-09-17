@@ -15,8 +15,16 @@ function WorkspaceHome (props) {
         </div>
         <div className='workspace-grid-item-main'>
             <div className='workspace-home-container'>
-                <HomeSection section='tasks' tasks={props.tasks} projects={props.projects}/>
-                <HomeSection section='projects' projectsArr={props.projectsArr} /> 
+                <HomeSection 
+                    section='tasks' 
+                    tasks={props.tasks} 
+                    projects={props.projects}
+                />
+                <HomeSection 
+                    section='projects' 
+                    projectsArr={props.projectsArr} 
+                    openModal={props.openModal}
+                /> 
             </div>
         </div>
         </>

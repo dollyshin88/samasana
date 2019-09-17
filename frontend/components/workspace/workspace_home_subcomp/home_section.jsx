@@ -13,7 +13,7 @@ function HomeSection (props) {
         sectionTitle = 'Tasks Due Soon'; 
 
     } else {
-        component = <HomeProjectList projectsArr={props.projectsArr}/>;
+        component = <HomeProjectList projectsArr={props.projectsArr} openModal={props.openModal} />;
         sectionTitle = 'Recent Projects';
     }
 

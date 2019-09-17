@@ -57,9 +57,9 @@ function LoginForm(props) {
     }
 
     return (
-        <div id='login-container' className='login-container home-style'>
-            <h3 className='login-container__header'>Log in</h3>
-            <i className="fas fa-times login-container__close-btn" onClick={handleModalClose}></i>
+        <div id='login-container' className='modal-comp-container home-style'>
+            <h3 className='modal-comp-container__header'>Log in</h3>
+            <i className="fas fa-times modal-comp-container__close-btn" onClick={handleModalClose}></i>
 
             <form className='form' onSubmit={handleLogin}>
                 {renderErrors()}
@@ -74,7 +74,7 @@ function LoginForm(props) {
 
                 <button className="form__btn form__btn--purple">Log In</button>
                 <div onClick={handleDemoLogin} className="btn demo-btn">Demo Log In</div>
-                <p className='login-container__footer'>Don't have an account? <Link className='hyperlink--purple' onClick={handleModalClose} to='/signup/welcome'>Sign up</Link></p>
+                <p className='modal-comp-container__footer'>Don't have an account? <Link className='hyperlink--purple' onClick={handleModalClose} to='/signup/welcome'>Sign up</Link></p>
                 
 
             </form>

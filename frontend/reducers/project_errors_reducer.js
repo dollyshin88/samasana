@@ -1,4 +1,4 @@
-import { RECEIVE_PROJECT_ERRORS, RECEIVE_PROJECT } from '../actions/project_actions';
+import { RECEIVE_PROJECT_ERRORS, RECEIVE_PROJECT, CLEAR_PROJECT_ERRORS } from '../actions/project_actions';
 
 const projectErrorsReducer = (state=[], action) => {
     Object.freeze(state);
@@ -7,7 +7,7 @@ const projectErrorsReducer = (state=[], action) => {
         case RECEIVE_PROJECT_ERRORS:  
             return action.errors;
         
-        case RECEIVE_PROJECT:
+        case RECEIVE_PROJECT, CLEAR_PROJECT_ERRORS:
             return [];
 
         default:

@@ -6,6 +6,7 @@ import { fetchAllProjects } from '../../actions/project_actions';
 import { fetchAllTasks } from '../../actions/task_actions';
 import { initialsSelector } from '../../reducers/selector_util';
 import { fetchAllWorkspaces } from '../../actions/workspace_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
     currentUserId: state.session.id,
@@ -26,6 +27,7 @@ const mapDispatchToProps = dispatch => ({
     fetchAllMembers: workspace_id => dispatch(fetchAllMembers(workspace_id)),
     fetchAllTasks: workspace_id => dispatch(fetchAllTasks(workspace_id)),
     fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
+    openModal: contentType => dispatch(openModal(contentType))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Workspace);

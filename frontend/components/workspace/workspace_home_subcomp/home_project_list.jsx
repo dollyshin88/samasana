@@ -5,7 +5,8 @@ import { withRouter } from 'react-router-dom';
 function HomeProjectList(props) {
 
     function handleNewProjectClick() {
-        props.history.push('/project/new');
+        // props.history.push('/project/new');
+        props.openModal('new project');
     }
 
     function renderListItems() {
