@@ -2,6 +2,7 @@ import * as APIUtil from '../util/workspaces_api_util';
 export const RECEIVE_NEW_WORKSPACE = 'RECEIVE_NEW_WORKSPACE';
 export const RECEIVE_ALL_WORKSPACES = 'RECEIVE_ALL_WORKSPACES';
 export const RECEIVE_WORKSPACE_ERRORS = 'RECEIVE_WORKSPACE_ERRORS';
+export const RECEIVE_ORDERED_TASKS = 'RECEIVE_ORDERED_TASKS';
 
 export const receiveNewWorkspace = payload => ({
     type: RECEIVE_NEW_WORKSPACE, 
@@ -17,6 +18,13 @@ export const receiveWorkspaceErrors = errors => ({
     type: RECEIVE_WORKSPACE_ERRORS,
     errors
 });
+
+export const receiveOrderedTasks = (taskIdArr, workspaceId) => ({
+    type: RECEIVE_ORDERED_TASKS, 
+    taskIdArr, 
+    workspaceId,
+});
+
 
 
 //thunk action

@@ -32,7 +32,14 @@ function MyTasks(props) {
         newTaskIds.forEach((id, order) => (
             props.updateTask({id: id, general_order: order})
         ));
-        props.fetchAllWorkspaces();
+
+        //temporary adjustment ---- todo: refactor to have a custom backend api
+            // thunk action -- batch api call; 
+            //backend - (1)iterate over newtaskid array - update the general order to the index (wrap in rails transaction so it works in on go or nothing)
+                      // (2) custom json jbuilder view with key of tasks:{} and taskOrderArr:[same as from request]
+                      // (3) task reducer merge in the task and workspace reducer updates the currentworkspace taskIds
+        const entireArr = newTaskIds.concat(props.upcomingTasksIds, props.laterTasksIds);
+        props.receiveOrderedTasks(entireArr, props.currentWorkspace.id);
 
         return;
     }
