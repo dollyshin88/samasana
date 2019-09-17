@@ -1,0 +1,27 @@
+.project-item-squre_mininav-btn {
+    position: relative;
+}
+.mininav-dropdown {
+    position: absolute;
+    top: 33px;
+    left: 0px;
+    font-size: 0.85rem;
+    width: 150px;
+    height: 100px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(100,111,121,.15), 0 5px 20px 0 rgba(21,27,38,.08);
+    // -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &__item {
+        margin: 10px;
+        color: $text-gray;
+    }
+    &__item:hover {
+        color: $dark-navy;
+    }
+}
+
+.hidden {
+    display: none;
+}

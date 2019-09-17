@@ -1,18 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { initialsSelector } from '../../../reducers/selector_util';
+import { deleteProject } from '../../../actions/project_actions';
 
 function HomeProjectListItem(props) {
+    function handleRemoveProject() {
+        props.deleteProject(props.project);
+    }
+    
+    function toggleDropdown(e) {
+        e.stopPropagation();
+        const dropdown = document.getElementById('mininav-dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+
+    function handleProjectShowRouting(e) {
+        props.history.push(`/project/${props.project.id}/board`);
+    }
+
     const projColor = props.project.color;
     return (
-        <Link to={`/project/${props.project.id}/board`}>
+        <div onClick={handleProjectShowRouting}>
             
             <div className='hover-effect-container clickable'>
                 <div className='project-item-square project-item-square--proj'>
                     <div className='mininav-container'>
                         <img className='project-item-square__mininav' src={window.unfilledStarIconURL} />
-                        <div className='project-item-square__mininav'>...</div>
+                        
+                        <div onClick={toggleDropdown} className='project-item-squre_mininav-btn'>
+                            <div className='project-item-square__mininav'>...</div>
+                            <div id='mininav-dropdown' className='mininav-dropdown hidden'>
+                                <div className='mininav-dropdown__item' onClick={handleRemoveProject}>Remove Project</div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div className='project-item-square__center'>
@@ -23,7 +44,7 @@ function HomeProjectListItem(props) {
 
                 <div className='project-item-label'>{props.project.name}</div>
             </div>
-        </Link>
+        </div>
     );
 }
 
@@ -37,9 +58,9 @@ const mapStateToProps = (state, ownProps) => {
 })};
 
 const mapDispatchToProps = dispatch => ({
-
+    deleteProject: id => dispatch(deleteProject(id)),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(HomeProjectListItem);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeProjectListItem));
 //might need withRouter and/or Link
 //project item container goes to project show page on click
 // mini nav items have on click behaviors
