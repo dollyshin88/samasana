@@ -5,7 +5,7 @@ class Api::WorkspaceMembershipsController < ApplicationController
         if @workspace_membership.save
             render :show
         else
-            render json: @workspace.errors.full_messages
+            render json: @workspace.errors.full_messages, status: 400
         end
     end
 

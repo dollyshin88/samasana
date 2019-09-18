@@ -22,7 +22,7 @@ class Api::TasksController < ApplicationController
         if @task.save
             render :show
         else
-            render json: @task.errors.full_messages
+            render json: @task.errors.full_messages, status: 400
         end
     end
 
@@ -31,7 +31,7 @@ class Api::TasksController < ApplicationController
         if @task.update(task_params)
             render :show
         else
-            render json: @task.errors.full_messages
+            render json: @task.errors.full_messages, status: 400
         end
     end
 
@@ -41,8 +41,40 @@ class Api::TasksController < ApplicationController
         render json: @task
     end
 
+    def section_batch
+        @source = Section.find(batch_params[:source].id)
+        @destination = Section.find(batch_params[:destination].id)
+        @source_arr = batch_params[:source].taskIds
+        @destination_arr = batch_params[:destination].taskIds
+        
+        begin
+            source_tasks = Task.batch_update_section_order(@source.id, source_tasks_arr)
+            destination_tasks = Task.batch_update_section_order(@destination.id, destination_tasks_arr)
+        rescue ActiveRecord::RecordInvalid => exception
+            render json: [exception.message], status: 400
+        end
+        
+        @tasks = source_tasks.concat(destination_tasks)
+        render :batch_section
+    end
+
+    def general_batch
+        begin
+            @tasks = Task.batch_update_general_order(batch_params[:taskIds])
+        rescue ActiveRecord::RecordInvalid => exception
+            render json: [exception.message], status: 400
+        end
+        @taskIds = batch_params[:taskIds]
+        @workspaceId = params[:workspace_id]
+        render :batch_general
+    end
+
     private
     def task_params
         params.require(:task).permit(:name, :assignee_id, :workspace_id, :assignee_status, :completed, :completed_at, :due_on, :start_on, :project_id, :parent_task_id, :general_order)
+    end
+
+    def batch_params
+        params.require(:batch).permit(:source, :destination, :taskIds)
     end
 end

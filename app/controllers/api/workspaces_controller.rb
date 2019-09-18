@@ -7,7 +7,7 @@ class Api::WorkspacesController < ApplicationController
             @member = current_user
             render :singleshow
         else
-            render json: @workspace.errors.full_messages
+            render json: @workspace.errors.full_messages, status: 400
         end
     end
 
@@ -20,15 +20,15 @@ class Api::WorkspacesController < ApplicationController
         render :index 
     end
 
-    # def show
-    #     @workspace = Workspace.find_by(id: params[:id])
-    #     @members = @workspace.members
-    #     if @workspace 
-    #         render :show
-    #     else
-    #         render json: ['No workspace found']
-    #     end
-    # end
+    def show
+        @workspace = Workspace.includes(:members, {projects: {sections: [:tasks]}}, :tasks).find_by(id: params[:id])
+        
+        if @workspace 
+            render :show
+        else
+            render json: ['No workspace found']
+        end
+    end
 
     def update
     end

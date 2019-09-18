@@ -34,3 +34,19 @@ export const deleteTask = task => (
         url: `api/tasks/${task.id}`
     })
 );
+
+export const updateTaskGeneralOrder = (workspace_id, taskIds) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `api/batch/general/${workspace_id}/tasks`,
+        data: { batch: taskIds }
+    })
+);
+
+export const updateTaskSectionOrder = updates => (
+    $.ajax({
+        method: 'PATCH',
+        url: 'api/batch/section/tasks',
+        data: { batch: updates }
+    })
+);

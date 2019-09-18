@@ -8,6 +8,7 @@ import { signup } from './actions/session_actions';
 import { createWorkspace } from './actions/workspace_actions';
 import { fetchAllProjects, createProject, deleteProject } from './actions/project_actions';
 import { fetchAllTasks, fetchTask, createTask, updateTask, deleteTask } from './actions/task_actions';
+import { fetchAllSections, fetchAllProjectSections, createSection, updateSection, deleteSection } from './actions/section_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -67,5 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createTask = createTask;
     window.deleteTask = deleteTask;
     window.updateTask = updateTask;
+    window.fetchAllSections = fetchAllSections;
+    window.fetchAllProjectSections = fetchAllProjectSections;
+    window.createSection = createSection;
+    window.updateSeciton = updateSection;
+    window.deleteSection = deleteSection;
 });
 

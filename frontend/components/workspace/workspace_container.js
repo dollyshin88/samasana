@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Workspace from './workspace';
-import { fetchAllMembers } from '../../actions/member_actions';
-import { fetchAllProjects } from '../../actions/project_actions';
-import { fetchAllTasks } from '../../actions/task_actions';
+import {  }
 import { initialsSelector } from '../../reducers/selector_util';
-import { fetchAllWorkspaces } from '../../actions/workspace_actions';
+import { fetchAllWorkspaces, fetchWorkspace } from '../../actions/workspace_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
@@ -23,10 +21,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
-    fetchAllProjects: workspace_id => dispatch(fetchAllProjects(workspace_id)),
-    fetchAllMembers: workspace_id => dispatch(fetchAllMembers(workspace_id)),
-    fetchAllTasks: workspace_id => dispatch(fetchAllTasks(workspace_id)),
+    
     fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
+    fetchWorkspace: id => dispatch(fetchWorkspace(id)),
     openModal: (contentName, data) => dispatch(openModal(contentName, data))
 });
 

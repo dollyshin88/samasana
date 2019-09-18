@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy]
     
-    resources :workspaces, only: [:index, :create, :update, :destroy] do
+    resources :workspaces, only: [:index, :create, :show, :update, :destroy] do
       resources :projects, only: [:index]
       resources :tasks, only: [:index]
       resources :users, only: [:index]
@@ -23,9 +23,14 @@ Rails.application.routes.draw do
       resources :sections, only: [:index]
     end
 
-    resources :sections, only: [:create, :update, :destroy]
+    resources :sections, only: [:index, :create, :update, :destroy]
 
     resources :tasks, only: [:show, :create, :update, :delete]
+
+    #custom batch routes
+    patch '/batch/section/tasks', to: 'tasks#section_batch'
+    patch '/batch/general/:workspace_id/tasks', to: 'tasks#general_batch'
+    patch '/batch/:project_id/sections', to: 'sections#batch'
   end
 end
 

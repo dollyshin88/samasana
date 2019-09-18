@@ -43,10 +43,8 @@ function Workspace(props){
     }
 
     useEffect(() => {
-        props.fetchAllProjects(props.currentWorkspace.id);
-        props.fetchAllMembers(props.currentWorkspace.id);
-        props.fetchAllTasks(props.currentWorkspace.id);
         props.fetchAllWorkspaces();
+        props.fetchWorkspace(props.currentWorkspace.id);
     }, []);
 
     // make side nav and workspace home connected components

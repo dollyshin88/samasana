@@ -12,3 +12,10 @@ export const fetchAllWorkspaces = () => (
         url: 'api/workspaces',
     })
 );
+
+export const fetchWorkspace = id => (
+    $.ajax({
+        method: 'GET',
+        url: `api/workspaces/${id}`
+    })
+);

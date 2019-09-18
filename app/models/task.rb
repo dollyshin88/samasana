@@ -63,6 +63,29 @@ class Task < ApplicationRecord
     class_name: :Task,
     dependent: :destroy
     
+    def self.batch_update_section_order(section_id, taskIdArr)
+        updated = []
+        ActiveRecord::Base.transaction do
+            taskIdArr.each_with_index do |taskId, idx|
+                task = Task.find(taskId)
+                task.update!(section_id: section_id, section_order: idx)
+                updated.push(task)
+            end
+        end
+        updated
+    end
+
+    def self.batch_update_general_order(taskIdArr)
+        updated = []
+        ActiveRecord::Base.transaction do
+            taskIdArr.each_with_index do |taskId, idx|
+                task = Task.find(taskId)
+                task.update!(general_order: idx)
+                updated.push(task)
+            end
+        end
+        updated
+    end
 
     private 
     def ensure_general_order

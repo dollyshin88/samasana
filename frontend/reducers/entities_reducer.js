@@ -5,6 +5,7 @@ import membersReducer from './members_reducer';
 import currentWorkspaceReducer from './current_workspace_reducer';
 import projectsReducer from './projects_reducer';
 import tasksReducer from './tasks_reducer';
+import SectionsReducer from './sections_reducer';
 
 const entitiesReducer = combineReducers({
     users: usersReducer,
@@ -13,6 +14,7 @@ const entitiesReducer = combineReducers({
     members: membersReducer,
     projects: projectsReducer,
     tasks: tasksReducer,
+    sections: SectionsReducer,
 });
 
 export default entitiesReducer;
