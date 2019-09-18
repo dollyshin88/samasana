@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Workspace from './workspace';
-import {  }
+
 import { initialsSelector } from '../../reducers/selector_util';
 import { fetchAllWorkspaces, fetchWorkspace } from '../../actions/workspace_actions';
 import { openModal } from '../../actions/modal_actions';

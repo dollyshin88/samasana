@@ -10,7 +10,6 @@ function MyTasks(props) {
 
     let todayListLength = props.todayTasks.length;
     let upcomingListLength = props.upcomingTasks.length;
-    // let laterListLength = props.laterTasks.length;
 
     function onDragEndToday(result){
         const { destination, source, draggableId } = result;
@@ -29,18 +28,11 @@ function MyTasks(props) {
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
         
-        newTaskIds.forEach((id, order) => (
-            props.updateTask({id: id, general_order: order})
-        ));
-
-        //temporary adjustment ---- todo: refactor to have a custom backend api
-            // thunk action -- batch api call; 
-            //backend - (1)iterate over newtaskid array - update the general order to the index (wrap in rails transaction so it works in on go or nothing)
-                      // (2) custom json jbuilder view with key of tasks:{} and taskOrderArr:[same as from request]
-                      // (3) task reducer merge in the task and workspace reducer updates the currentworkspace taskIds
+        
         const entireArr = newTaskIds.concat(props.upcomingTasksIds, props.laterTasksIds);
         props.receiveOrderedTasks(entireArr, props.currentWorkspace.id);
-
+        props.updateTaskGeneralOrder(props.currentWorkspace.id, entireArr);
+        
         return;
     }
     function onDragEndUpcoming(result) {
@@ -60,10 +52,14 @@ function MyTasks(props) {
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
 
-        newTaskIds.forEach((id, order) => (
-            props.updateTask({ id: id, general_order: order + todayListLength })
-        ));
-        props.fetchAllWorkspaces();
+        // newTaskIds.forEach((id, order) => (
+        //     props.updateTask({ id: id, general_order: order + todayListLength })
+        // ));
+        // props.fetchAllWorkspaces();
+        const entireArr = props.todayTasksIds.concat(newTaskIds, props.laterTasksIds);
+        props.receiveOrderedTasks(entireArr, props.currentWorkspace.id);
+        props.updateTaskGeneralOrder(props.currentWorkspace.id, entireArr);
+        
 
         return;
     }
@@ -84,10 +80,14 @@ function MyTasks(props) {
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
 
-        newTaskIds.forEach((id, order) => (
-            props.updateTask({ id: id, general_order: order + todayListLength + upcomingListLength })
-        ));
-        props.fetchAllWorkspaces();
+        const entireArr = props.todayTasksIds.concat(props.upcomingTasksIds, newTaskIds);
+        props.receiveOrderedTasks(entireArr, props.currentWorkspace.id);
+        props.updateTaskGeneralOrder(props.currentWorkspace.id, entireArr);
+        
+        // newTaskIds.forEach((id, order) => (
+        //     props.updateTask({ id: id, general_order: order + todayListLength + upcomingListLength })
+        // ));
+        // props.fetchAllWorkspaces();
 
         return;
     }

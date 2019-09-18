@@ -39,7 +39,7 @@ export const updateTaskGeneralOrder = (workspace_id, taskIds) => (
     $.ajax({
         method: 'PATCH',
         url: `api/batch/general/${workspace_id}/tasks`,
-        data: { batch: taskIds }
+        data: { batch: {taskIds} }
     })
 );
 

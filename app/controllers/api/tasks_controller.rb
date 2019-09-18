@@ -75,6 +75,6 @@ class Api::TasksController < ApplicationController
     end
 
     def batch_params
-        params.require(:batch).permit(:source, :destination, :taskIds)
+        params.require(:batch).permit(:source, :destination, :taskIds => [])
     end
 end

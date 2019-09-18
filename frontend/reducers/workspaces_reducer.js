@@ -17,14 +17,14 @@ const workspacesReducer = (state={}, action) => {
             return action.workspaces;
 
         case RECEIVE_GENERAL_ORDER_UPDATES:
-            const currentWorkspace = state[action.payload.workspaceId];
-            const updatedWorkspace = Object.assign({}, currentWorkspace, {taskIds: action.payload.taskIds});
+            let currentWorkspace = state[action.payload.workspaceId];
+            let updatedWorkspace = Object.assign({}, currentWorkspace, {taskIds: action.payload.taskIds});
             return Object.assign({}, state, {[action.payload.workspaceId]: updatedWorkspace});
 
-        // case RECEIVE_ORDERED_TASKS:
-        //     const currentWorkspace= Object.assign({}, state[action.workspaceId]);
-        //     currentWorkspace.taskIds = action.taskIdArr;
-        //     return Object.assign({}, state, {[currentWorkspace.id]: currentWorkspace});
+        case RECEIVE_ORDERED_TASKS:
+            currentWorkspace = Object.assign({}, state[action.workspaceId]);
+            currentWorkspace.taskIds = action.taskIdArr;
+            return Object.assign({}, state, {[currentWorkspace.id]: currentWorkspace});
         default:
             return state;
     }

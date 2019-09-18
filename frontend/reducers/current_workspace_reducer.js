@@ -1,4 +1,4 @@
-import { RECEIVE_NEW_WORKSPACE, RECEIVE_CURRENT_WORKSPACE } from '../actions/workspace_actions';
+import { RECEIVE_NEW_WORKSPACE, RECEIVE_CURRENT_WORKSPACE, RECEIVE_ORDERED_TASKS } from '../actions/workspace_actions';
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions'; 
 import { RECEIVE_GENERAL_ORDER_UPDATES } from '../actions/task_actions';
 
@@ -16,8 +16,13 @@ const currentWorkspaceReducer = (state={}, action) => {
             return action.payload.workspace;
         
         case RECEIVE_GENERAL_ORDER_UPDATES:
-            const nextState = Object.assign({}, state, {taskIds: action.payload.taskIds });
+            let nextState = Object.assign({}, state, {taskIds: action.payload.taskIds });
             return nextState;
+
+        case RECEIVE_ORDERED_TASKS:
+            nextState = Object.assign({}, state, {taskIds: action.taskIdArr});
+            return nextState;
+
         default:
             return state;
     }

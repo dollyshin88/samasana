@@ -22,7 +22,7 @@ export const taskIdsByDateSelector = (state, filter) => {
     let today = new Date(now.setHours(24,0,0,0));
     let weekAfter = new Date(Date.now());
     weekAfter.setDate(weekAfter.getDate() + 7);
-    const idArr = state.entities.workspaces[state.entities.currentWorkspace.id].taskIds;
+    const idArr = state.entities.currentWorkspace.taskIds;
     
     if (filter === 'today') {
         
