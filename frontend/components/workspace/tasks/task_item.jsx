@@ -28,7 +28,7 @@ function TaskItem(props) {
                 <Container
                     {...provided.draggableProps}
                     ref={provided.innerRef}
-                    isDragging={snapshot.isDraggin}
+                    isDragging={snapshot.isDragging}
                 > 
                     <div className='task-row zero-pad'>
                         <Handle

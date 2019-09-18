@@ -12,7 +12,9 @@ function ProjectView(props) {
         //todo: also send sections and actions down
         if (props.viewType === 'board') {
             return ( 
-                <ProjectViewBoard tasks={props.tasks} />
+                <ProjectViewBoard 
+                    tasks={props.tasks} 
+                    openModal={props.openModal} />
             );
         } else if (props.viewType === 'list') {
             return (
@@ -35,7 +37,9 @@ const mapStateToProps = (state, ownProps) => {
         project: state.entities.projects[projectId],
         viewType: viewType,
         // sections: projectSectionsSelector(state, projectId),
+        //need sectionIds array from the current workspace
         tasks: projectTasksSelector(state, projectId),
+        openModal: ownProps.openModal,
     })
 };
 

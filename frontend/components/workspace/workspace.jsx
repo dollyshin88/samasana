@@ -20,7 +20,7 @@ function Workspace(props){
         if (projectRegex.test(props.location.pathname)) {
             
             return (
-                <ProjectView />
+                <ProjectView openModal={props.openModal} />
             );
         
         } else if (myTaskRegex.test(props.location.pathname)) {
