@@ -18,7 +18,7 @@
 class Project < ApplicationRecord
     COLORS = %w(dark-pink dark-green dark-blue dark-red dark-teal dark-brown dark-orange dark-purple dark-warm-gray light-pink light-green light-blue light-red light-teal light-yellow light-orange light-purple light-warm-gray)
 
-    validates :name, :owner_id, :workspace_id, :color, presence: true
+    validates :name, :owner, :workspace, :color, presence: true
     validates :color, inclusion: COLORS
     validates :name, uniqueness: { scope: :owner_id }
     validates :name, uniqueness: { scope: :workspace_id }

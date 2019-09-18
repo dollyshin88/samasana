@@ -11,7 +11,7 @@
 #
 
 class Section < ApplicationRecord
-    validates :name, :project_id, :order, presence: true
+    validates :name, :project, :order, presence: true
     validates :name, uniqueness: { scope: :project_id}
     after_initialize :ensure_order
 
@@ -21,7 +21,7 @@ class Section < ApplicationRecord
 
     has_many :tasks,
     foreign_key: :section_id, 
-    class_name: :Section, 
+    class_name: :Task, 
     dependent: :destroy
     #currently cannot remove a section unless empty of tasks
 

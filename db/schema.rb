@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_09_18_005511) do
     t.integer "order", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id", "name"], name: "index_sections_on_project_id_and_name", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|

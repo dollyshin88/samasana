@@ -6,6 +6,6 @@ class CreateSections < ActiveRecord::Migration[5.2]
       t.integer :order, null: false
       t.timestamps
     end
-    add_index :sections, [:project_id, :name], unique: true
+    # add_index :sections, [:project_id, :name], unique: true
   end
 end

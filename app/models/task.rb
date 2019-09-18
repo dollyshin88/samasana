@@ -24,7 +24,7 @@
 
 class Task < ApplicationRecord
     BOOL = [true, false]
-    validates :name, :creator_id, :workspace_id, presence: true
+    validates :name, :creator, :workspace, presence: true
     validates :completed, inclusion: BOOL
     validate :ensure_section_if_project
     after_initialize :ensure_general_order, :set_default_section
@@ -74,23 +74,23 @@ class Task < ApplicationRecord
             defaultSection = Project.find(project_id).sections.where(order:0)[0]
             self.section_id ||= defaultSection.id
         end
-        debugger
+        
         set_default_section_order(section_id)
     end
 
     def set_default_section_order(section_id)
-        debugger
+        
         self.section_order ||= calculate_section_order(section_id)
     end
 
     def calculate_section_order(section_id)
-        debugger
+        
         section = Section.find(section_id)
         section_tasks = section.tasks
-        if !section_tasks.nil?
-            p section_tasks.to_a
+        if !section_tasks.empty?
+            p section_tasks
             highest_order_task = section_tasks.max_by { |task| task.section_order }
-            return highest_order_task.general_order + 1
+            return highest_order_task.section_order + 1
         end
         return 0
     end

@@ -1,7 +1,11 @@
 class Api::SectionsController < ApplicationController
 
     def index 
-        @sections = Project.find_by(id: params[:project_id]).sections.includes(:tasks)
+        if params[:project_id]
+            @sections = Project.find_by(id: params[:project_id]).sections.includes(:tasks)
+        else 
+            @sections = Section.all 
+        end
         render :index
     end
 
@@ -29,7 +33,7 @@ class Api::SectionsController < ApplicationController
             render json: ['you must move tasks out of the section before deleting']
         else
             @section.destroy
-            render :show
+            render json: @section
         end
     end
 
