@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_15_205159) do
+ActiveRecord::Schema.define(version: 2019_09_18_005511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,15 +19,24 @@ ActiveRecord::Schema.define(version: 2019_09_15_205159) do
     t.string "name", null: false
     t.integer "owner_id", null: false
     t.integer "workspace_id", null: false
-    t.text "notes"
     t.string "color", null: false
     t.date "due_on"
     t.date "start_on"
     t.string "layout", default: "software implementation", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notes", default: ""
     t.index ["owner_id", "name"], name: "index_projects_on_owner_id_and_name", unique: true
     t.index ["workspace_id", "name"], name: "index_projects_on_workspace_id_and_name", unique: true
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "project_id", null: false
+    t.integer "order", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id", "name"], name: "index_sections_on_project_id_and_name", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -45,11 +54,15 @@ ActiveRecord::Schema.define(version: 2019_09_15_205159) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "general_order", null: false
+    t.text "notes", default: ""
+    t.integer "section_id"
+    t.integer "section_order"
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id"
     t.index ["assignee_status"], name: "index_tasks_on_assignee_status"
     t.index ["creator_id"], name: "index_tasks_on_creator_id"
     t.index ["due_on"], name: "index_tasks_on_due_on"
     t.index ["parent_task_id"], name: "index_tasks_on_parent_task_id"
+    t.index ["section_id"], name: "index_tasks_on_section_id"
     t.index ["workspace_id"], name: "index_tasks_on_workspace_id"
   end
 

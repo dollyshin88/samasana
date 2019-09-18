@@ -6,13 +6,13 @@
 #  name         :string           not null
 #  owner_id     :integer          not null
 #  workspace_id :integer          not null
-#  notes        :text
 #  color        :string           not null
 #  due_on       :date
 #  start_on     :date
 #  layout       :string           default("software implementation"), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  notes        :text             default("")
 #
 
 class Project < ApplicationRecord
@@ -23,6 +23,7 @@ class Project < ApplicationRecord
     validates :name, uniqueness: { scope: :owner_id }
     validates :name, uniqueness: { scope: :workspace_id }
     after_initialize :ensure_color
+    after_save :generate_boiler_plate_sections
 
     def ensure_color
         self.color = COLORS.sample
@@ -38,6 +39,20 @@ class Project < ApplicationRecord
 
     has_many :tasks,
     foreign_key: :project_id,
-    class_name: :Task
+    class_name: :Task,
+    dependent: :destroy
+
+    has_many :sections,
+    foreign_key: :project_id,
+    class_name: :Section,
+    dependent: :destroy
+
+    def generate_boiler_plate_sections
+        section_boiler_plate = ['Discovery + Planning', 'Design', 'Development', 'Testing', 'Deployment', 'Ongoing Support']
+
+        section_boiler_plate.each_with_index do |title, i| 
+            Section.create(name: title, order: i, project_id: self.id)
+        end
+    end 
 
 end

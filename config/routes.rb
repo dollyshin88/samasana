@@ -20,11 +20,14 @@ Rails.application.routes.draw do
 
     resources :projects, only: [:show, :create, :update, :destroy] do
       resources :tasks, only: [:index]
+      resources :section, only: [:index]
     end
+
+    resources :section, only: [:create, :update, :destroy]
 
     resources :tasks, only: [:show, :create, :update, :delete]
   end
 end
 
-# to be added: sections --- nest task index 
+# to be added: sections --- nest task index -- maybe not?
 # & nest section index under projects

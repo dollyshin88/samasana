@@ -17,6 +17,9 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  general_order   :integer          not null
+#  notes           :text             default("")
+#  section_id      :integer
+#  section_order   :integer
 #
 
 require 'test_helper'

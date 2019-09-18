@@ -13,6 +13,7 @@ class Api::ProjectsController < ApplicationController
     def create
         @project = Project.new(project_params)
         @project.owner_id = current_user.id 
+        
         if @project.save
             render :show
         else

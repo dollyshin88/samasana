@@ -65,8 +65,9 @@ class User < ApplicationRecord
 
     has_many :created_tasks,
     foreign_key: :creator_id,
-    class_name: :Task
-    # do not destroy tasks even when the creator is removed
+    class_name: :Task, 
+    dependent: :destroy
+    # currently users are not deleted
 
     has_many :assigned_tasks,
     foreign_key: :assignee_id,
