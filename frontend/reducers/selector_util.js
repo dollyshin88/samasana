@@ -9,11 +9,17 @@ export const initialsSelector = name => {
 };
 
 export const projectTasksSelector = (state, projectId) => {
-    return Object.values(state.entities.tasks).filter(task => task.project_id === projectId);
+    const tasksArr = Object.values(state.entities.tasks).filter(task => task.project_id === projectId);
+    const tasks = {};
+    tasksArr.forEach(task => tasks[task.id] = task);
+    return tasks;
 };
 
 export const projectSectionsSelector = (state, projectId) => {
-    return Object.values(state.entities.sections).filter(section => section.project_id === projectId);
+    const sectionsArr = Object.values(state.entities.sections).filter(section => section.project_id === projectId);
+    const sections ={};
+    sectionsArr.forEach(section => sections[section.id] = section);
+    return sections;
 };
 
 export const taskIdsByDateSelector = (state, filter) => {

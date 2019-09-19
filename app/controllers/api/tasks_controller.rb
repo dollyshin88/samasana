@@ -42,19 +42,22 @@ class Api::TasksController < ApplicationController
     end
 
     def section_batch
-        @source = Section.find(batch_params[:source].id)
-        @destination = Section.find(batch_params[:destination].id)
-        @source_arr = batch_params[:source].taskIds
-        @destination_arr = batch_params[:destination].taskIds
+        
+        @source_arr = batch_params[:source][:taskIds]
+        @destination_arr = batch_params[:destination][:taskIds]
+        @source_arr = [] if @source_arr.nil?
         
         begin
-            source_tasks = Task.batch_update_section_order(@source.id, source_tasks_arr)
-            destination_tasks = Task.batch_update_section_order(@destination.id, destination_tasks_arr)
+            source_tasks = Task.batch_update_section_order(batch_params[:source][:id], @source_arr)
+            destination_tasks = Task.batch_update_section_order(batch_params[:destination][:id], @destination_arr)
         rescue ActiveRecord::RecordInvalid => exception
             render json: [exception.message], status: 400
         end
         
+        @source = Section.includes(:tasks).find(batch_params[:source][:id])
+        @destination = Section.includes(:tasks).find(batch_params[:destination][:id])
         @tasks = source_tasks.concat(destination_tasks)
+        
         render :batch_section
     end
 
@@ -75,6 +78,6 @@ class Api::TasksController < ApplicationController
     end
 
     def batch_params
-        params.require(:batch).permit(:source, :destination, :taskIds => [])
+        params.require(:batch).permit(:source => [:id, :taskIds => []], :destination => [:id, :taskIds => []], :taskIds => [])
     end
 end

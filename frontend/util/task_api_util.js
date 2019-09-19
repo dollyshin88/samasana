@@ -43,10 +43,12 @@ export const updateTaskGeneralOrder = (workspace_id, taskIds) => (
     })
 );
 
-export const updateTaskSectionOrder = updates => (
+export const updateTaskSectionOrder = updates => {
+    
+    return (
     $.ajax({
         method: 'PATCH',
         url: 'api/batch/section/tasks',
         data: { batch: updates }
     })
-);
+)};

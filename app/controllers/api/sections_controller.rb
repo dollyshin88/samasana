@@ -54,6 +54,6 @@ class Api::SectionsController < ApplicationController
     end
 
     def batch_params
-        params.require(:batch).permit(:sectionIds)
+        params.require(:batch).permit(:sectionIds => [])
     end
 end

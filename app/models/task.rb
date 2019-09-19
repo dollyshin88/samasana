@@ -67,6 +67,7 @@ class Task < ApplicationRecord
         updated = []
         ActiveRecord::Base.transaction do
             taskIdArr.each_with_index do |taskId, idx|
+                
                 task = Task.find(taskId)
                 task.update!(section_id: section_id, section_order: idx)
                 updated.push(task)

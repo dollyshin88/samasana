@@ -11,10 +11,12 @@ User.destroy_all
 Task.destroy_all
 Project.destroy_all
 Workspace.destroy_all
+Section.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('projects')
 ActiveRecord::Base.connection.reset_pk_sequence!('tasks')
+ActiveRecord::Base.connection.reset_pk_sequence!('sections')
 ActiveRecord::Base.connection.reset_pk_sequence!('workspace_memberships')
 
 
@@ -43,7 +45,7 @@ Project.create({name: 'Depop Fullstack', owner_id: user3.id, workspace_id: works
 
 Task.create([
     {name: 'Create Design Docs', creator_id: user2.id, workspace_id: workspace2.id, project_id: project2.id, due_on: '2019-09-01'},
-    {name: 'Complete backend for feature one', creator_id: user2.id, workspace_id: 3, project_id: project2.id, due_on: '2019-09-03'},
+    {name: 'Complete backend for feature one', creator_id: user2.id, workspace_id: workspace2.id, project_id: project2.id, due_on: '2019-09-03'},
     {name: 'Complete CSS Strava', creator_id: user2.id, workspace_id: workspace2.id, project_id: project2.id, due_on: '2019-09-20'},
     {name: 'Setup AWS', creator_id: user2.id, workspace_id: workspace2.id, project_id: project2.id, due_on: '2019-09-17'},
     {name: 'Design Wireframes', creator_id: user2.id, workspace_id: workspace2.id, project_id: project3.id, due_on: '2019-09-25'},

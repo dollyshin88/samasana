@@ -5,6 +5,7 @@ export const RECEIVE_PROJECT = 'RECEIVE_PROJECTS';
 export const REMOVE_PROJECT = 'REMOVE_PROJECT';
 export const RECEIVE_PROJECT_ERRORS = 'RECEIVE_PROJECT_ERRORS';
 export const CLEAR_PROJECT_ERRORS = 'CLEAR_PROJECT_ERRORS';
+export const RECEIVE_SECTION_IDS_UPDATE = 'RECEIVE_SECTION_IDS_UPDATE';
 
 // regular actions
 export const receiveAllProjects = projects => ({
@@ -30,6 +31,12 @@ export const receiveProjectErrors = errors => ({
 export const clearProjectErrors = () => ({
     type: CLEAR_PROJECT_ERRORS,
 });
+
+export const receiveSectionIdsUpdate = (projectId, sectionIds) => ({
+    type: RECEIVE_SECTION_IDS_UPDATE,
+    projectId,
+    sectionIds,
+})
 
 // thunk actions
 export const fetchAllProjects = workspace_id => dispatch => APIUtil.fetchAllProjects(workspace_id)

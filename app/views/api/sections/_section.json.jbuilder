@@ -9,5 +9,9 @@
 
 
 json.extract! section, :id, :name, :project_id, :order
-json.taskIds section.tasks.sort_by{|task| task.section_order}.map{|task| task.id}
 
+if section.tasks 
+    json.taskIds section.tasks.sort_by{|task| task.section_order}.map{|task| task.id}
+else
+    json.taskIds []
+end

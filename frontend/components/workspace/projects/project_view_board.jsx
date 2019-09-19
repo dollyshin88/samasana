@@ -17,7 +17,16 @@ function ProjectViewBoard(props) {
         </div>
         <div className='workspace-grid-item-main'>
             <div className='workspace-home-container'>
-                <ProjectBoardDndContext openModal={props.openModal}/>
+                <ProjectBoardDndContext 
+                openModal={props.openModal}
+                project={props.project}
+                tasks={props.tasks}
+                sections={props.sections}
+                updateSectionOrder={props.updateSectionOrder}
+                updateTaskSectionOrder={props.updateTaskSectionOrder}
+                receiveOrderedTasksForSection={props.receiveOrderedTasksForSection}receiveOrderedTasksTwoSections={props.receiveOrderedTasksTwoSections}
+                receiveSectionIdsUpdate={props.receiveSectionIdsUpdate}
+                />
                 {/* pass down tasks and sections and openModal */}
             </div>
         </div>

@@ -39,6 +39,6 @@ export const updateSectionOrder = (projectId, sectionIds) => (
     $.ajax({
         method: 'PATCH',
         url: `api/batch/${projectId}/sections`,
-        data: { batch: sectionIds }
+        data: { batch: { sectionIds } }
     })
 );

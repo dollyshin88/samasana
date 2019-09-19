@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_PROJECTS, RECEIVE_PROJECT, REMOVE_PROJECT } from '../actions/project_actions';
+import { RECEIVE_ALL_PROJECTS, RECEIVE_PROJECT, REMOVE_PROJECT, RECEIVE_SECTION_IDS_UPDATE } from '../actions/project_actions';
 import { RECEIVE_CURRENT_WORKSPACE } from '../actions/workspace_actions';
 import { RECEIVE_SECTION_UPDATES } from '../actions/section_actions';
 
@@ -19,6 +19,10 @@ const projectsReducer = (state={}, action) => {
         
         case RECEIVE_CURRENT_WORKSPACE:
             return action.payload.projects;
+
+        case RECEIVE_SECTION_IDS_UPDATE:
+            const project = Object.assign({}, state[action.projectId], {sectionIds: action.sectionIds});
+            return Object.assign({}, state, {[action.projectId]: project });
         
         default:
             return state;

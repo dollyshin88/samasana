@@ -38,10 +38,12 @@ export const receiveGeneralOrderUpdates = payload => ({
     payload
 });
 
-export const receiveSectionOrderUpdates = payload => ({
+export const receiveSectionOrderUpdates = payload => {
+    
+    return ({
     type: RECEIVE_SECTION_ORDER_UPDATES, 
     payload
-});
+})};
 
 // thunk action creators
 export const fetchAllTasks = workspace_id => dispatch => APIUtil.fetchAllTasks(workspace_id)

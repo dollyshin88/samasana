@@ -1,5 +1,6 @@
 import { RECEIVE_ALL_TASKS, RECEIVE_TASK, REMOVE_TASK, RECEIVE_GENERAL_ORDER_UPDATES, RECEIVE_SECTION_ORDER_UPDATES } from '../actions/task_actions';
 import { RECEIVE_CURRENT_WORKSPACE } from '../actions/workspace_actions';
+import {RECEIVE_ORDERED_TASKS_TWO_SECTIONS} from '../actions/section_actions';
 
 const tasksReducer = (state={}, action) => {
     Object.freeze(state);
@@ -20,7 +21,11 @@ const tasksReducer = (state={}, action) => {
             
         case RECEIVE_CURRENT_WORKSPACE:
             return action.payload.tasks;
-
+        
+        case RECEIVE_ORDERED_TASKS_TWO_SECTIONS:
+            const task = state[action.movedTaskId];
+            task.section_id = action.destinationId;
+            return Object.assign({}, state, {[action.movedTaskId]: task});
         default:
             return state;
     }

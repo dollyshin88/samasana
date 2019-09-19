@@ -4,7 +4,12 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 const Container = styled.div`
-   
+   background-color: lightblue;
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+   align-items: center;
+   margin: 10px 0;
 `;
 
 function ProjectBoardDraggableTask(props) {
@@ -21,7 +26,11 @@ function ProjectBoardDraggableTask(props) {
                     {...provided.dragHandleProps}
                 >
                     <div className='draggable-task'>
-                        {task.name}
+                        <p>name: {props.task.name}</p>
+                        <p>id: {props.task.id}</p>
+                        <p>draggId: {props.draggableId}</p>
+                        <p>order: {props.task.section_order}</p>
+                        <p>index: {props.index}</p>
                     </div>
                 </Container>
             )}

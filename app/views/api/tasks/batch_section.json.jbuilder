@@ -5,8 +5,14 @@ json.tasks do
 end
 
 json.sections do
-    json.partial! 'api/sections/section', section: @source
-    json.partial! 'api/sections/section', section: @destination
+    
+    json.set! @source.id do
+        json.partial! 'api/sections/section', section: @source
+    end
+
+    json.set! @destination.id do
+        json.partial! 'api/sections/section', section: @destination
+    end
 end
 
 # sections: {
