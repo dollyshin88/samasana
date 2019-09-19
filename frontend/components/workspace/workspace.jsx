@@ -45,12 +45,40 @@ function Workspace(props){
     useEffect(() => {
         props.fetchAllWorkspaces();
         props.fetchWorkspace(props.currentWorkspace.id);
+
+        
+       
+    
+        // document.body.appendChild(script);
+        
     }, []);
+
+    function renderScriptTag(){
+        return (<script>
+            {window.setTimeout(() => {
+                const menus = document.querySelectorAll('.menu');
+                
+                document.addEventListener('click', (e) => {
+                    let children = e.target.parentElement.children;
+                    children = Array.from(children);
+                    if (children.some((child) => child.classList.contains('menu'))) return;
+                    if(e.target.closest('.menu')) return;
+                
+                    menus.forEach(menu => {
+                        if (!menu.classList.contains('hidden')) {
+                            menu.classList.add('hidden');
+                        }
+                    });
+                });
+            }, 2000)}
+        </script>)
+    }
 
     // make side nav and workspace home connected components
     return (
         
         <div className='page-container workspace-grid-container'>
+            {renderScriptTag()}
             <div className='workspace-grid-item-sidebar'>
                 <SideNav members={props.members} projects={props.projectsArr}/>
                 <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
