@@ -27,7 +27,7 @@ class Task < ApplicationRecord
     validates :name, :creator, :workspace, presence: true
     validates :completed, inclusion: BOOL
     validate :ensure_section_if_project
-    after_initialize :ensure_general_order, :set_default_section
+    before_validation :ensure_general_order, :set_default_section
   
 
     belongs_to :creator, 
@@ -95,13 +95,7 @@ class Task < ApplicationRecord
 
     def set_default_section
         if project_id
-            p 'project id: '
-            p project_id
-            puts
             defaultSection = Project.find(project_id).sections.where(order:0)[0]
-            p 'defaultSection'
-            p defaultSection
-            puts
             self.section_id ||= defaultSection.id
         end
         
