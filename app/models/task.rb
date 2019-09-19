@@ -95,7 +95,13 @@ class Task < ApplicationRecord
 
     def set_default_section
         if project_id
+            p 'project id: '
+            p project_id
+            puts
             defaultSection = Project.find(project_id).sections.where(order:0)[0]
+            p 'defaultSection'
+            p defaultSection
+            puts
             self.section_id ||= defaultSection.id
         end
         
@@ -112,7 +118,6 @@ class Task < ApplicationRecord
         section = Section.find(section_id)
         section_tasks = section.tasks
         if !section_tasks.empty?
-            p section_tasks
             highest_order_task = section_tasks.max_by { |task| task.section_order }
             return highest_order_task.section_order + 1
         end

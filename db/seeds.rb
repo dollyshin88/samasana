@@ -19,7 +19,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('tasks')
 ActiveRecord::Base.connection.reset_pk_sequence!('sections')
 ActiveRecord::Base.connection.reset_pk_sequence!('workspace_memberships')
 
-
+puts 'destroyed and reset all table records'
 
 user1 = User.create({name: 'Ernie Man', email:'ernie@test.com', password: 'password'})
 workspace1 = Workspace.create({name: 'Workspace One'})
@@ -35,14 +35,14 @@ WorkspaceMembership.create({member_id: user3.id, workspace_id: workspace3.id, is
 
 WorkspaceMembership.create({member_id: user1.id, workspace_id: workspace2.id, is_admin: false})
 WorkspaceMembership.create({member_id: user3.id, workspace_id: workspace2.id, is_admin: false})
-
-
+puts 'end of workspace memberships'
+puts '...starting projects'
 project1 = Project.create({name: 'Develop Hipcamp', owner_id: user1.id, workspace_id: workspace1.id})
 project2 = Project.create({name: 'Develop Strava', owner_id: user2.id, workspace_id: workspace2.id})
 project3 = Project.create({name: 'MERN Stack', owner_id: user2.id, workspace_id: workspace2.id})
 Project.create({name: 'Depop Fullstack', owner_id: user3.id, workspace_id: workspace3.id})
-
-
+puts 'end of projects'
+puts '...starting tasks'
 Task.create([
     {name: 'Create Design Docs', creator_id: user2.id, workspace_id: workspace2.id, project_id: project2.id, due_on: '2019-09-01'},
     {name: 'Complete backend for feature one', creator_id: user2.id, workspace_id: workspace2.id, project_id: project2.id, due_on: '2019-09-03'},
@@ -58,3 +58,4 @@ Task.create([
     {name: 'Setup AWS', creator_id: user1.id, workspace_id: workspace1.id, project_id: project1.id, due_on: '2019-09-18'},
 
 ])
+puts 'end of tasks'
