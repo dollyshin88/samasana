@@ -16,12 +16,13 @@ function NewProjectForm(props) {
         const thisProject = Object.assign(props.project);
         thisProject.name = projectName;
         thisProject.notes = projectNotes;
-
+        
         if (props.formType === 'new') {
             props.projectAction(thisProject)
                 .then(action => {
+                    
                     props.closeModal();
-                    props.history.push(`/project/${Object.keys(action.payload.project)[0]}/board`);
+                    props.history.push(`/project/${Object.keys(action.project)[0]}/board`);
                 }); 
         } else {
             props.projectAction(thisProject)

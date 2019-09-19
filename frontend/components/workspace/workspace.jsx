@@ -45,8 +45,10 @@ function Workspace(props){
     useEffect(() => {
         props.fetchAllWorkspaces();
         
-        props.fetchWorkspace(props.currentWorkspace.id);
-       
+        if (props.location.pathname === '/') {
+            
+            props.fetchWorkspace(props.currentWorkspace.id);
+        }
         
        
     

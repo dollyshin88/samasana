@@ -21,7 +21,9 @@ const SectionsReducer = (state={}, action) => {
             return nextState;
 
         case RECEIVE_CURRENT_WORKSPACE:
-            return action.payload.sections;
+            if (action.payload.sections) {
+                return action.payload.sections;
+                } else { return state;}
 
         case RECEIVE_SECTION_ORDER_UPDATES:
             // let nextSection = Object.assign({}, state);

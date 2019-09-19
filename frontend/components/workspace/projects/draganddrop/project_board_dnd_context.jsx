@@ -21,7 +21,10 @@ class InnerSectionList extends React.Component{
     }
     render() {
         // const { section, tasks, index, openModal } = this.props;
-        const tasks = this.props.section.taskIds.map(taskId => this.props.tasks[taskId]) 
+        let tasks =[];
+        if (this.props.section.taskIds.length) {
+            tasks = this.props.section.taskIds.map(taskId => this.props.tasks[taskId]) 
+        } 
         return <ProjectBoardDraggableSection section={this.props.section} tasks={tasks} index={this.props.index} openModal={this.props.openModal} />;
         
     }

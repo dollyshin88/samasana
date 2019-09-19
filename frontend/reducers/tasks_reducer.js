@@ -9,18 +9,24 @@ const tasksReducer = (state={}, action) => {
         case RECEIVE_ALL_TASKS:
             return action.tasks;
         
-        case RECEIVE_TASK, 
-             RECEIVE_GENERAL_ORDER_UPDATES,
-             RECEIVE_SECTION_ORDER_UPDATES:
+        case RECEIVE_TASK:
             return Object.assign({}, state, action.payload.tasks);
-        
+
+        case RECEIVE_GENERAL_ORDER_UPDATES:
+            return Object.assign({}, state, action.payload.tasks);
+
+        case RECEIVE_SECTION_ORDER_UPDATES:
+            return Object.assign({}, state, action.payload.tasks);
+
         case REMOVE_TASK:
             const nextState = Object.assign({}, state);
             delete nextState.entities.tasks[action.taskId];
             return nextState;
             
         case RECEIVE_CURRENT_WORKSPACE:
+            if (action.payload.tasks) {
             return action.payload.tasks;
+            } else { return state;}
         
         case RECEIVE_ORDERED_TASKS_TWO_SECTIONS:
             const task = state[action.movedTaskId];

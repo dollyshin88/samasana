@@ -1,7 +1,9 @@
 # payload -- currently used by #create action -- will be deprecated
 
 json.workspaces do 
-    json.partial! 'api/workspaces/workspace', workspace: @workspace
+    json.set! @workspace.id do
+        json.partial! 'api/workspaces/workspace', workspace: @workspace
+    end
 end
 
 json.members do

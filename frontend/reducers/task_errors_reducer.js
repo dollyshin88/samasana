@@ -7,9 +7,10 @@ const taskErrorsReducer = (state=[], action) => {
         case RECEIVE_TASK_ERRORS:  
             return action.errors;
         
-        case RECEIVE_TASK, CLEAR_TASK_ERRORS:
+        case RECEIVE_TASK:
             return [];
-
+        case CLEAR_TASK_ERRORS:
+            return [];
         default:
             return state;
     }

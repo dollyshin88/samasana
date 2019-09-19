@@ -7,9 +7,11 @@ const projectErrorsReducer = (state=[], action) => {
         case RECEIVE_PROJECT_ERRORS:  
             return action.errors;
         
-        case RECEIVE_PROJECT, CLEAR_PROJECT_ERRORS:
+        case RECEIVE_PROJECT:
             return [];
-
+            
+        case CLEAR_PROJECT_ERRORS:
+            return [];
         default:
             return state;
     }

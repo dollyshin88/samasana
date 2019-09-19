@@ -9,7 +9,10 @@ const projectsReducer = (state={}, action) => {
         case RECEIVE_ALL_PROJECTS:
             return action.projects;
 
-        case RECEIVE_PROJECT, RECEIVE_SECTION_UPDATES:
+        case RECEIVE_PROJECT:
+            return Object.assign({}, state, action.project);
+
+        case RECEIVE_SECTION_UPDATES:
             return Object.assign({}, state, action.payload.project);
 
         case REMOVE_PROJECT:
@@ -18,7 +21,11 @@ const projectsReducer = (state={}, action) => {
             return nextState;
         
         case RECEIVE_CURRENT_WORKSPACE:
-            return action.payload.projects;
+            
+            if (action.payload.projects) {
+                return action.payload.projects;
+                } else { return state;}
+
 
         case RECEIVE_SECTION_IDS_UPDATE:
             const project = Object.assign({}, state[action.projectId], {sectionIds: action.sectionIds});
