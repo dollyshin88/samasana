@@ -44,8 +44,9 @@ function Workspace(props){
 
     useEffect(() => {
         props.fetchAllWorkspaces();
+        
         props.fetchWorkspace(props.currentWorkspace.id);
-
+       
         
        
     

@@ -9,10 +9,12 @@ const currentWorkspaceReducer = (state={}, action) => {
         case RECEIVE_NEW_WORKSPACE:
             return Object.values(action.payload.workspaces)[0];
         case RECEIVE_CURRENT_USER:
+            
             return Object.values(action.payload.workspaces)[0]; 
         case LOGOUT_CURRENT_USER:
             return {};
         case RECEIVE_CURRENT_WORKSPACE:
+            
             return action.payload.workspace;
         
         case RECEIVE_GENERAL_ORDER_UPDATES:

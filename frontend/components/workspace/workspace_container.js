@@ -6,7 +6,9 @@ import { initialsSelector } from '../../reducers/selector_util';
 import { fetchAllWorkspaces, fetchWorkspace } from '../../actions/workspace_actions';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+    
+    return ({
     currentUserId: state.session.id,
     currentUserInitial: initialsSelector(state.entities.users[state.session.id].name),
     workspaces: Object.values(state.entities.workspaces),
@@ -15,7 +17,7 @@ const mapStateToProps = state => ({
     currentWorkspace: state.entities.currentWorkspace,
     members: Object.values(state.entities.members),
     tasks: Object.values(state.entities.tasks),
-});
+})};
 
 
 

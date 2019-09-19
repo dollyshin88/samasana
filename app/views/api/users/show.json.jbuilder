@@ -11,8 +11,11 @@ end
 
 
     @workspaces.each do |workspace|
+        
         json.workspaces do 
-            json.partial! 'api/workspaces/workspace', workspace: workspace
+            json.set! workspace.id do
+                json.partial! 'api/workspaces/workspace', workspace: workspace
+            end
         end
         json.members do 
             workspace.members.each do |member|

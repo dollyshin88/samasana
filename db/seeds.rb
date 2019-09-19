@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 WorkspaceMembership.destroy_all
+Workspace.destroy_all
 User.destroy_all
 Task.destroy_all
-Project.destroy_all
-Workspace.destroy_all
 Section.destroy_all
+Project.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('projects')

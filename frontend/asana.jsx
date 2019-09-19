@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             session: { id: window.currentUser.id }
         };
         if(window.currentWorkspace) {
+            
             preloadedState.entities['currentWorkspace'] = window.currentWorkspace;
         }
         
