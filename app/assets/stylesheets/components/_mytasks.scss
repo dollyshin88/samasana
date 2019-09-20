@@ -186,6 +186,27 @@ img.dragHandleIcon {
             flex: 0 1 200px;
         }
     }
+    &__section-wrap {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+    }
+    &__link-dropdown {
+  
+        height: 30px;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        font-size: 0.8rem;  
+        padding-left: 10px;
+        border: none;
+        background-color: white;
+        color: $core-teal;
+        text-decoration: dotted underline;
+       
+    }
 }
 
 .form-fields-wrap {

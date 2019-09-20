@@ -2,29 +2,35 @@ import React, { useState, useEffect } from 'react';
 
 
 function ModalNewTaskForm (props) {
-    let init_taskName = '';
+    // let init_taskName = '';
     let init_assignee = 'default';
-    let init_notes = '';
+    // let init_notes = '';
     let init_project = 'default';
-    let init_dueDate = '';
+    // let init_dueDate = '';
+    let init_section = 'default';
     const formBtnText = (props.formType === 'new') ? 'Create Task' : 'Update Task';
-    if (props.formType === 'edit') {
-        init_taskName = props.task.name;
-        init_notes = (props.task.notes) ? props.task.notes : '';
-        init_dueDate = (props.task.due_on) ? props.task.due_on : '';
+
+    // if (props.formType === 'edit') {
+        let init_taskName = props.task.name;
+        let init_notes = props.task.notes;
+        let init_dueDate = props.task.due_on;
         
         if (props.task.assignee_id) {
-            init_assignee = props.members.filter(member=> member.id === props.task.assignee_id)[0].name;
+            init_assignee = props.members.filter(member => member.id === props.task.assignee_id)[0].name;
         }
         if (props.task.project_id) {
-            init_project = props.projects.filter(project=> project.id === props.task.project_id)[0].name;
+            init_project = props.projects.filter(project => project.id === props.task.project_id)[0].name;
         }
-    }
+        if (props.task.section_id) {
+            init_section = Object.values(props.sections).filter(section => section.id === props.task.section_id)[0].name;
+        }
+    // }
     
     const [taskName, setTaskName] = useState(init_taskName);
     const [assignee, setAssignee] = useState(init_assignee);
     const [notes, setNotes] = useState(init_notes);
     const [project, setProject] = useState(init_project);
+    const [section, setSection] = useState(init_section);
     const [dueDate, setDueDate] = useState(init_dueDate);
     const [taskStatus, setTaskStatus] = useState(props.task.completed);
     const statusText = (taskStatus) ? 'Completed' : 'Mark Complete';
@@ -46,6 +52,9 @@ function ModalNewTaskForm (props) {
     function handleProjectAssign(e) {
         setProject(e.target.value);
     }
+    function handleSectionAssign(e) {
+        setSection(e.target.value);
+    }
     function handleDueDateChange(e) {
         setDueDate(e.target.value);
     }
@@ -59,6 +68,7 @@ function ModalNewTaskForm (props) {
             </div>
         );
     }
+    
     function handleSubmit(e){
         e.preventDefault();
         const newTask = {name: taskName, workspace_id: props.currentWorkspace.id, completed: taskStatus}
@@ -69,6 +79,9 @@ function ModalNewTaskForm (props) {
         if (project !== 'default') {
             newTask.project_id = props.projects.filter(proj=> proj.name === project)[0].id;
         }
+        if (section !== 'default') {
+            newTask.section_id = Object.values(props.sections).filter(sec => sec.name === section)[0].id;
+        }
         if (dueDate !== '') {
             newTask.due_on = dueDate;
         }
@@ -76,14 +89,18 @@ function ModalNewTaskForm (props) {
             newTask.id = props.task.id;
         }
         props.taskAction(newTask)
-        if (props.formType === 'new') {
-            setTaskName('');
-            setAssignee('default');
-            setNotes('');
-            setProject('default');
-            setDueDate('');
-        }
-        props.closeModal();
+            .then(() => {
+                if (props.formType === 'new') {
+                    setTaskName('');
+                    setAssignee('default');
+                    setNotes('');
+                    setProject('default');
+                    setDueDate('');
+                }
+                props.closeModal();
+            })
+        
+        
     }
 
     function renderErrors() {
@@ -123,7 +140,7 @@ function ModalNewTaskForm (props) {
         } else { return null }
     }
 
-    
+    let sectionsArr = Object.values(props.sections).slice();
     return (
         <div className='task-form-modal-wrap'>
             <div className='modal-task-form-card'>
@@ -184,6 +201,23 @@ function ModalNewTaskForm (props) {
                                 ))}
                             </select>
                             {renderProjectDiv()}
+                        </div>
+                        <div className='card-form__section-wrap'>
+                            {(project === 'default') ? (null) : (
+                            <select 
+                                onChange={handleSectionAssign} 
+                                value={section} 
+                                className='card-form__link-dropdown card-form__section-wrap__item'>
+                                    <option value="default">Please select</option>
+                                {sectionsArr.filter(section=> section.project_id ===props.projects.filter(proj=> proj.name === project)[0].id).map((section, i) => (
+                                    <option key={i} value={section.name}>
+                                        {section.name}
+                                    </option>
+                                )) }
+                                
+                                
+                            </select>
+                            )}
                         </div>
                     </form>
                     <div className='modal-task-form-card__bottom-btns-container'>

@@ -1,6 +1,6 @@
 import { RECEIVE_ALL_SECTIONS, RECEIVE_ALL_PROJECT_SECTIONS, RECEIVE_SECTION, REMOVE_SECTION, RECEIVE_SECTION_UPDATES, RECEIVE_ORDERED_TASKS_FOR_SECTION, RECEIVE_ORDERED_TASKS_TWO_SECTIONS } from '../actions/section_actions';
 import { RECEIVE_CURRENT_WORKSPACE } from '../actions/workspace_actions';
-import { RECEIVE_SECTION_ORDER_UPDATES } from '../actions/task_actions';
+import { RECEIVE_SECTION_ORDER_UPDATES, RECEIVE_TASK, REMOVE_TASK } from '../actions/task_actions';
 import { RECEIVE_PROJECT } from '../actions/project_actions';
 
 const SectionsReducer = (state={}, action) => {
@@ -37,7 +37,7 @@ const SectionsReducer = (state={}, action) => {
             return Object.assign({}, state, action.payload.sections);
 
         case RECEIVE_ORDERED_TASKS_FOR_SECTION:
-            const section = Object.assign({}, state[action.sectionId], {taskIds: action.taskIdsArr});
+            let section = Object.assign({}, state[action.sectionId], {taskIds: action.taskIdsArr});
             return Object.assign({}, state, { [action.sectionId]: section });
         
         case RECEIVE_ORDERED_TASKS_TWO_SECTIONS:
@@ -52,7 +52,31 @@ const SectionsReducer = (state={}, action) => {
             // ));
             return Object.assign({}, state, action.payload.sections);
         
-            default:
+        case RECEIVE_TASK: 
+            if (!Object.values(action.payload.tasks)[0].section_id) return state;
+            const taskId = parseInt(Object.keys(action.payload.tasks)[0]);
+            section = Object.assign({}, state[Object.values(action.payload.tasks)[0].section_id]);
+            
+            if (!section.taskIds.includes(taskId)) {
+                section.taskIds.push(taskId);
+
+                
+                return Object.assign({}, state, { [action.sectionId]: section });
+            } else {
+                return state;
+            }
+        case REMOVE_TASK:
+            if (!action.task.section_id) return state;
+            section = Object.assign({}, state[action.task.section_id]);
+            
+            let idx = section.taskIds.indexOf(action.task.id);
+            if (idx !== -1) {
+                section.taskIds.splice(idx, 1);
+                return Object.assign({}, state, { [action.sectionId]: section });
+            } else {
+                return state;
+            }
+        default:
             return state;
     }
 };

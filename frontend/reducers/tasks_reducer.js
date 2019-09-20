@@ -21,7 +21,7 @@ const tasksReducer = (state={}, action) => {
 
         case REMOVE_TASK:
             const nextState = Object.assign({}, state);
-            delete nextState[action.taskId];
+            delete nextState[action.task.id];
             return nextState;
             
         case RECEIVE_CURRENT_WORKSPACE:

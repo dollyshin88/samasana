@@ -27,7 +27,7 @@ function Modal({ modal, closeModal }) {
             break;
 
         case 'new task':
-            modalComponent = <ModalNewTaskFormConatiner closeModal={closeModal} />;
+            modalComponent = <ModalNewTaskFormConatiner closeModal={closeModal} task={modal.data}/>;
             break;
     
         case 'edit task':

@@ -17,7 +17,8 @@ function WorkspaceHeaderNav (props) {
 
     function handleNewTaskModal(e){
         toggleCreateAllDropdown(e);
-        props.openModal('new task');
+        const task = { name: '', notes: '', dueDate: '', completed: false };
+        props.openModal('new task', task);
 
     }
     function handleNewProjectModal(e){

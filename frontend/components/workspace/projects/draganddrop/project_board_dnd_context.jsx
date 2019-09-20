@@ -28,7 +28,7 @@ class InnerSectionList extends React.Component{
             
             tasks = this.props.section.taskIds.map(taskId => this.props.tasks[taskId]) 
         } 
-        return <ProjectBoardDraggableSection section={this.props.section} tasks={tasks} index={this.props.index} openModal={this.props.openModal} />;
+        return <ProjectBoardDraggableSection section={this.props.section} project={this.props.project} tasks={tasks} index={this.props.index} openModal={this.props.openModal} />;
         
     }
 }
@@ -128,6 +128,7 @@ function ProjectBoardDndContext(props) {
                                     tasks={props.tasks} 
                                     index={i}
                                     openModal={props.openModal}
+                                    project={props.project}
                                     />
                                 )
                             })

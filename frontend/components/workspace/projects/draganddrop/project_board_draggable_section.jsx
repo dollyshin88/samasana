@@ -61,6 +61,11 @@ function ProjectBoardDraggableSection(props){
     //     props.updateSection({ id: props.section.id, name: sectionTitle });
     // }
     // <input onKeyUp={handleSectionTitleChange} type="text" value={sectionTitle}/>
+    function handleNewTaskForSection() {
+
+        const task = { name: '', notes: '', dueDate: '', section_id: props.section.id, project_id: props.project.id, completed: false };
+        props.openModal('new task', task);
+    }
     return( 
         
         <Draggable draggableId={props.section.id} index={props.index}>
@@ -75,6 +80,7 @@ function ProjectBoardDraggableSection(props){
                             {props.section.name}
                         </SectionTitle>
                     </div>
+                    <div onClick={handleNewTaskForSection} className='section-task-add shadow-std clickable'>+</div>
                     <Droppable droppableId={props.section.id} type='task'>
                         {(provided, snapshot) => (
                             <TaskListContainer

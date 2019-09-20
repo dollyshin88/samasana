@@ -19,9 +19,9 @@ export const receiveTask = payload => ({
     payload
 });
 
-export const removeTask = id => ({
+export const removeTask = task => ({
     type: REMOVE_TASK,
-    taskId: id
+    task
 });
 
 export const receiveTaskErrors = errors => ({
@@ -59,7 +59,7 @@ export const updateTask = task => dispatch => APIUtil.updateTask(task)
     .then(payload => dispatch(receiveTask(payload)), errors => dispatch(receiveTaskErrors(errors.responseJSON)));
 
 export const deleteTask = taskId => dispatch => APIUtil.deleteTask(taskId)
-    .then(task => dispatch(removeTask(task.id)));
+    .then(task => dispatch(removeTask(task)));
 
 export const updateTaskGeneralOrder = (workspaceId, taskIds) => dispatch => APIUtil.updateTaskGeneralOrder(workspaceId, taskIds)
     .then(payload => dispatch(receiveGeneralOrderUpdates(payload)), errors => dispatch(receiveTaskErrors(errors.responseJSON)));
