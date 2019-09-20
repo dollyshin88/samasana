@@ -116,3 +116,23 @@
     width: 100px;
     align-self: center;
 }
+
+.user-side-nav-hover__conatiner {
+    position: relative;
+}
+
+.user-side-nav-hover__conatiner:hover .user-side-nav-hover__name {
+    display: block
+}
+
+.user-side-nav-hover__name {
+    display: none;
+    position: absolute;
+    padding: 5px;
+    background-color: #ecfaff;
+    border-radius: 3px;
+    width: 30px;
+    font-size: 0.7rem;
+    color: $text-gray;
+    left: 5px;
+}

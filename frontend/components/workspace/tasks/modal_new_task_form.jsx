@@ -38,6 +38,9 @@ function ModalNewTaskForm (props) {
     function handleTaskStatusChange() {
         const status = (taskStatus === true) ? false : true;
         setTaskStatus(status);
+        if (props.formType === 'edit') {
+            props.taskAction({id: props.task.id, completed: status});
+        }
     }
 
     function handleTaskNameChange(e) {
