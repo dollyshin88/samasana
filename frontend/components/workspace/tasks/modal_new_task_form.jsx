@@ -161,45 +161,64 @@ function ModalNewTaskForm (props) {
                         />
 
                         <div className='form-fields-wrap'>
-                            <select onChange={handleMemberAssign} value={assignee}  className='card-form__input'>
-                                <option value="default" 
-                                >Unassigned</option>
-                                {props.members.map((member, i) => (
-                                    <option key={i} value={member.name}>
-                                        {member.name}
-                                    </option>
-                                ))}
-                                
-                            </select>
-                            <input 
-                                onChange={handleDueDateChange} 
-                                type="date" 
-                                className='card-form__input' 
-                                value={dueDate}
-                            />
+                            <div className='form-field-icon-grouping'>
+                                <div className='form-field-icon-absolute-wrap'>
+                                    <div className='empty-user-circle form-field-icon'><img src={window.personIcon}></img></div>
+                                </div>
+                                <select onChange={handleMemberAssign} value={assignee}  className='card-form__input'>
+                                    <option value="default" 
+                                    >Unassigned</option>
+                                    {props.members.map((member, i) => (
+                                        <option key={i} value={member.name}>
+                                            {member.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className='form-field-icon-grouping'>
+                                <div className='form-field-icon-absolute-wrap'>
+                                    <div className='empty-user-circle form-field-icon'><img className='cal-icon' src={window.calendarIcon}></img></div>
+                                </div>
+                                <input 
+                                    onChange={handleDueDateChange} 
+                                    type="date" 
+                                    className='card-form__input' 
+                                    value={dueDate}
+                                />
+                            </div>
                         </div>
 
-                        <textarea 
-                            className='card-form__textarea' 
-                            onChange={handleNotesInput} 
-                            placeholder='Description' 
-                            cols="30" rows="8" 
-                            value={notes}>
-                        </textarea>
+                        <div className='form-field-icon-flex-grouping'>   
+                            
+                            <div className='form-field-icon'><img className='paragraph-icon' src={window.paragraphIcon}></img></div>
+                                        
+                            <textarea 
+                                className='card-form__textarea' 
+                                onChange={handleNotesInput} 
+                                placeholder='Description' 
+                                cols="30" rows="8" 
+                                value={notes}>
+                            </textarea>
+                        </div>
                         
                         <div className='card-form__project-wrap'>
-                            <select 
-                                onChange={handleProjectAssign} 
-                                value={project} 
-                                className='card-form__input card-form__project-wrap__item'>
-                                <option value="default">Add to Project</option>
+                            <div className='form-field-icon-grouping'>
+                                <div className='form-field-icon-absolute-wrap'>
+                                    <div className='empty-user-circle form-field-icon'><img className='clipboard-icon' src={window.clipboardIcon}></img></div>
+                                </div>
+                                <select 
+                                    onChange={handleProjectAssign} 
+                                    value={project} 
+                                    className='card-form__input card-form__project-wrap__item'>
+                                    <option value="default">Add to Project</option>
 
-                                {props.projects.map((project, i) => (
-                                    <option key={i} value={project.name}>
-                                        {project.name}
-                                    </option>
-                                ))}
-                            </select>
+                                    {props.projects.map((project, i) => (
+                                        <option key={i} value={project.name}>
+                                            {project.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
                             {renderProjectDiv()}
                         </div>
                         <div className='card-form__section-wrap'>

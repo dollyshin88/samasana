@@ -157,13 +157,18 @@ img.dragHandleIcon {
     &__input {
         background-color: #fff;
         border: 2px solid #e0e6e8;
-        border-radius: 3px;
+        border-radius: 20px;
         height: 40px;
+        width: 200px;
         line-height: normal;
         margin: 10px 20px 10px 0px;
         padding: 0;
         padding-left: 16px;
-        flex: 0 1 200px;
+        // flex: 0 1 200px;
+        text-align: left;
+        text-indent: 17px;
+        font-size: 0.8rem;
+
     }
 
     &__textarea {
@@ -208,11 +213,45 @@ img.dragHandleIcon {
        
     }
 }
+select.card-form__input {
+    background-color: #fff;
+    border: 2px solid #e0e6e8;
+    border-radius: 20px;
+    height: 40px;
+    width: 200px;
+    line-height: normal;
+    margin: 10px 20px 10px 0px;
+    padding: 0;
+    padding-left: 16px;
+    flex: 0 1 200px;
+    text-indent: 30px;
+}
 
 .form-fields-wrap {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: flex-start;
     width: 100%;
 }
 
+.form-field-icon-grouping {
+   position: relative;
+}
+.form-field-icon-absolute-wrap {
+    position: absolute;
+    top: 18px;
+    left: 9px;
+}
+
+.form-textarea-icon-absolute-wrap {
+    position: absolute;
+    top: 18px;
+    left: 9px;
+}
+
+.form-field-icon-flex-grouping {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

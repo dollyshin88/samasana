@@ -127,7 +127,7 @@ class MyTasks extends React.Component {
 
         <div className='workspace-grid-item-main mytasks-page'>
             
-            <div className='sub-header-nav'>will become a subheader nav</div>
+            {/* <div className='sub-header-nav'>will become a subheader nav</div> */}
             
             <div className='mytasks-all-dnd__buff'>
                 <div className='mytasks-all-dnd__main'>
