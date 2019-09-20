@@ -16,7 +16,8 @@
 #
 
 class Project < ApplicationRecord
-    COLORS = %w(dark-pink dark-green dark-blue dark-red dark-teal dark-brown dark-orange dark-purple dark-warm-gray light-pink light-green light-blue light-red light-teal light-yellow light-orange light-purple light-warm-gray)
+    #COLORS = %w(dark-pink dark-green dark-blue dark-red dark-teal dark-brown dark-orange dark-purple dark-warm-gray light-pink light-green light-blue light-red light-teal light-yellow light-orange light-purple light-warm-gray)
+    COLORS = ['#FC86A8', '#9AC82B', '#1CA0E7', '#6E64EE', '#FD8F02', '#ECBB02']
 
     validates :name, :owner, :workspace, :color, presence: true
     validates :color, inclusion: COLORS

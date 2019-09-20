@@ -15,11 +15,9 @@ function MemberList(props) {
 
             return (
                 memberInitials.map((initial) => (
-                    <div className='user-side-nav-hover__conatiner'>
-                        <div
-                            key={Object.keys(initial)[0]}
-                            className='user-circle nav-circle'
-                        // onClick={(e) => handleMemberClick(e, Object.keys(initial)[0])}
+                    <div key={Object.keys(initial)[0]} className='user-side-nav-hover__conatiner'>
+                        <div className='user-circle nav-circle'
+                        // enhancement: onClick={(e) => handleMemberClick(e, Object.keys(initial)[0])}
                         >{Object.values(initial)[0]}</div>
 
                         <div className='user-side-nav-hover__name'>{Object.values(initial)[1]}</div>

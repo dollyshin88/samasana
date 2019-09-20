@@ -24,11 +24,20 @@ function HomeProjectListItem(props) {
     }
 
     const projColor = props.project.color;
+
+    // var style = {
+    //     margin: '20px',
+    //     width: '250px',
+    //     height: '250px',
+    //     backgroundColor: `rgb(${rgb})`,
+    //     display: 'inline-block',
+    //   };
+
     return (
         <div onClick={handleProjectShowRouting}>
             
             <div className='hover-effect-container clickable'>
-                <div className='project-item-square project-item-square--proj'>
+                <div className='project-item-square project-item-square--proj' style={{backgroundColor: `${projColor}`}}>
                     <div className='mininav-container'>
                         <img className='project-item-square__mininav' src={window.unfilledStarIconURL} />
                         
