@@ -23,7 +23,7 @@ class Project < ApplicationRecord
     validates :color, inclusion: COLORS
     validates :name, uniqueness: { scope: :owner_id }
     validates :name, uniqueness: { scope: :workspace_id }
-    after_initialize :ensure_color
+    before_validation :ensure_color
     after_save :generate_boiler_plate_sections
 
     def ensure_color

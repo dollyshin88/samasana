@@ -225,7 +225,7 @@ function ModalNewTaskForm (props) {
                             {renderProjectDiv()}
                         </div>
                         <div className='card-form__section-wrap'>
-                            {(project === 'default') ? (null) : (
+                            {(project === 'default' || props.formType === 'new') ? (null) : (
                             <select 
                                 onChange={handleSectionAssign} 
                                 value={section} 
