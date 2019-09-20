@@ -23,7 +23,7 @@ function Welcome(props) {
 
             <div className='ctnr-buff--fullpage'>
                 <div className='signup-container'>
-                    <img className='signup-container__img' src="" alt="" />
+                    <img className='signup-container__img' src={window.welcomePageImage} alt="" />
                     <div className='signup-container__subcontent'>
                         <div className='signup-container__header'>Welcome to Samasana</div>
                         <p className='signup-container__helper-text'>Let's get your account set up. It will take about a minute</p>
