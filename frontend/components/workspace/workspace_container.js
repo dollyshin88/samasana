@@ -4,6 +4,7 @@ import Workspace from './workspace';
 
 import { initialsSelector } from '../../reducers/selector_util';
 import { fetchAllWorkspaces, fetchWorkspace } from '../../actions/workspace_actions';
+import { updateTask } from '../../actions/task_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
@@ -23,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     logout: () => dispatch(logout()),
-    
+    updateTask: task => dispatch(updateTask(task)),
     fetchAllWorkspaces: () => dispatch(fetchAllWorkspaces()),
     fetchWorkspace: id => dispatch(fetchWorkspace(id)),
     openModal: (contentName, data) => dispatch(openModal(contentName, data))

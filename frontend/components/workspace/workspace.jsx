@@ -36,6 +36,7 @@ function Workspace(props){
                     currentUserId={props.currentUserId}
                     openModal={props.openModal}
                     logout={props.logout}
+                    updateTask={props.updateTask}
                 />
             );
         }

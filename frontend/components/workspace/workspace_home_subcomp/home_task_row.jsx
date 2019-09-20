@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function HomeTaskRow(props) {
@@ -6,6 +6,32 @@ function HomeTaskRow(props) {
         return (Object.values(props.projects).length && props.projects[props.task.project_id]) ? (
             <Link to={`/project/${props.task.project_id}/board`} className='pill-link truncate'>{props.projects[props.task.project_id].name}</Link>
         ) : (<></>)
+    }
+
+    //on click of the circle, change taskStatus state; toggle class on the icon; give icon id with task id embbeded
+    //render icon based on the task status
+    const [taskStatus, setTaskStatus] = useState(props.task.completed);
+
+    function renderCheckbox(){
+        const cssStyle = (taskStatus) ? 'checkbox-circle checkbox-green' : 'checkbox-circle';
+        return (
+            <div onClick={handleCheckboxClick} id={`checkbox-circle-${props.task.id}`} className={cssStyle}>
+                <i className="fas fa-check fa-xs"></i>
+            </div>
+            )
+    }
+
+    function handleCheckboxClick(e) {
+        
+        e.stopPropagation();
+        const checkbox = document.getElementById(`checkbox-circle-${props.task.id}`);
+        checkbox.classList.toggle('checkbox-green');
+        const newStat = (taskStatus === true) ? false : true;
+
+        // setTaskStatus(newStat); note: not sure why setState hook doesn't work.
+
+        props.updateTask({ id: props.task.id, completed: newStat })
+       
     }
 
     function handleTaskModal() {
@@ -16,9 +42,7 @@ function HomeTaskRow(props) {
     return (
         <div className='task-row divider'>
             <div onClick={handleTaskModal} className='task-row__main clickable'>
-                <div className='checkbox-circle'>
-                <i className="fas fa-check fa-xs"></i>
-                </div>
+                {renderCheckbox()}
                 <div className='task-row__main__text'>{props.task.name}</div>
             </div>
             <div className='task-row__aside'>

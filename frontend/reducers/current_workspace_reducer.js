@@ -26,8 +26,9 @@ const currentWorkspaceReducer = (state={}, action) => {
         
         case RECEIVE_TASK: 
 
-            const taskId = Object.keys(action.payload.tasks)[0];
+            const taskId = parseInt(Object.keys(action.payload.tasks)[0]);
             nextState = Object.assign({}, state);
+            
             if (!nextState.taskIds.includes(taskId)) {
                 nextState.taskIds.push(taskId);
                 return nextState;

@@ -10,6 +10,7 @@ function HomeTaskList(props) {
             task={task} 
             projects={props.projects}
             openModal={props.openModal}
+            updateTask={props.updateTask}
         />
         )));
     }

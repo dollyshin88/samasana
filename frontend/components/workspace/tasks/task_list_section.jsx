@@ -17,7 +17,7 @@ class InnerList extends React.Component {
     render() {
         
         return this.props.tasks.map((task, i) => (
-                <TaskItem key={task.id} task={task} index={i} projects={this.props.projects} openModal={this.props.openModal}/>
+                <TaskItem key={task.id} task={task} index={i} projects={this.props.projects} openModal={this.props.openModal} updateTask={this.props.updateTask}/>
             ));
     }
 }
@@ -33,7 +33,7 @@ function TaskListSection(props) {
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                     >
-                        <InnerList tasks={props.tasks} projects={props.projects} openModal={props.openModal}/>
+                        <InnerList tasks={props.tasks} projects={props.projects} openModal={props.openModal} updateTask={props.updateTask}/>
                         {provided.placeholder}
                     </TaskList>
 

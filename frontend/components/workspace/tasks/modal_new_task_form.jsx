@@ -160,7 +160,7 @@ function ModalNewTaskForm (props) {
                             className='invisible-input'
                         />
 
-                        <div className='form-fields-wrap'>
+                        <div className='form-fields-wrap-modal'>
                             <div className='form-field-icon-grouping'>
                                 <div className='form-field-icon-absolute-wrap'>
                                     <div className='empty-user-circle form-field-icon'><img src={window.personIcon}></img></div>

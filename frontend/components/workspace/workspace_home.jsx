@@ -22,6 +22,7 @@ function WorkspaceHome (props) {
                     tasks={props.tasks} 
                     projects={props.projects}
                     openModal={props.openModal}
+                    updateTask={props.updateTask}
                 />
                 <HomeSection 
                     section='projects' 

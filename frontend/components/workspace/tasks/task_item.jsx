@@ -56,6 +56,30 @@ function TaskItem(props) {
     //         )
     //     }
     // }
+    const [taskStatus, setTaskStatus] = useState(props.task.completed);
+
+    function renderCheckbox(){
+        const cssStyle = (taskStatus) ? 'checkbox-circle checkbox-green' : 'checkbox-circle';
+        return (
+            <div onClick={handleCheckboxClick} id={`checkbox-circle-${props.task.id}`} className={cssStyle}>
+                <i className="fas fa-check fa-xs"></i>
+            </div>
+            )
+    }
+
+    function handleCheckboxClick(e) {
+        
+        e.stopPropagation();
+        const checkbox = document.getElementById(`checkbox-circle-${props.task.id}`);
+        checkbox.classList.toggle('checkbox-green');
+        console.log(taskStatus);
+        const newStat = (taskStatus === true) ? false : true;
+        // console.log(newStat);
+        // setTaskStatus(newStat);
+        // console.log(taskStatus);
+        props.updateTask({ id: props.task.id, completed: newStat })
+       
+    }
 
     return (
         <Draggable draggableId={props.task.id} index={props.index}>
@@ -71,9 +95,7 @@ function TaskItem(props) {
                                 <img className='dragHandleIcon' src={window.dragHandleIconURL} alt=""/>
                         </Handle>
                         <div onClick={handleTaskModal} className='task-row__main clickable'>
-                            <div className='checkbox-circle'>
-                                <i className="fas fa-check fa-xs"></i>
-                            </div>
+                            {renderCheckbox()}
                             <div className='task-row__main__text'>{props.task.name}</div>
                         </div>
                         <div className='task-row__aside'>

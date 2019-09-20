@@ -156,7 +156,7 @@ img.dragHandleIcon {
     
     &__input {
         background-color: #fff;
-        border: 2px solid #e0e6e8;
+        border: 1px solid #c8e1e9;
         border-radius: 20px;
         height: 40px;
         width: 200px;
@@ -215,7 +215,7 @@ img.dragHandleIcon {
 }
 select.card-form__input {
     background-color: #fff;
-    border: 2px solid #e0e6e8;
+    border: 1px solid #c8e1e9;
     border-radius: 20px;
     height: 40px;
     width: 200px;
@@ -254,4 +254,5 @@ select.card-form__input {
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
 }

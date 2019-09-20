@@ -136,17 +136,17 @@ class MyTasks extends React.Component {
                     </div>
                     <div className='mytasks-dnd'>
                         <DragDropContext onDragEnd={this.onDragEndToday}>
-                            <TaskListSection list='Today' tasks={this.props.todayTasks} projects={this.props.projects} openModal={this.props.openModal}/>
+                            <TaskListSection list='Today' tasks={this.props.todayTasks} projects={this.props.projects} openModal={this.props.openModal} updateTask={this.props.updateTask}/>
                         </DragDropContext>
                     </div>
                     <div className='mytasks-dnd'>
                         <DragDropContext onDragEnd={this.onDragEndUpcoming}>
-                                <TaskListSection list='Upcoming' tasks={this.props.upcomingTasks} projects={this.props.projects} openModal={this.props.openModal}/>
+                                <TaskListSection list='Upcoming' tasks={this.props.upcomingTasks} projects={this.props.projects} openModal={this.props.openModal} updateTask={this.props.updateTask}/>
                         </DragDropContext>
                     </div>
                     <div className='mytasks-dnd'>
                         <DragDropContext onDragEnd={this.onDragEndLater}>
-                                <TaskListSection list='Later' tasks={this.props.laterTasks} projects={this.props.projects} openModal={this.props.openModal}/>
+                                <TaskListSection list='Later' tasks={this.props.laterTasks} projects={this.props.projects} openModal={this.props.openModal} updateTask={this.props.updateTask}/>
                         </DragDropContext>
                     </div>
                 </div>

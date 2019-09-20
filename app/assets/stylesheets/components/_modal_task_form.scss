@@ -65,3 +65,10 @@
     height: calc(100vh - 85px);
 }
 
+.form-fields-wrap-modal {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}

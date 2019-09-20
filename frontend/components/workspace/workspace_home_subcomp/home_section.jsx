@@ -13,6 +13,7 @@ function HomeSection (props) {
                         tasks={props.tasks} 
                         projects={props.projects}
                         openModal={props.openModal}
+                        updateTask={props.updateTask}
                     />;
         sectionTitle = 'Tasks Due Soon'; 
 

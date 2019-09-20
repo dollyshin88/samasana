@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { taskIdsByDateSelector, tasksFromIdsSelector, initialsSelector } from '../../../reducers/selector_util';
-import { updateTaskGeneralOrder } from '../../../actions/task_actions';
+import { updateTaskGeneralOrder, updateTask } from '../../../actions/task_actions';
 import { receiveOrderedTasks } from '../../../actions/workspace_actions';
 import MyTasks from './mytasks';
 import { openModal } from '../../../actions/modal_actions';
@@ -41,6 +41,7 @@ const mapDispatchToProps = dispatch => ({
     updateTaskGeneralOrder: (workspaceId, taskIds) => dispatch(updateTaskGeneralOrder(workspaceId, taskIds)),
     receiveOrderedTasks: (taskIdArr, workspaceId) => dispatch(receiveOrderedTasks(taskIdArr, workspaceId)),
     openModal: (contentName, data) => dispatch(openModal(contentName, data)),
+    updateTask: task => dispatch(updateTask(task)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyTasks);
