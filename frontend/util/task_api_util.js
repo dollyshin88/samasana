@@ -28,10 +28,10 @@ export const updateTask = task => (
     })
 );
 
-export const deleteTask = task => (
+export const deleteTask = taskId => (
     $.ajax({
         method: 'DELETE',
-        url: `api/tasks/${task.id}`
+        url: `api/tasks/${taskId}`
     })
 );
 

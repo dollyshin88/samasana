@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import ReactDOM from 'react-dom';
 import TaskListSection from './task_list_section';
@@ -6,12 +6,18 @@ import WorkspaceHeaderNav from '../workspace_header_nav';
 import NewTaskFormContainer from './new_form_container';
 
 
-function MyTasks(props) {
+class MyTasks extends React.Component {
+   constructor(props) {
+       
+    super(props);
+    this.state = { newTask: 'false' };
+    this.handleNewTaskClick = this.handleNewTaskClick.bind(this);
+    this.onDragEndUpcoming = this.onDragEndUpcoming.bind(this);
+    this.onDragEndToday = this.onDragEndToday.bind(this);
+    this.onDragEndLater = this.onDragEndLater.bind(this);
+   }
 
-    let todayListLength = props.todayTasks.length;
-    let upcomingListLength = props.upcomingTasks.length;
-
-    function onDragEndToday(result){
+    onDragEndToday(result){
         const { destination, source, draggableId } = result;
         if (!destination) {
             return;
@@ -24,18 +30,19 @@ function MyTasks(props) {
             return;
         }
 
-        const newTaskIds = Array.from(props.todayTasksIds);
+        const newTaskIds = Array.from(this.props.todayTasksIds);
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
         
         
-        const entireArr = newTaskIds.concat(props.upcomingTasksIds, props.laterTasksIds);
-        props.receiveOrderedTasks(entireArr, props.currentWorkspace.id);
-        props.updateTaskGeneralOrder(props.currentWorkspace.id, entireArr);
+        const entireArr = newTaskIds.concat(this.props.upcomingTasksIds, this.props.laterTasksIds);
+        this.props.receiveOrderedTasks(entireArr, this.props.currentWorkspace.id);
+        this.props.updateTaskGeneralOrder(this.props.currentWorkspace.id, entireArr);
         
         return;
     }
-    function onDragEndUpcoming(result) {
+
+    onDragEndUpcoming(result) {
         const { destination, source, draggableId } = result;
         if (!destination) {
             return;
@@ -48,22 +55,22 @@ function MyTasks(props) {
             return;
         }
 
-        const newTaskIds = Array.from(props.upcomingTasksIds);
+        const newTaskIds = Array.from(this.props.upcomingTasksIds);
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
 
         // newTaskIds.forEach((id, order) => (
-        //     props.updateTask({ id: id, general_order: order + todayListLength })
+        //     this.props.updateTask({ id: id, general_order: order + todayListLength })
         // ));
-        // props.fetchAllWorkspaces();
-        const entireArr = props.todayTasksIds.concat(newTaskIds, props.laterTasksIds);
-        props.receiveOrderedTasks(entireArr, props.currentWorkspace.id);
-        props.updateTaskGeneralOrder(props.currentWorkspace.id, entireArr);
+        // this.props.fetchAllWorkspaces();
+        const entireArr = this.props.todayTasksIds.concat(newTaskIds, this.props.laterTasksIds);
+        this.props.receiveOrderedTasks(entireArr, this.props.currentWorkspace.id);
+        this.props.updateTaskGeneralOrder(this.props.currentWorkspace.id, entireArr);
         
 
         return;
     }
-    function onDragEndLater(result) {
+    onDragEndLater(result) {
         const { destination, source, draggableId } = result;
         if (!destination) {
             return;
@@ -76,44 +83,45 @@ function MyTasks(props) {
             return;
         }
 
-        const newTaskIds = Array.from(props.laterTasksIds);
+        const newTaskIds = Array.from(this.props.laterTasksIds);
         newTaskIds.splice(source.index, 1);
         newTaskIds.splice(destination.index, 0, draggableId);
 
-        const entireArr = props.todayTasksIds.concat(props.upcomingTasksIds, newTaskIds);
-        props.receiveOrderedTasks(entireArr, props.currentWorkspace.id);
-        props.updateTaskGeneralOrder(props.currentWorkspace.id, entireArr);
+        const entireArr = this.props.todayTasksIds.concat(this.props.upcomingTasksIds, newTaskIds);
+        this.props.receiveOrderedTasks(entireArr, this.props.currentWorkspace.id);
+        this.props.updateTaskGeneralOrder(this.props.currentWorkspace.id, entireArr);
         
         // newTaskIds.forEach((id, order) => (
-        //     props.updateTask({ id: id, general_order: order + todayListLength + upcomingListLength })
+        //     this.props.updateTask({ id: id, general_order: order + todayListLength + upcomingListLength })
         // ));
-        // props.fetchAllWorkspaces();
+        // this.props.fetchAllWorkspaces();
 
         return;
     }
     //=================================================
-    const [newTask, setNewTask] = useState('false');
+    // const [newTask, setNewTask] = useState('false');
 
-    function handleNewTaskClick(e) {
+    handleNewTaskClick(e) {
         e.preventDefault();
-        (newTask === 'false') ? setNewTask('true') : setNewTask('false');
+        (this.state.newTask === 'false') ? this.setState({newTask: 'true'}) : this.setState({newTask: 'false'});
     }
 
-    function renderNewTaskForm() {
-        return (newTask === 'true') ? (
+    renderNewTaskForm() {
+        return (this.state.newTask === 'true') ? (
                 <NewTaskFormContainer />
             ) : ( null ) 
     }
     //==================================================
-    
+    render() {
+        
     return (
         <>
         <div className='workspace-grid-item-header'>
             <WorkspaceHeaderNav
-                currentUserInitial={props.currentUserInitial}
-                currentUserId={props.currentUserId}
-                title={`${props.currentUser.name}'s Tasks - ${props.currentWorkspace.name}`}
-                openModal={props.openModal}
+                currentUserInitial={this.props.currentUserInitial}
+                currentUserId={this.props.currentUserId}
+                title={`${this.props.currentUser.name}'s Tasks - ${this.props.currentWorkspace.name}`}
+                openModal={this.props.openModal}
             />
         </div>
 
@@ -124,30 +132,33 @@ function MyTasks(props) {
             <div className='mytasks-all-dnd__buff'>
                 <div className='mytasks-all-dnd__main'>
                     <div className='mytasks-all-dnd__header'>
-                        <button onClick={handleNewTaskClick} className='mytasks-all-dnd__btn'>Add Task</button>
+                        <button onClick={this.handleNewTaskClick} className='mytasks-all-dnd__btn'>Add Task</button>
                     </div>
                     <div className='mytasks-dnd'>
-                        <DragDropContext onDragEnd={onDragEndToday}>
-                            <TaskListSection list='Today' tasks={props.todayTasks} projects={props.projects}/>
+                        <DragDropContext onDragEnd={this.onDragEndToday}>
+                            <TaskListSection list='Today' tasks={this.props.todayTasks} projects={this.props.projects} openModal={this.props.openModal}/>
                         </DragDropContext>
                     </div>
                     <div className='mytasks-dnd'>
-                        <DragDropContext onDragEnd={onDragEndUpcoming}>
-                                <TaskListSection list='Upcoming' tasks={props.upcomingTasks} projects={props.projects}/>
+                        <DragDropContext onDragEnd={this.onDragEndUpcoming}>
+                                <TaskListSection list='Upcoming' tasks={this.props.upcomingTasks} projects={this.props.projects} openModal={this.props.openModal}/>
                         </DragDropContext>
                     </div>
                     <div className='mytasks-dnd'>
-                        <DragDropContext onDragEnd={onDragEndLater}>
-                                <TaskListSection list='Later' tasks={props.laterTasks} projects={props.projects}/>
+                        <DragDropContext onDragEnd={this.onDragEndLater}>
+                                <TaskListSection list='Later' tasks={this.props.laterTasks} projects={this.props.projects} openModal={this.props.openModal}/>
                         </DragDropContext>
                     </div>
                 </div>
-                {renderNewTaskForm()}
+                <div id='task-form-container'>
+                    {this.renderNewTaskForm()}
+                </div>
             </div>
 
         </div>
         </>
     );
+    }
 }
 
 

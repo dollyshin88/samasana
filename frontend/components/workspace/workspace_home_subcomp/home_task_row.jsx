@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 function HomeTaskRow(props) {
     function renderProjectPillLink() {
         return (Object.values(props.projects).length && props.projects[props.task.project_id]) ? (
-            <div className='pill-link truncate'>{props.projects[props.task.project_id].name}</div>
+            <Link to={`/project/${props.task.project_id}/board`} className='pill-link truncate'>{props.projects[props.task.project_id].name}</Link>
         ) : (<></>)
     }
 
     function handleTaskModal() {
-        props.openModal('edit task', props.task)
+        props.openModal('edit task', props.task);
     }
     // the whole div should dispatch modalOpen with taskshow
     const projectName = (props.task.project_id) ? ('') : ('');
     return (
-        <div onClick={handleTaskModal} className='task-row divider'>
-            <div className='task-row__main'>
+        <div className='task-row divider'>
+            <div onClick={handleTaskModal} className='task-row__main clickable'>
                 <div className='checkbox-circle'>
                 <i className="fas fa-check fa-xs"></i>
                 </div>

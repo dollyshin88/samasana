@@ -12,6 +12,7 @@ function WorkspaceHome (props) {
                 currentUserId={props.currentUserId}
                 title='Home'
                 openModal={props.openModal}
+                logout={props.logout}
             />
         </div>
         <div className='workspace-grid-item-main'>

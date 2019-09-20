@@ -7,22 +7,25 @@ const Container = styled.div`
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    padding: 30px;
-    width: 100%;
-    overflow: scroll;
+    height: 100%;
     
 `;
 class InnerSectionList extends React.Component{
-    componenetShouldUpdate(nextProps) {
-        if (nextProps.section.taskId === this.props.section.taskId) {
-            return false;
-        }
-        return true;
-    }
+    // shouldComponentUpdate(nextProps) {
+        
+    //     if (nextProps.section.taskId === this.props.section.taskId) {
+            
+    //         return false;
+    //     }
+        
+    //     return true;
+    // }
     render() {
         // const { section, tasks, index, openModal } = this.props;
         let tasks =[];
+        
         if (this.props.section.taskIds.length) {
+            
             tasks = this.props.section.taskIds.map(taskId => this.props.tasks[taskId]) 
         } 
         return <ProjectBoardDraggableSection section={this.props.section} tasks={tasks} index={this.props.index} openModal={this.props.openModal} />;
@@ -103,13 +106,14 @@ function ProjectBoardDndContext(props) {
 
     function renderBoard() {
         return (
+            <div className='project-board'>
             <DragDropContext onDragEnd={onDragEnd}>
                 <Droppable 
                     droppableId='all-sections'
                     direction='horizontal'
                     type='section'>
                     {provided => (
-    
+                        <div className='dnd-wrap'>
                         <Container
                             ref={provided.innerRef}
                             {...provided.droppableProps}
@@ -131,10 +135,12 @@ function ProjectBoardDndContext(props) {
                         
                         {provided.placeholder}
                         </Container>
+                        </div>
                     )}
                     
                 </Droppable>
             </DragDropContext>
+            </div>
             ) 
     }
 

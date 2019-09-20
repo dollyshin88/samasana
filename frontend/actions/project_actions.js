@@ -13,9 +13,9 @@ export const receiveAllProjects = projects => ({
     projects
 });
 
-export const receiveProject = project => ({
+export const receiveProject = payload => ({
     type: RECEIVE_PROJECT,
-    project
+    payload
 });
 
 export const removeProject = id => ({
@@ -46,7 +46,7 @@ export const fetchProject = id => dispatch => APIUtil.fetchProject(id)
     .then(payload => dispatch(receiveProject(payload)));
 
 export const createProject = project => dispatch => APIUtil.createProject(project)
-    .then(project => dispatch(receiveProject(project)), 
+    .then(payload => dispatch(receiveProject(payload)), 
           errors => dispatch(receiveProjectErrors(errors.responseJSON)));
 
 export const updateProject = project => dispatch => APIUtil.updateProject(project)

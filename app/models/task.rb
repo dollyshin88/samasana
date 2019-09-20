@@ -97,9 +97,9 @@ class Task < ApplicationRecord
         if project_id
             defaultSection = Project.find(project_id).sections.where(order:0)[0]
             self.section_id ||= defaultSection.id
+            set_default_section_order(section_id)
         end
         
-        set_default_section_order(section_id)
     end
 
     def set_default_section_order(section_id)

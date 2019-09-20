@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ProjectViewBoard from './project_view_board';
 import ProjectViewList from './project_view_list';
-import { projectTasksSelector, projectSectionsSelector} from '../../../reducers/selector_util';
+import { projectTasksSelector, projectSectionsSelector, initialsSelector} from '../../../reducers/selector_util';
 import { updateTaskSectionOrder } from '../../../actions/task_actions';
-import { receiveOrderedTasksForSection, receiveOrderedTasksTwoSections, updateSectionOrder } from '../../../actions/section_actions';
+import { receiveOrderedTasksForSection, receiveOrderedTasksTwoSections, updateSectionOrder, updateSection } from '../../../actions/section_actions';
 import { receiveSectionIdsUpdate } from '../../../actions/project_actions';
 
 
 function ProjectView(props) {
-    
     function renderProjectView(){
         //todo: also send sections and actions down
         if (props.viewType === 'board') {
@@ -24,7 +23,11 @@ function ProjectView(props) {
                     updateTaskSectionOrder={props.updateTaskSectionOrder} 
                     receiveOrderedTasksForSection={props.receiveOrderedTasksForSection}
                     receiveOrderedTasksTwoSections={props.receiveOrderedTasksTwoSections}
-                    receiveSectionIdsUpdate={props.receiveSectionIdsUpdate}/>
+                    receiveSectionIdsUpdate={props.receiveSectionIdsUpdate}
+                    currentUserInitial={props.currentUserInitial}
+                    currentUserId={props.currentUserId}
+                    updateSection={props.updateSection}
+                    />
             );
         } else if (props.viewType === 'list') {
             return (
@@ -43,12 +46,16 @@ const mapStateToProps = (state, ownProps) => {
     const parsedLocation = ownProps.location.pathname.split('/');
     const projectId = parseInt(parsedLocation[2]);
     const viewType = parsedLocation[parsedLocation.length - 1];
+    // const sections = (state.entities.sections)
+    
     return ({
         project: state.entities.projects[projectId],
         viewType: viewType,
         sections: projectSectionsSelector(state, projectId),
         tasks: projectTasksSelector(state, projectId),
         openModal: ownProps.openModal,
+        currentUserInitial: initialsSelector(state.entities.users[state.session.id].name),
+        currentUserId: state.session.id,
     })
 };
 
@@ -59,6 +66,6 @@ const mapDispatchToProps = dispatch => ({
     receiveOrderedTasksTwoSections: (sourceTaskIds, destinationTaskIds, sourceId, destinationId, movedTaskId) => dispatch(receiveOrderedTasksTwoSections(sourceTaskIds, destinationTaskIds, sourceId, destinationId, movedTaskId)),
     updateTaskSectionOrder: updates => dispatch(updateTaskSectionOrder(updates)),
     receiveSectionIdsUpdate: (projectId, sectionIds) => dispatch(receiveSectionIdsUpdate(projectId, sectionIds)),
-
+    updateSection: section => dispatch(updateSection(section)),
 });
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectView));

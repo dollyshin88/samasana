@@ -1,0 +1,94 @@
+.project-board {
+    background-color: #F6F8F9;
+    width: 100%;
+    height: 100%;
+    // position:absolute;
+    // top: 50px;
+}
+
+.draggable-task {
+    min-width: 225px;
+    min-height: 62px;
+    background-color: white;
+    border-radius: 3px;
+    padding: 20px;
+    font-family: $text-font;
+    font-size: 0.9rem;
+    color: $text-gray;
+    &__title {
+
+    }
+    &__details {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 20px;
+    }
+}
+
+.board-section-container {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 0px 2px;
+    
+}
+.board-section-container:hover {
+    border-color: rgb(233, 234, 235);
+    transition: border-color 0.2s ease-in;
+}
+
+.section-title-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: $nav-navy;
+}
+.board-view-header {
+    height: 70px;
+    width: calc(100vw - 244px);
+}
+
+.dnd-wrap {
+    width: calc(100vw - 244px);
+    overflow: scroll;
+    height: 100%;
+}
+
+.header-title-project-square {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: inset 0 -1px rgba(0,0,0,.05);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+
+    &--proj {
+        //temporary until building dynamic coloring
+        background-color: $workspace-orange;
+    }
+
+    &__center {
+        margin-top: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        &__icon {
+            margin: auto;
+            margin-bottom: 5px;
+
+        }
+    }
+}
+.header-title-project-square__center__icon img {
+    width: 22px;
+    color: white;
+}

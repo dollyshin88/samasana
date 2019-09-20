@@ -1,0 +1,66 @@
+.modal-task-form-card {
+    background-color: white;
+    // margin-left: 20px;
+    padding: 20px 50px 30px 50px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px 0 rgba(21,27,38,.15);
+    flex: 1;
+    height: 100%;
+
+    &__header {
+        height: 50px;
+        border-bottom: 1px solid $lightest-gray;
+        display: flex;
+        padding: 10px 0px;
+        justify-content: flex-start;
+        background-color: white;
+        align-items: center;
+        box-sizing: initial;
+    }
+    &__btn {
+        padding: 0px 20px;
+        font-weight: 400;
+        border-radius: 3px;
+        border: 1px solid $light-gray;
+        background-color: white;
+        color: $text-gray;
+        height: 32px;
+        font-size: 0.9rem;
+        line-height: 33px;
+    }
+    &__btn:hover {
+        background-image: linear-gradient(to top right, #ff5263 0%, #ff7381 35%, #fcbd01 100%);
+        color: white;
+        border-color: white;
+        transition: all 0.2s ease-in;
+    }
+    &__bottom-btns-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
+//for close button on the modal task form
+.task-form-mod {
+    top: 69px;
+    right: 48px;
+}
+
+.task-form-modal-wrap {
+    box-sizing: border-box;
+
+    border-radius: 3px;
+    box-shadow: 0 20px 30px 0 rgba(36, 50, 66, 0.14);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 33px;
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    padding-top: 32px;
+
+    height: calc(100vh - 85px);
+}

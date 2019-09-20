@@ -1,42 +1,83 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 function WorkspaceHeaderNav (props) {
 
-    function toggleDropdown(e) {
+    function toggleCreateAllDropdown(e) {
         e.stopPropagation();
         const dropdown = document.getElementById('create-all-dropdown');
         dropdown.classList.toggle('hidden');
     }
 
+    function toggleCurrentUserDropdown(e) {
+        e.stopPropagation();
+        const dropdown = document.getElementById('current-user-dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+
     function handleNewTaskModal(e){
-        toggleDropdown(e);
+        toggleCreateAllDropdown(e);
         props.openModal('new task');
 
     }
-    function handNewProjectModal(e){
-        toggleDropdown(e);
+    function handleNewProjectModal(e){
+        toggleCreateAllDropdown(e);
         props.openModal('new project');
     }
-
+    function handleLogout(e){
+        toggleCurrentUserDropdown(e);
+        props.logout();
+    }
+    function renderHeaderIcons(){
+        const projectRegex = new RegExp('\/project\/.*');
+        const myTaskRegex = new RegExp('\/mytasks.*');
+        const homeRegex = new RegExp('\/')
+        if (projectRegex.test(props.location.pathname)) {
+            return (
+                <div className='header-title-project-square header-title-project-square--proj pushright-10'> 
+                    <div className='header-title-project-square__center'>
+                    <div className='header-title-project-square__center__icon'><img src={window.kanbanIconURL} /></div>
+                    </div>
+                 </div>
+            )
+        } else if (myTaskRegex.test(props.location.pathname)) {
+            return <div className='user-circle pushright-10'>{props.currentUserInitial}</div>
+        } else if (homeRegex.test(props.location.pathname)) {
+            return <div></div>
+        }
+    }
+    
+    
+      
     return (
         <div className='workspace-header'>
-            
-            <div className='workspace-header__title' >{props.title}</div>
+            <div className='workspace-header__title-grouping'>
+                {renderHeaderIcons()}
+                <div className='workspace-header__title' >{props.title}</div>
+            </div>
             <div className='workspace-header__btn-section'>
                 <div id='create-all-dropdow-btn' className='dropdown-parent-btn'>
-                    <div onClick={toggleDropdown} className='workspace-header__btn clickable menu-btn'>+ New</div>
+                    <div onClick={toggleCreateAllDropdown} className='workspace-header__btn clickable menu-btn'>+ New</div>
                     
                     <div id='create-all-dropdown' className='create-all-dropdown menu hidden'>
-                                <div className='create-all-dropdown__item clickable' onClick={(e)=>handleNewTaskModal(e)}>Task</div>
-                                <div className='create-all-dropdown__item clickable'  onClick={(e)=>handNewProjectModal(e)}>Project</div>
+                        <div className='create-all-dropdown__item clickable' onClick={(e)=>handleNewTaskModal(e)}>Task</div>
+                        <div className='create-all-dropdown__item clickable'  onClick={(e)=>handleNewProjectModal(e)}>Project</div>
                     </div>
                     
                 </div>
-                <div className='user-circle'>{props.currentUserInitial}</div>
+
+                <div id='current-user-dropdow-btn' className='dropdown-parent-btn'>
+                    <div onClick={toggleCurrentUserDropdown} className='user-circle clickable menu-btn'>{props.currentUserInitial}</div>
+
+                    <div id='current-user-dropdown' className='current-user-dropdown menu hidden'>
+                        <div className='current-user-dropdown__item clickable' onClick={(e)=>handleLogout(e)}>Log out</div>
+                        
+                    </div>
+                </div>
             </div>
            
         </div>
     );
 }
 
-export default WorkspaceHeaderNav;
+export default withRouter(WorkspaceHeaderNav);

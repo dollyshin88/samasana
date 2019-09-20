@@ -10,6 +10,7 @@ const tasksReducer = (state={}, action) => {
             return action.tasks;
         
         case RECEIVE_TASK:
+            
             return Object.assign({}, state, action.payload.tasks);
 
         case RECEIVE_GENERAL_ORDER_UPDATES:
@@ -20,7 +21,7 @@ const tasksReducer = (state={}, action) => {
 
         case REMOVE_TASK:
             const nextState = Object.assign({}, state);
-            delete nextState.entities.tasks[action.taskId];
+            delete nextState[action.taskId];
             return nextState;
             
         case RECEIVE_CURRENT_WORKSPACE:

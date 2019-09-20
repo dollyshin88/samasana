@@ -1,6 +1,7 @@
 import { RECEIVE_ALL_SECTIONS, RECEIVE_ALL_PROJECT_SECTIONS, RECEIVE_SECTION, REMOVE_SECTION, RECEIVE_SECTION_UPDATES, RECEIVE_ORDERED_TASKS_FOR_SECTION, RECEIVE_ORDERED_TASKS_TWO_SECTIONS } from '../actions/section_actions';
 import { RECEIVE_CURRENT_WORKSPACE } from '../actions/workspace_actions';
 import { RECEIVE_SECTION_ORDER_UPDATES } from '../actions/task_actions';
+import { RECEIVE_PROJECT } from '../actions/project_actions';
 
 const SectionsReducer = (state={}, action) => {
     Object.freeze(state);
@@ -8,6 +9,8 @@ const SectionsReducer = (state={}, action) => {
     switch (action.type) {
         case RECEIVE_ALL_SECTIONS:
             return action.sections;
+        case RECEIVE_PROJECT:
+            return Object.assign({}, state, action.payload.sections); 
 
         case RECEIVE_ALL_PROJECT_SECTIONS:
             return Object.assign({}, state, action.sections);

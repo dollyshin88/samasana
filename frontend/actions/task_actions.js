@@ -2,7 +2,7 @@ import * as APIUtil from '../util/task_api_util';
 
 export const RECEIVE_ALL_TASKS = 'RECEIVE_ALL_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
-export const REMOVE_TASK = 'REMOVE_TAKS';
+export const REMOVE_TASK = 'REMOVE_TASK';
 export const RECEIVE_TASK_ERRORS = 'RECEIVE_TASK_ERRORS';
 export const CLEAR_TASK_ERRORS = 'CLEAR_TASK_ERRORS';
 export const RECEIVE_GENERAL_ORDER_UPDATES = 'RECEIVE_GENERAL_ORDER_UPDATES';
@@ -58,7 +58,7 @@ export const createTask = task => dispatch => APIUtil.createTask(task)
 export const updateTask = task => dispatch => APIUtil.updateTask(task)
     .then(payload => dispatch(receiveTask(payload)), errors => dispatch(receiveTaskErrors(errors.responseJSON)));
 
-export const deleteTask = task => dispatch => APIUtil.deleteTask(task)
+export const deleteTask = taskId => dispatch => APIUtil.deleteTask(taskId)
     .then(task => dispatch(removeTask(task.id)));
 
 export const updateTaskGeneralOrder = (workspaceId, taskIds) => dispatch => APIUtil.updateTaskGeneralOrder(workspaceId, taskIds)

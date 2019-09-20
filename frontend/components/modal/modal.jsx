@@ -6,8 +6,8 @@ import { closeModal } from '../../actions/modal_actions';
 import LoginFormContainer from '../session/login_container';
 import NewProjectFormConatiner from '../workspace/projects/new_form_container';
 import EditProjectFormContainer from '../workspace/projects/edit_form_container';
-import NewTaskFormConatiner from '../workspace/tasks/new_form_container';
-import EditTaskFormContainer from '../workspace/tasks/edit_form_container';
+import ModalNewTaskFormConatiner from '../workspace/tasks/modal_new_form_container';
+import ModalEditTaskFormContainer from '../workspace/tasks/modal_edit_form_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
@@ -27,11 +27,11 @@ function Modal({ modal, closeModal }) {
             break;
 
         case 'new task':
-            modalComponent = <NewTaskFormConatiner closeModal={closeModal} />;
+            modalComponent = <ModalNewTaskFormConatiner closeModal={closeModal} />;
             break;
     
         case 'edit task':
-            modalComponent = <EditTaskFormContainer closeModal={closeModal} task={modal.data} />
+            modalComponent = <ModalEditTaskFormContainer closeModal={closeModal} task={modal.data} />
             break; 
 
         default:

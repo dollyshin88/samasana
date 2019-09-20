@@ -15,7 +15,9 @@
 .scrolly {
     overflow-y: scroll;
 }
-
+.clickable:hover {
+    cursor: pointer;
+}
 .user-circle {
     width: 25px;
     height: 25px;
@@ -28,6 +30,27 @@
     line-height: 25px;
     vertical-align: middle;
     font-weight: 300;
+}
+.empty-user-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px dashed $light-gray;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 25px;
+    vertical-align: middle;
+    font-weight: 300;
+    position: relative;
+
+}
+.empty-user-circle img {
+    width: 30px;
+    position: absolute;
+    top: -11px;
+    left: -3px;
 }
 
 .color-bullet {
@@ -48,4 +71,23 @@
 
 .pushup-15 {
     margin-top: 15px;
+}
+.pushright-10 {
+    margin-right: 10px;
+}
+
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+
+.green-date {
+    color: rgb(15, 195, 163);
+    font-size: 0.8rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: 300;
+    line-height: 17px;
 }

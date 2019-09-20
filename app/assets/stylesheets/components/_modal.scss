@@ -4,7 +4,7 @@
     z-index: 3;
     background-color: rgba(21,27,38,.85);
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     transition: all .15s ease-in;
@@ -13,6 +13,8 @@
 .modal-comp {
     
 }
+
+
 
 @media screen and (min-width: 400px) {
     

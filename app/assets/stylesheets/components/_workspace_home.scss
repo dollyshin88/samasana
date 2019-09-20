@@ -1,16 +1,21 @@
 // this keeps the workspace home at minimum 680px width at all time
-@media (max-width: 1213px) {
-    .workspace-home-container {
-        width: 680px;
-    }
-}
+
 
 .workspace-home-container {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding-left: 120px;
+    // padding-left: 120px;
+    margin: 0 20px;
+    // width: 780px;
+    height: 100vh;
+    position: relative;
+}
+@media (max-width: 1213px) {
+    .workspace-home-container {
+        // width: 680px;
+    }
 }
 
 .home-section {
@@ -21,6 +26,8 @@
     min-height: 90px;
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
     
 
     &__title {
@@ -36,7 +43,7 @@
     flex-flow: row wrap;
     justify-content: flex-start;
     align-items:  flex-start;
-    min-width: 616px;
+    // min-width: 616px;
     border-top: 2px solid $lightest-gray;
 }
 
@@ -50,6 +57,7 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
+    margin: 0 8px;
 
 }
 

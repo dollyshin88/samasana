@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-function NewTaskForm (props) {
+function ModalNewTaskForm (props) {
     let init_taskName = '';
     let init_assignee = 'default';
     let init_notes = '';
@@ -26,6 +26,13 @@ function NewTaskForm (props) {
     const [notes, setNotes] = useState(init_notes);
     const [project, setProject] = useState(init_project);
     const [dueDate, setDueDate] = useState(init_dueDate);
+    const [taskStatus, setTaskStatus] = useState(props.task.completed);
+    const statusText = (taskStatus) ? 'Completed' : 'Mark Complete';
+    
+    function handleTaskStatusChange() {
+        const status = (taskStatus === true) ? false : true;
+        setTaskStatus(status);
+    }
 
     function handleTaskNameChange(e) {
         setTaskName(e.target.value);
@@ -54,7 +61,7 @@ function NewTaskForm (props) {
     }
     function handleSubmit(e){
         e.preventDefault();
-        const newTask = {name: taskName, workspace_id: props.currentWorkspace.id}
+        const newTask = {name: taskName, workspace_id: props.currentWorkspace.id, completed: taskStatus}
         
         if (assignee !== 'default') {
             newTask.assignee_id = props.members.filter(member=> member.name === assignee)[0].id;
@@ -65,12 +72,18 @@ function NewTaskForm (props) {
         if (dueDate !== '') {
             newTask.due_on = dueDate;
         }
+        if (props.formType === 'edit') {
+            newTask.id = props.task.id;
+        }
         props.taskAction(newTask)
-        setTaskName('');
-        setAssignee('default');
-        setNotes('');
-        setProject('default');
-        setDueDate('');
+        if (props.formType === 'new') {
+            setTaskName('');
+            setAssignee('default');
+            setNotes('');
+            setProject('default');
+            setDueDate('');
+        }
+        props.closeModal();
     }
 
     function renderErrors() {
@@ -90,22 +103,37 @@ function NewTaskForm (props) {
     
     function renderModalCloseBtn() {
         if (props.modal) {
-            return <i className="fas fa-times modal-comp-container__close-btn" onClick={handleModalClose}></i>
+            return <i className="fas fa-times modal-comp-container__close-btn task-form-mod" onClick={handleModalClose}></i>
         }
     }
     function handleModalClose(e) {
         props.closeModal();
     }
+    function handleTaskDelete(e) {
+        props.deleteTask(props.task.id)
+            .then(props.closeModal());
 
+    }
+
+    function renderDeleteBtn() {
+        if (props.formType === 'edit') {
+            return (
+                <div onClick={handleTaskDelete} className='hyperlink--blue task-delete clickable'>Delete Task</div>
+            )
+        } else { return null }
+    }
+
+    
     return (
-        <div className='page-container'>
-            <div className='mytasks-form-card'>
+        <div className='task-form-modal-wrap'>
+            <div className='modal-task-form-card'>
                 {renderModalCloseBtn()}
-                <div className='mytasks-form-card__header'>
-                    <button onClick={handleSubmit} className='mytasks-form-card__btn'>{formBtnText}</button>
+                <div className='modal-task-form-card__header'>
+                    <button onClick={handleTaskStatusChange} className='modal-task-form-card__btn'>{statusText}</button>
+                    
                 </div>
                 {renderErrors()}
-                <div className='mytasks-form-card__form'>
+                <div className='modal-task-form-card__form'>
                     <form className='card-form'>
                         <input 
                             value={taskName}
@@ -158,6 +186,10 @@ function NewTaskForm (props) {
                             {renderProjectDiv()}
                         </div>
                     </form>
+                    <div className='modal-task-form-card__bottom-btns-container'>
+                        <button onClick={handleSubmit} className='btn btn--blue'>{formBtnText}</button>
+                        {renderDeleteBtn()}
+                    </div>
                 </div>
                 
             </div>
@@ -167,4 +199,4 @@ function NewTaskForm (props) {
 
 
 
-export default NewTaskForm;
+export default ModalNewTaskForm;

@@ -10,8 +10,7 @@ function Workspace(props){
     function handleLogout() {
         props.logout();
     }
-    
-    // REFACTOR: conditionally render grid item main - workspace container is rendered by ProtectedRoute - this comp has router props - utilize location
+
     function renderMainComp() {
         
         const projectRegex = new RegExp('\/project\/.*');
@@ -36,6 +35,7 @@ function Workspace(props){
                     currentUserInitial={props.currentUserInitial}
                     currentUserId={props.currentUserId}
                     openModal={props.openModal}
+                    logout={props.logout}
                 />
             );
         }
@@ -44,16 +44,12 @@ function Workspace(props){
 
     useEffect(() => {
         props.fetchAllWorkspaces();
-        
-        if (props.location.pathname === '/') {
+        const sessionRegex = new RegExp('\/setup.*');
+        if (!sessionRegex.test(props.location.pathname)) {
             
             props.fetchWorkspace(props.currentWorkspace.id);
         }
-        
-       
-    
-        // document.body.appendChild(script);
-        
+
     }, []);
 
     function renderScriptTag(){

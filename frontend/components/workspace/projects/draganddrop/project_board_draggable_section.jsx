@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import ProjectBoardDraggableTask from './project_board_draggable_task';
@@ -8,10 +8,12 @@ const Container = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    margin: 20px;
-    border: 1px solid lightgray;
-    padding: 10px;
-    width: 200px;
+    margin: 15px 0px;
+    
+    min-width: 280px;
+    background-color: transparent;
+  
+    height: 85vh;
 `;
 const TaskListContainer = styled.div`
     flex-grow: 1;
@@ -20,7 +22,7 @@ const TaskListContainer = styled.div`
     flex-flow: column nowrap
     justify-content: flex-start;
     align-items: center;
-    padding: 10px;
+    padding: 0 10px;
     width: 100%;
 
 `;
@@ -50,17 +52,29 @@ class InnerList extends React.Component {
     }
 }
 function ProjectBoardDraggableSection(props){
+    const [sectionTitle, setSecitonTitle] = useState(props.section.name);
+    
 
+    //future
+    // function handleSectionTitleChange(e){
+    //     setSecitonTitle(e.target.value);
+    //     props.updateSection({ id: props.section.id, name: sectionTitle });
+    // }
+    // <input onKeyUp={handleSectionTitleChange} type="text" value={sectionTitle}/>
     return( 
+        
         <Draggable draggableId={props.section.id} index={props.index}>
             {provided => (
+                <div className='board-section-container'>
                 <Container
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                 >
-                    <SectionTitle {...provided.dragHandleProps}>            {props.section.name}
-                    </SectionTitle>
-
+                    <div className='section-title-wrap'>
+                        <SectionTitle {...provided.dragHandleProps}>
+                            {props.section.name}
+                        </SectionTitle>
+                    </div>
                     <Droppable droppableId={props.section.id} type='task'>
                         {(provided, snapshot) => (
                             <TaskListContainer
@@ -75,6 +89,7 @@ function ProjectBoardDraggableSection(props){
                         )}
                     </Droppable>
                 </Container>
+                </div>
             )}
         </Draggable>
     );

@@ -10,7 +10,7 @@ const projectsReducer = (state={}, action) => {
             return action.projects;
 
         case RECEIVE_PROJECT:
-            return Object.assign({}, state, action.project);
+            return Object.assign({}, state, action.payload.project);
 
         case RECEIVE_SECTION_UPDATES:
             return Object.assign({}, state, action.payload.project);

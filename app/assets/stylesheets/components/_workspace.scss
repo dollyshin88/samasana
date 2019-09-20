@@ -9,7 +9,8 @@
 
 .workspace-grid-item-sidebar {
     grid-area: sidebar;
-    justify-item: stretch;
+    justify-self: stretch;
+    
 }
 
 .workspace-grid-item-main {

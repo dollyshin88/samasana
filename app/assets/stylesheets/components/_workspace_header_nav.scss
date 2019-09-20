@@ -10,7 +10,12 @@
     padding-right:20px;
     height: 100%;
 
-    
+    &__title-grouping {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
     &__title {
         font-size: 1.3rem;
         font-weight: 500;

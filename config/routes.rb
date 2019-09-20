@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
     resources :sections, only: [:index, :create, :update, :destroy]
 
-    resources :tasks, only: [:show, :create, :update, :delete]
+    resources :tasks, only: [:show, :create, :update, :destroy]
 
     #custom batch routes
     patch '/batch/section/tasks', to: 'tasks#section_batch'
