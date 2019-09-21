@@ -7,7 +7,7 @@ function NavWorkspaceList(props) {
 
     return (
         <div className='nav-workspace-list scrolly'>
-            <div className='nav-workspace-list__title'>Workspace Title</div>
+            <div className='nav-workspace-list__title'>{props.currentWorkspace.name}</div>
             <MemberList members={props.members}/>
             <ProjectNavList projects={props.projects}/>
             <img className='side-nav-bottom-img' src={window.invitePeepsImgURL} alt="" />

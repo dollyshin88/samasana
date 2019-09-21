@@ -37,6 +37,7 @@ function Workspace(props){
                     openModal={props.openModal}
                     logout={props.logout}
                     updateTask={props.updateTask}
+                    
                 />
             );
         }
@@ -76,11 +77,10 @@ function Workspace(props){
 
     // make side nav and workspace home connected components
     return (
-        
         <div className='page-container workspace-grid-container'>
             {renderScriptTag()}
             <div className='workspace-grid-item-sidebar'>
-                <SideNav members={props.members} projects={props.projectsArr}/>
+                <SideNav members={props.members} projects={props.projectsArr} currentWorkspace={props.currentWorkspace}/>
                 <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
             </div>
             

@@ -30,7 +30,7 @@ function SideNav (props) {
                 <Logo />
             </div>
             <NavMainList />
-            <NavWorkspaceList members={props.members} projects={props.projects} />
+            <NavWorkspaceList members={props.members} projects={props.projects} currentWorkspace={props.currentWorkspace}/>
            
         </div>
     );

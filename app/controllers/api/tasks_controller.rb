@@ -75,7 +75,7 @@ class Api::TasksController < ApplicationController
 
     private
     def task_params
-        params.require(:task).permit(:name, :assignee_id, :workspace_id, :assignee_status, :completed, :completed_at, :due_on, :start_on, :project_id, :parent_task_id, :general_order)
+        params.require(:task).permit(:name, :assignee_id, :workspace_id, :assignee_status, :completed, :completed_at, :due_on, :start_on, :project_id, :parent_task_id, :general_order, :notes, :section_id, :section_order)
     end
 
     def batch_params

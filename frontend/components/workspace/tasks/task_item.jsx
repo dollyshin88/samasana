@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import EditTaskFormContainer from '../tasks/edit_form_container';
@@ -30,32 +30,10 @@ function TaskItem(props) {
     function handleTaskModal() {
         props.openModal('edit task', props.task)
     }
-    // const [editTask, setEditTask] = useState('false');
 
-    // function handleEditTaskClick(e) {
-    //     e.preventDefault();
-    //     (editTask === 'false') ? setEditTask('true') : setEditTask('false');
-        
-    //         renderEditTaskForm();
-        
-    //     //append the container to the div with id = mytasks-all-dnd__buff
-    // }
-
-    // function renderEditTaskForm() {
-    //     const location = document.getElementById('task-form-container');
-
-    //     if (editTask === 'true') {
-    //         ReactDOM.render(
-    //             <EditTaskFormContainer task={props.task}/>,
-    //             location 
-    //         )
-    //     } else {
-    //         ReactDOM.render(
-    //             <div></div>,
-    //             location 
-    //         )
-    //     }
-    // }
+    useEffect(() => {
+        setTaskStatus(props.task.completed)
+    }, [props.task])
     const [taskStatus, setTaskStatus] = useState(props.task.completed);
 
     function renderCheckbox(){

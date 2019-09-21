@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function HomeTaskRow(props) {
@@ -8,10 +8,14 @@ function HomeTaskRow(props) {
         ) : (<></>)
     }
 
+    useEffect(() => {
+        setTaskStatus(props.task.completed);
+    }, [props.task]);
+   
     //on click of the circle, change taskStatus state; toggle class on the icon; give icon id with task id embbeded
     //render icon based on the task status
+    
     const [taskStatus, setTaskStatus] = useState(props.task.completed);
-
     function renderCheckbox(){
         const cssStyle = (taskStatus) ? 'checkbox-circle checkbox-green' : 'checkbox-circle';
         return (
@@ -28,7 +32,7 @@ function HomeTaskRow(props) {
         checkbox.classList.toggle('checkbox-green');
         const newStat = (taskStatus === true) ? false : true;
 
-        // setTaskStatus(newStat); note: not sure why setState hook doesn't work.
+        setTaskStatus(newStat); 
 
         props.updateTask({ id: props.task.id, completed: newStat })
        
@@ -39,6 +43,7 @@ function HomeTaskRow(props) {
     }
     // the whole div should dispatch modalOpen with taskshow
     const projectName = (props.task.project_id) ? ('') : ('');
+    
     return (
         <div className='task-row divider'>
             <div onClick={handleTaskModal} className='task-row__main clickable'>

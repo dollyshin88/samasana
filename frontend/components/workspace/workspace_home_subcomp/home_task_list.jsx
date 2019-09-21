@@ -2,7 +2,6 @@ import React from 'react';
 import HomeTaskRow from './home_task_row';
 
 function HomeTaskList(props) {
-
     function renderListItems() {
         return (props.tasks.map((task, i) => (
         <HomeTaskRow 

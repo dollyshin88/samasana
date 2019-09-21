@@ -8,7 +8,6 @@ import { updateTask } from '../../actions/task_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
-    
     return ({
     currentUserId: state.session.id,
     currentUserInitial: initialsSelector(state.entities.users[state.session.id].name),

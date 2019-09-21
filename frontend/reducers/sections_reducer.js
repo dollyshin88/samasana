@@ -55,16 +55,25 @@ const SectionsReducer = (state={}, action) => {
         case RECEIVE_TASK: 
             if (!Object.values(action.payload.tasks)[0].section_id) return state;
             const taskId = parseInt(Object.keys(action.payload.tasks)[0]);
-            section = Object.assign({}, state[Object.values(action.payload.tasks)[0].section_id]);
+            //instead of just looking at the section that corresponds to task.section_id, need to look at the entire list of sections and remove the task id if it was in another section
+            nextState = {};
+            const stateCopyArr = Object.values(Object.assign({}, state)); // array of all sections
+            stateCopyArr.forEach((section) => {
+                if (section.id === Object.values(action.payload.tasks)[0].section_id) {
+                    if (!section.taskIds.includes(taskId)) {
+                        section.taskIds.push(taskId);
+                    }
+                    nextState = { ...nextState, [section.id]: section};
+                } else {
+                    if (section.taskIds.includes(taskId)) {
+                        const idx = section.taskIds.indexOf(taskId);
+                        section.taskIds.splice(idx, 1);
+                    }
+                    nextState = { ...nextState, [section.id]: section};
+                }
+            });
+            return nextState;
             
-            if (!section.taskIds.includes(taskId)) {
-                section.taskIds.push(taskId);
-
-                
-                return Object.assign({}, state, { [action.sectionId]: section });
-            } else {
-                return state;
-            }
         case REMOVE_TASK:
             if (!action.task.section_id) return state;
             section = Object.assign({}, state[action.task.section_id]);

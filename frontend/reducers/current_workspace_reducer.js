@@ -25,7 +25,7 @@ const currentWorkspaceReducer = (state={}, action) => {
             return nextState;
         
         case RECEIVE_TASK: 
-
+            const copiedState = Object.assign({}, state);
             const taskId = parseInt(Object.keys(action.payload.tasks)[0]);
             nextState = Object.assign({}, state);
             
@@ -33,7 +33,7 @@ const currentWorkspaceReducer = (state={}, action) => {
                 nextState.taskIds.push(taskId);
                 return nextState;
             } else {
-                return state;
+                return copiedState;
             }
         default:
             return state;
