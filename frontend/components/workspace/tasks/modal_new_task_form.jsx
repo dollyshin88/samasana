@@ -74,7 +74,7 @@ function ModalNewTaskForm (props) {
     
     function handleSubmit(e){
         e.preventDefault();
-        const newTask = {name: taskName, workspace_id: props.currentWorkspace.id, completed: taskStatus}
+        const newTask = {name: taskName, workspace_id: props.currentWorkspace.id, completed: taskStatus, notes: notes}
         
         if (assignee !== 'default') {
             newTask.assignee_id = props.members.filter(member=> member.name === assignee)[0].id;
