@@ -1,11 +1,15 @@
 import { RECEIVE_ALL_TASKS, RECEIVE_TASK, REMOVE_TASK, RECEIVE_GENERAL_ORDER_UPDATES, RECEIVE_SECTION_ORDER_UPDATES } from '../actions/task_actions';
 import { RECEIVE_CURRENT_WORKSPACE } from '../actions/workspace_actions';
 import {RECEIVE_ORDERED_TASKS_TWO_SECTIONS} from '../actions/section_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 const tasksReducer = (state={}, action) => {
     Object.freeze(state);
     
     switch (action.type) {
+        case LOGOUT_CURRENT_USER:
+            return {};
+
         case RECEIVE_ALL_TASKS:
             return action.tasks;
         
