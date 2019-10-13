@@ -2,13 +2,18 @@ import { RECEIVE_ALL_SECTIONS, RECEIVE_ALL_PROJECT_SECTIONS, RECEIVE_SECTION, RE
 import { RECEIVE_CURRENT_WORKSPACE } from '../actions/workspace_actions';
 import { RECEIVE_SECTION_ORDER_UPDATES, RECEIVE_TASK, REMOVE_TASK } from '../actions/task_actions';
 import { RECEIVE_PROJECT } from '../actions/project_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 const SectionsReducer = (state={}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
+        case LOGOUT_CURRENT_USER:
+            return {};
+
         case RECEIVE_ALL_SECTIONS:
             return action.sections;
+            
         case RECEIVE_PROJECT:
             return Object.assign({}, state, action.payload.sections); 
 
