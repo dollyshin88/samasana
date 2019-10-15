@@ -7,6 +7,7 @@ import { projectTasksSelector, projectSectionsSelector, initialsSelector} from '
 import { updateTaskSectionOrder } from '../../../actions/task_actions';
 import { receiveOrderedTasksForSection, receiveOrderedTasksTwoSections, updateSectionOrder, updateSection } from '../../../actions/section_actions';
 import { receiveSectionIdsUpdate } from '../../../actions/project_actions';
+import { logout } from '../../../actions/session_actions';
 
 
 function ProjectView(props) {
@@ -27,11 +28,12 @@ function ProjectView(props) {
                     currentUserInitial={props.currentUserInitial}
                     currentUserId={props.currentUserId}
                     updateSection={props.updateSection}
+                    logout={props.logout}
                     />
             );
         } else if (props.viewType === 'list') {
             return (
-                <ProjectViewList tasks={props.tasks}/>
+                <ProjectViewList tasks={props.tasks} logout={props.logout}/>
             );
         }
     }
@@ -67,5 +69,6 @@ const mapDispatchToProps = dispatch => ({
     updateTaskSectionOrder: updates => dispatch(updateTaskSectionOrder(updates)),
     receiveSectionIdsUpdate: (projectId, sectionIds) => dispatch(receiveSectionIdsUpdate(projectId, sectionIds)),
     updateSection: section => dispatch(updateSection(section)),
+    logout: () => dispatch(logout()),
 });
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectView));

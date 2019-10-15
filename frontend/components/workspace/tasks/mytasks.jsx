@@ -122,6 +122,7 @@ class MyTasks extends React.Component {
                 currentUserId={this.props.currentUserId}
                 title={`${this.props.currentUser.name}'s Tasks - ${this.props.currentWorkspace.name}`}
                 openModal={this.props.openModal}
+                logout={this.props.logout}
             />
         </div>
 

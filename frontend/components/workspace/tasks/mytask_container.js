@@ -4,6 +4,7 @@ import { updateTaskGeneralOrder, updateTask } from '../../../actions/task_action
 import { receiveOrderedTasks } from '../../../actions/workspace_actions';
 import MyTasks from './mytasks';
 import { openModal } from '../../../actions/modal_actions';
+import { logout } from '../../../actions/session_actions';
 
 const mapStateToProps = state => {
     let todayTasksIds = [];
@@ -42,6 +43,7 @@ const mapDispatchToProps = dispatch => ({
     receiveOrderedTasks: (taskIdArr, workspaceId) => dispatch(receiveOrderedTasks(taskIdArr, workspaceId)),
     openModal: (contentName, data) => dispatch(openModal(contentName, data)),
     updateTask: task => dispatch(updateTask(task)),
+    logout: () => dispatch(logout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyTasks);

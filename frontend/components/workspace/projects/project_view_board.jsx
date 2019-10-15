@@ -13,6 +13,7 @@ function ProjectViewBoard(props) {
                 currentUserId={props.currentUserId}
                 title={projectName}
                 openModal={props.openModal}
+                logout={props.logout}
             />
         </div>
         <div className='workspace-grid-item-main'>
