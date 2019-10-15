@@ -76,7 +76,6 @@ function Workspace(props){
             {renderScriptTag()}
             <div className='workspace-grid-item-sidebar'>
                 <SideNav members={props.members} projects={props.projectsArr} currentWorkspace={props.currentWorkspace}/>
-                <div onClick={handleLogout} className='btn btn--purple'>LOGOUT</div>
             </div>
             
             {renderMainComp()}
