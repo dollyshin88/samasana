@@ -12,7 +12,8 @@
     padding-top: 32px;
     padding-left: 32px;
     padding-right: 32px;
-    height: calc(100vh - 85px);
+    min-height: 650px;
+    
 
     &__header {
         font-size: calc(33.75px + 11.25 * ((100vw - 480px) / 800));

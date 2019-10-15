@@ -67,7 +67,7 @@ function ModalNewTaskForm (props) {
             null
         ) : (
             <div className='pill-link-container'>
-               <div className='pill-link truncate'>{project}</div>                 
+               <div className='pill-link truncate nonclick'>{project}</div>                 
             </div>
         );
     }
