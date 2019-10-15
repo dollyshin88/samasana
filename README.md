@@ -38,4 +38,11 @@ _Note: Samasana is a sanskrit word with the meaning of "act of putting together,
     <img src="./app/assets/images/readme_img/samasana_kanban_dragdrop.gif" align="center" style="border: 1px solid #f0f0f0;"/>
 
 
-
+## Future Enhancements
+    * User profile settings 
+    * Workspace settings
+    * Tags for tasks
+    * Subtasks
+    * Tasks search
+    * Member invitation
+ 
