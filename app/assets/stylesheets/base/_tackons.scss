@@ -115,3 +115,7 @@ img.clipboard-icon {
     border-color: $workspace-green;
     color: $workspace-green;
 }
+
+.nonclick {
+    cursor: default;
+}

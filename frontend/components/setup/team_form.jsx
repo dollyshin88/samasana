@@ -25,8 +25,7 @@ function TeamForm(props) {
         // future bonus scope:
         // props.history.push('/setup/invite');
     }
-
-
+    
     return(
         <div className='ctnr-buff--gridpage'>
             
@@ -42,7 +41,7 @@ function TeamForm(props) {
                             <option selected={teamType === 'software development'} value='software development'>Software Development</option>
                             <option selected={teamType === 'products'} value='products'>Products</option>
                         </select>
-                    </div>
+                        </div>
                     <div className='input-group'>
                         <label className="form__label" htmlFor="team-name">What is your team called?</label>
                         <input className='form__input' type="teamName" id="team-name" onChange={handleNameChange} value={teamName} placeholder="Eg. Marketing, Design, Special Projects, etc"/>

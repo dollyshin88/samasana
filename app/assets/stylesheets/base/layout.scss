@@ -12,6 +12,10 @@ select {
     -ms-appearance: none;
     appearance: none;
 }
+select:after {
+    position: absolute;
+    top: 40px;
+}
 
 //============ session flows============//
 
