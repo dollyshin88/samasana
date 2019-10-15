@@ -134,6 +134,7 @@ img.dragHandleIcon {
     box-sizing: border-box;
     font-size: 1.5rem;  
     padding-left: 10px;
+    border: 1px solid transparent;
 }
 
 .invisible-input::placeholder {
@@ -144,7 +145,8 @@ img.dragHandleIcon {
 .card-form__textarea:hover,
 .card-form__textarea:focus
  {
-    border: 1px solid $lightest-gray;  
+    border-color:$lightest-gray;  
+    transition: border-color 0.2s ease-in;
 }
 
 .card-form {
@@ -174,7 +176,8 @@ img.dragHandleIcon {
     &__textarea {
         width: 100%;
         padding: 10px;
-        color: $text-gray
+        color: $text-gray;
+        border: 1px solid transparent;
     }
     &__textarea::placeholder {
         font-weight: 300;
