@@ -4,7 +4,7 @@ Samasana, a full stack clone of Asana, is an easy-to-use task and project manage
 
 _Note: Samasana is a sanskrit word with the meaning of "act of putting together, combination, composition." The picking of another sanskrit name is an homage to Asana. At the same time, it aptly captures how, through this project, I was able to put together skills learned during the four instense months of full stack bootcamp curriculum and produce something practical and pleasing to use._
 
-<img src="./app/assets/images/readme_img/main_screenshot.png" align="center" style="border: 1px solid #f0f0f0;"/>
+<img src="./app/assets/images/readme_img/main_screenshot.png" align="center" style="border-color: #f0f0f0;"/>
 <br>
 [Live Demo](https://samasana.herokuapp.com)
 
