@@ -64,7 +64,6 @@ function HomeProjectListItem(props) {
 
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     const initial = (Object.values(state.entities.members).length === 0) ? '' : initialsSelector(state.entities.members[ownProps.project.owner_id].name);
 
     return ({

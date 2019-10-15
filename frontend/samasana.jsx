@@ -2,8 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import Root from './components/root';
 import configureStore from './store/store';
-
-//for testing only
+// FOR TESTING ONLY
 import { signup } from './actions/session_actions';
 import { createWorkspace } from './actions/workspace_actions';
 import { fetchAllProjects, createProject, deleteProject } from './actions/project_actions';
@@ -37,26 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <Root store={store} /> 
         , root
     );
-    
-    // window.setTimeout(() => {
-    //     const menus = document.querySelectorAll('.menu');
-        
-    //     document.addEventListener('click', (e) => {
-    //         let children = e.target.parentElement.children;
-    //         children = Array.from(children);
-    //         if (children.some((child) => child.classList.contains('menu'))) return;
-    //         if(e.target.closest('.menu')) return;
-        
-    //         menus.forEach(menu => {
-    //             if(!menu.classList.contains('hidden')) {
-    //                 menu.classList.add('hidden');
-    //             }
-    //         });
-    //     });
-    // }, 2000);
-    
 
     // FOR TESTING ONLY
+    if (process.env.NODE_ENV !== 'production') {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.signup = signup;
@@ -74,5 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.createSection = createSection;
     window.updateSeciton = updateSection;
     window.deleteSection = deleteSection;
+}
+    
 });
 

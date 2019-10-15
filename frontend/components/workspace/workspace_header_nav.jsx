@@ -32,7 +32,7 @@ function WorkspaceHeaderNav (props) {
     function renderHeaderIcons(){
         const projectRegex = new RegExp('\/project\/.*');
         const myTaskRegex = new RegExp('\/mytasks.*');
-        const homeRegex = new RegExp('\/')
+        const homeRegex = new RegExp('\/');
         if (projectRegex.test(props.location.pathname)) {
             return (
                 <div className='header-title-project-square header-title-project-square--proj pushright-10'> 
