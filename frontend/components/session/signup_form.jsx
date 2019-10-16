@@ -7,7 +7,8 @@ function SignupProfileForm(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const [profilePhoto, setProfilePhoto] = useState(null);
+    const addProfilePhoto = file => setProfilePhoto(file);
     useEffect(() => {
         return () => {
             props.clearSessionErrors();
@@ -27,7 +28,11 @@ function SignupProfileForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.signup({ name, email, password })
+        let formData = { name, email, password };
+        if (profilePhoto) {
+            formData['profile_photo'] = profilePhoto;
+        }
+        props.signup(formData)
             .then(() => props.history.push('/setup/team'));
     }
 
@@ -55,7 +60,7 @@ function SignupProfileForm(props) {
             <div className='ctnr-buff--fullpage'>
                 <div className='signup-container'>
                     <div className='signup-container__header'>Set up your profile</div>
-                    <ProfilePhoto />
+                    <ProfilePhoto addProfilePhoto={addProfilePhoto}/>
                     <div className='form-buff--signup'>
                     <form className='form' onSubmit={handleSubmit}>
                         {renderErrors()}

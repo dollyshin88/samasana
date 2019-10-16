@@ -4,7 +4,7 @@ import NavMainList from './side_nav_subcomp/nav_main_list';
 import NavWorkspaceList from './side_nav_subcomp/nav_workspace_list';
 
 function SideNav (props) {
-
+    // TODO: remove if deadcode?
     function renderMembers() {
         if (props.members.length) {
             
@@ -14,7 +14,7 @@ function SideNav (props) {
             return mem;
         }
     }
-
+     // TODO: remove if deadcode?
     function renderProjects() {
         if (props.projects.length) {
             let proj = props.projects.map((project, i) => (

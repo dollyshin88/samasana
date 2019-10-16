@@ -30,6 +30,13 @@
     line-height: 25px;
     vertical-align: middle;
     font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.user-circle-photo {
+   object-fit: contain; 
 }
 .empty-user-circle {
     width: 24px;
@@ -118,4 +125,8 @@ img.clipboard-icon {
 
 .nonclick {
     cursor: default;
+}
+
+.relParent {
+    position: relative;
 }
