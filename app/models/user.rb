@@ -9,6 +9,7 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  profile_photo   :binary
 #
 
 class User < ApplicationRecord
@@ -24,7 +25,7 @@ class User < ApplicationRecord
         return nil if !user
         user.is_password?(password) ? user : nil
     end
-    
+
     def is_password?(password)
         BCrypt::Password.new(password_digest).is_password?(password)
     end
