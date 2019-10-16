@@ -117,22 +117,61 @@
     align-self: center;
 }
 
-.user-side-nav-hover__conatiner {
-    position: relative;
+.user-side-nav-hover {
+    &__container {
+        // position: relative;
+    }
+
+    &__tag {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        width: auto;
+        font-size: 0.9rem;
+        color: $text-gray;
+        top: 244px;
+        left: 23px;
+    }
+    &__nametag {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        width: max-content;
+        font-size: 0.9rem;
+        color: $text-gray;
+        top: 32px;
+        left: 0px;
+    }
+    
+    
+    &__photo-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin-right: 10px;
+        border: 1px solid $workspace-purple;
+    }
+    &__photo {
+        object-fit: cover;
+    }
 }
 
-.user-side-nav-hover__conatiner:hover .user-side-nav-hover__name {
-    display: block
+.user-side-nav-hover__container:hover .user-side-nav-hover__tag {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 }
 
-.user-side-nav-hover__name {
-    display: none;
-    position: absolute;
-    padding: 5px;
-    background-color: #ecfaff;
-    border-radius: 3px;
-    width: auto;
-    font-size: 0.7rem;
-    color: $text-gray;
-    left: 5px;
+.user-side-nav-hover__container:hover .user-side-nav-hover__nametag {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 }
