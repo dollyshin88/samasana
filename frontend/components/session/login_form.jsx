@@ -27,7 +27,7 @@ function LoginForm(props) {
         props.login({ email, password })
             .then(()=> {
                 props.closeModal();
-                props.history.push('/');
+                props.history.push('/workspace');
             });
         // close modal and redirect to '/' on success
         // note to investigate: seems that pushing '/' to history is not required since user after login will be redirected to '/' due to the authRoute logic
@@ -48,7 +48,7 @@ function LoginForm(props) {
         props.login({ email: demoEmail, password: demoPassword })
             .then(()=> {
                 props.closeModal();
-                props.history.push('/');
+                props.history.push('/workspace');
             });
     }
     

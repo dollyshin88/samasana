@@ -22,7 +22,7 @@ function NewProjectForm(props) {
                 .then(action => {
                     
                     props.closeModal();
-                    props.history.push(`/project/${Object.keys(action.payload.project)[0]}/board`);
+                    props.history.push(`/workspace/project/${Object.keys(action.payload.project)[0]}/board`);
                 }); 
         } else {
             props.projectAction(thisProject)

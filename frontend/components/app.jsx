@@ -19,13 +19,14 @@ function App(props) {
                 <AuthRoute exact path='/samasana' component={CompanyHome} />
                 <AuthRoute exact path='/signup/welcome' component={Welcome} />
                 <AuthRoute exact path='/signup/profile' component={SignupProfileForm} />
+                
                 <ProtectedRoute path='/setup' component={Setup} />
-                {/* <ProtectedRoute path='/project/new' component={NewProjectForm} /> */}
-                {/* <ProtectedRoute path='/mytasks' component={MyTasks} /> */}
+                <ProtectedRoute path='/workspace' component={WorkspaceContainer} />
 
-                <ProtectedRoute path='/' component={WorkspaceContainer} />
                 <Route component={ErrorPage} />
             </Switch>
+
+
         </div>
     )
 }

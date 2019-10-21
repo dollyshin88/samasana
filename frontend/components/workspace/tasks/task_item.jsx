@@ -22,7 +22,7 @@ function TaskItem(props) {
 
     function renderProjectPillLink() {
         return (Object.values(props.projects).length && props.projects[props.task.project_id]) ? (
-            <Link to={`/project/${props.task.project_id}/board`} className='pill-link truncate'>{props.projects[props.task.project_id].name}</Link>
+            <Link to={`/workspace/project/${props.task.project_id}/board`} className='pill-link truncate'>{props.projects[props.task.project_id].name}</Link>
             
         ) : (<></>)
     }

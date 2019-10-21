@@ -16,7 +16,7 @@ function HomeProjectListItem(props) {
     }
 
     function handleProjectShowRouting(e) {
-        props.history.push(`/project/${props.project.id}/board`);
+        props.history.push(`/workspace/project/${props.project.id}/board`);
     }
 
     function handleEditProject() {

@@ -3,11 +3,11 @@ import { withRouter } from 'react-router-dom';
 
 function NavMainList(props) {
     function handleRoutingHome() {
-        props.history.push('/');
+        props.history.push('/workspace');
     }
 
     function handleRoutingMyTasks() {
-        props.history.push('/mytasks');
+        props.history.push('/workspace/mytasks');
     }
 
     return (
