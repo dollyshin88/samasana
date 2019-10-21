@@ -13,8 +13,8 @@ function Workspace(props){
 
     function renderMainComp() {
         
-        const projectRegex = new RegExp('\/project\/.*');
-        const myTaskRegex = new RegExp('\/mytasks.*');
+        const projectRegex = new RegExp('\/workspace\/project\/.*');
+        const myTaskRegex = new RegExp('\/workspace\/mytasks.*');
     
         if (projectRegex.test(props.location.pathname)) {
             

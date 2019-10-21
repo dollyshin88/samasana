@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 function ErrorPage(props) {
     function handleRedirect(e) {
-        props.history.push('/');
+        props.history.push('/workspace');
     }
     return (
         <div className='error-page-container'>

@@ -40,10 +40,10 @@
 //==========project section=============//
 .workspace-home-project-list {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: flex-start;
     align-items:  flex-start;
-    // min-width: 616px;
+    min-width: 616px;
     border-top: 2px solid $lightest-gray;
 }
 

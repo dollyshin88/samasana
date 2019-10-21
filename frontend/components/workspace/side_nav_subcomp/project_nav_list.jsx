@@ -13,7 +13,7 @@ function ProjectNavList(props) {
     }
 
     function handleProjectShowRouting(project) {
-        props.history.push(`/project/${project.id}/board`);
+        props.history.push(`/workspace/project/${project.id}/board`);
     }
     function handleRemoveProject(project) {
         props.deleteProject(project);
