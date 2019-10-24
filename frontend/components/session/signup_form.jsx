@@ -9,6 +9,7 @@ function SignupProfileForm(props) {
     const [password, setPassword] = useState('');
     const [profilePhoto, setProfilePhoto] = useState(null);
     const addProfilePhoto = file => setProfilePhoto(file);
+    
     useEffect(() => {
         return () => {
             props.clearSessionErrors();

@@ -12,6 +12,16 @@ const Auth = ({ path, component: Component, loggedIn, exact }) => (
     )} />
 );
 
+const Setup = ({ path, component: Component, loggedIn, exact }) => (
+    <Route path={path} exact={exact} render={ props => (
+        !loggedIn ? (
+            <Component {...props} />
+        ) : (
+            <Redirect to='/setup/team' />
+        )
+    )} />
+);
+
 const Protected = ({ path, component: Component, loggedIn, exact }) => {
     return (
     <Route path={path} exact={exact} render={ props => (
@@ -28,4 +38,5 @@ const mapStateToProps = (state) => ({
 });
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
+export const SetupRoute = withRouter(connect(mapStateToProps)(Setup));
 export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
