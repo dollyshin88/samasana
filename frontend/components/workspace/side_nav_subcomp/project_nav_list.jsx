@@ -36,8 +36,12 @@ function ProjectNavList(props) {
                         <div onClick={(e) => toggleDropdown(e, i)} className='project-list__mininav-btn menu-btn'>
                             <div className='project-list__mininav'>...</div>
                             <div id={`sidenav-mininav-dropdown-${i}`} className='mininav-dropdown side menu hidden'>
-                                <div className='mininav-dropdown__item' onClick={() => handleEditProject(project)}>Edit Project Detail</div>
-                                <div className='mininav-dropdown__item' onClick={() => handleRemoveProject(project)}>Remove Project</div>
+                                <div className='mininav-dropdown__item-wrap'>
+                                    <div className='mininav-dropdown__item' onClick={() => handleEditProject(project)}>Edit Project Detail</div>
+                                </div>
+                                <div className='mininav-dropdown__item-wrap'>
+                                    <div className='mininav-dropdown__item' onClick={() => handleRemoveProject(project)}>Remove Project</div>
+                                </div>
                             </div>
                         </div>
                     </div>
