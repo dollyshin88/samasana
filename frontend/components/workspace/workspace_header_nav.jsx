@@ -61,8 +61,15 @@ function WorkspaceHeaderNav (props) {
                     <div onClick={toggleCreateAllDropdown} className='workspace-header__btn clickable menu-btn'>+ New</div>
                     
                     <div id='create-all-dropdown' className='create-all-dropdown menu hidden'>
-                        <div className='create-all-dropdown__item clickable' onClick={(e)=>handleNewTaskModal(e)}>Task</div>
-                        <div className='create-all-dropdown__item clickable'  onClick={(e)=>handleNewProjectModal(e)}>Project</div>
+                        <div className='create-all-dropdown__item-wrap'>
+                            <i class="far fa-check-circle"></i>
+                            <div className='create-all-dropdown__item clickable' onClick={(e)=>handleNewTaskModal(e)}>Task</div>
+                        </div>
+                        <div className='create-all-dropdown__item-wrap'>
+                            <i class="far fa-clipboard" style={{marginLeft: 2,
+    marginRight: 2}}></i>
+                            <div className='create-all-dropdown__item clickable'  onClick={(e)=>handleNewProjectModal(e)}>Project</div>
+                        </div>
                     </div>
                     
                 </div>
@@ -71,7 +78,9 @@ function WorkspaceHeaderNav (props) {
                     <div onClick={toggleCurrentUserDropdown} className='user-circle clickable menu-btn'>{props.currentUserInitial}</div>
 
                     <div id='current-user-dropdown' className='current-user-dropdown menu hidden'>
-                        <div className='current-user-dropdown__item clickable' onClick={(e)=>handleLogout(e)}>Log out</div>
+                        <div className='current-user-dropdown__item-wrap'>
+                            <div className='current-user-dropdown__item clickable' onClick={(e)=>handleLogout(e)}>Log out</div>
+                        </div>
                         
                     </div>
                 </div>

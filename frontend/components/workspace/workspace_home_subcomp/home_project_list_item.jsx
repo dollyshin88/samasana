@@ -44,8 +44,12 @@ function HomeProjectListItem(props) {
                         <div onClick={toggleDropdown} className='project-item-squre_mininav-btn menu-btn'>
                             <div className='project-item-square__mininav'>...</div>
                             <div id={`mininav-dropdown-${props.project.id}`} className='mininav-dropdown menu hidden'>
-                                <div className='mininav-dropdown__item' onClick={handleEditProject}>Edit Project Detail</div>
-                                <div className='mininav-dropdown__item' onClick={handleRemoveProject}>Remove Project</div>
+                                <div className='mininav-dropdown__item-wrap'>
+                                    <div className='mininav-dropdown__item' onClick={handleEditProject}>Edit Project Detail</div>
+                                </div>
+                                <div className='mininav-dropdown__item-wrap'>
+                                    <div className='mininav-dropdown__item' onClick={handleRemoveProject}>Remove Project</div>
+                                </div>
                             </div>
                         </div>
                     </div>
