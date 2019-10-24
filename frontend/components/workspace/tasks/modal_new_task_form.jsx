@@ -145,7 +145,7 @@ function ModalNewTaskForm (props) {
 
     let sectionsArr = Object.values(props.sections).slice();
     return (
-        <div className='task-form-modal-wrap'>
+        <div onClick={e => e.stopPropagation()} className='task-form-modal-wrap'>
             <div className='modal-task-form-card'>
                 {renderModalCloseBtn()}
                 <div className='modal-task-form-card__header'>

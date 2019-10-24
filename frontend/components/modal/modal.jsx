@@ -1,5 +1,3 @@
-//modal and modal container
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
@@ -12,10 +10,10 @@ import ModalEditTaskFormContainer from '../workspace/tasks/modal_edit_form_conta
 function Modal({ modal, closeModal }) {
     if (!modal) return null;
     let modalComponent;
-    
+
     switch (modal.type) {
         case 'login':
-            modalComponent = <LoginFormContainer closeModal={closeModal} />;
+            modalComponent = <LoginFormContainer closeModal={closeModal} ref={ref} />;
             break;
         
         case 'new project':
@@ -42,9 +40,10 @@ function Modal({ modal, closeModal }) {
         closeModal();
     }
     
+
     return (
         <div className='modal-overlay' onClick={handleClose}>
-            <div className="modal-comp" onClick={e => e.stopPropagation()}>
+            <div className="modal-comp" >
                 { modalComponent }
             </div>
         </div>
