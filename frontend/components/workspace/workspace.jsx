@@ -45,11 +45,11 @@ function Workspace(props){
     }
 
     useEffect(() => {
-        const sessionRegex = new RegExp('\/workspace.*');
-        if (sessionRegex.test(props.location.pathname)) {
+        // const sessionRegex = new RegExp('\/workspace.*');
+        // if (sessionRegex.test(props.location.pathname)) {
             props.fetchAllWorkspaces();
             props.fetchWorkspace(props.currentWorkspace.id);
-        }
+        // }
 
     }, []);
 
