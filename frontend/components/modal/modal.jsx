@@ -13,7 +13,7 @@ function Modal({ modal, closeModal }) {
 
     switch (modal.type) {
         case 'login':
-            modalComponent = <LoginFormContainer closeModal={closeModal} ref={ref} />;
+            modalComponent = <LoginFormContainer closeModal={closeModal} />;
             break;
         
         case 'new project':
