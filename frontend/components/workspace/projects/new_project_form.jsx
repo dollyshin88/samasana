@@ -60,7 +60,7 @@ function NewProjectForm(props) {
  
     return(
         <div className='page-container'>
-            <div id='project-form-container' className='modal-comp-container'>
+            <div onClick={e => e.stopPropagation()} id='project-form-container' className='modal-comp-container'>
             <i className="fas fa-times modal-comp-container__close-btn" onClick={handleModalClose}></i>
                 <div className='modal-comp-container__header'>{formHeaderText}</div>
                 {renderErrors()}

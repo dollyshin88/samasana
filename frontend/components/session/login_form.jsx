@@ -57,7 +57,7 @@ function LoginForm(props) {
     }
 
     return (
-        <div id='login-container' className='modal-comp-container home-style'>
+        <div onClick={e => e.stopPropagation()} id='login-container' className='modal-comp-container home-style'>
             <h3 className='modal-comp-container__header'>Log in</h3>
             <i className="fas fa-times modal-comp-container__close-btn" onClick={handleModalClose}></i>
 
