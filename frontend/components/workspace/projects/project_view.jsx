@@ -48,8 +48,6 @@ const mapStateToProps = (state, ownProps) => {
     const parsedLocation = ownProps.location.pathname.split('/');
     const projectId = parseInt(parsedLocation[3]);
     const viewType = parsedLocation[parsedLocation.length - 1];
-    // const sections = (state.entities.sections)
-    debugger
     return ({
         project: state.entities.projects[projectId],
         viewType: viewType,
