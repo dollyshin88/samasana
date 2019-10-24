@@ -29,7 +29,7 @@ user2 = User.create({name: 'Alia Shafi', email:'alia@test.com', password: 'passw
 workspace2 = Workspace.create({name: 'Workspace Two'})
 WorkspaceMembership.create({member_id: user2.id, workspace_id: workspace2.id, is_admin: true})
 
-user3 = User.create({name: 'Owen', email:'owem@test.com', password: 'password'})
+user3 = User.create({name: 'Owen', email:'owen@test.com', password: 'password'})
 workspace3 = Workspace.create({name: 'Workspace Three'})
 WorkspaceMembership.create({member_id: user3.id, workspace_id: workspace3.id, is_admin: true})
 
@@ -40,6 +40,7 @@ puts '...starting projects'
 project1 = Project.create({name: 'Develop Hipcamp', owner_id: user1.id, workspace_id: workspace1.id})
 project2 = Project.create({name: 'Develop Strava', owner_id: user2.id, workspace_id: workspace2.id})
 project3 = Project.create({name: 'MERN Stack', owner_id: user2.id, workspace_id: workspace2.id})
+project4 = Project.create({name: 'JavaScript Game', owner_id: user2.id, workspace_id: workspace2.id})
 Project.create({name: 'Depop Fullstack', owner_id: user3.id, workspace_id: workspace3.id})
 puts 'end of projects'
 puts '...starting tasks'
@@ -51,6 +52,12 @@ Task.create([
     {name: 'Design Wireframes', creator_id: user2.id, workspace_id: workspace2.id, project_id: project3.id, due_on: '2019-09-25'},
     {name: 'Complete Route Plans', creator_id: user2.id, workspace_id: workspace2.id, project_id: project3.id, due_on: '2019-09-26'},
     {name: 'Build out backend database', creator_id: user2.id, workspace_id: workspace2.id, project_id: project3.id, due_on: '2019-09-28'},
+
+    {name: 'Submit Project Proposal', creator_id: user2.id, workspace_id: workspace2.id, project_id: project4.id, due_on: '2019-11-05'},
+    {name: 'Learn Three.js', creator_id: user2.id, workspace_id: workspace2.id, project_id: project4.id, due_on: '2019-11-10'},
+    {name: 'Create and Import 3D Objects', creator_id: user2.id, workspace_id: workspace2.id, project_id: project4.id, due_on: '2019-11-12'},
+    {name: 'Build Out User Interactivity', creator_id: user2.id, workspace_id: workspace2.id, project_id: project4.id, due_on: '2019-11-15'},
+    {name: 'Close All Bugs', creator_id: user2.id, workspace_id: workspace2.id, project_id: project4.id, due_on: '2019-11-16'},
 
     {name: 'Create Design Docs', creator_id: user1.id, workspace_id: workspace1.id, project_id: project1.id, due_on: '2019-09-16'},
     {name: 'Complete backend for feature one', creator_id: user1.id, workspace_id: workspace1.id, project_id: project1.id, due_on: '2019-09-03'},
