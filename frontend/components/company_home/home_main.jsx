@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './footer';
 
 function HomeMain(props) {
     
@@ -45,7 +46,7 @@ function HomeMain(props) {
                 </div>
             </div>
 
-
+            <Footer />
         </div>
     );
 
