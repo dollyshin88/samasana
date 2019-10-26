@@ -6,16 +6,9 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    // padding-left: 120px;
     margin: 0 20px;
-    // width: 780px;
-    height: 100vh;
+    height: calc(100vh - 70px);
     position: relative;
-}
-@media (max-width: 1213px) {
-    .workspace-home-container {
-        // width: 680px;
-    }
 }
 
 .home-section {
