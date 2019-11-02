@@ -39,10 +39,10 @@ _Note: Samasana is a sanskrit word with the meaning of "act of putting together,
 
 
 ## Future Enhancements
-    * User profile settings 
-    * Workspace settings
-    * Tags for tasks
-    * Subtasks
-    * Tasks search
-    * Member invitation
+* User profile settings 
+* Workspace settings
+* Tags for tasks
+* Subtasks
+* Tasks search
+* Member invitation
  
