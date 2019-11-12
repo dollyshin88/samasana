@@ -45,11 +45,11 @@
     flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
-    background-color: $lightest-gray;
+    // background-color: $lightest-gray;
     // padding: 5vh 0;
 
     &__block {
-        width: 80vw;
+        width: 95%;
         margin-top: 5vh;
         text-align: center;
         &__header {
@@ -68,20 +68,54 @@
 .carousel-content-wrap {
     width: 90%;
     display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
+}
+
+.carousel-content {
+    box-sizing: border-box;
+    padding: 0 50px;
+    display: flex;
     flex-flow: column nowrap;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    
 }
-
 
 .main-video {
-    width: 100%;
+    width: 95%;
+    margin-top: -200px;
 }
 .video-buff {
-    
-    margin: 5vh auto;
+    position: relative;
+    margin: 5vh auto 0 auto;
+    width: 90vw;
+    padding: 10vw 10vw 2vw 10vw;
+    background-image: url('https://luna1.co/c9414e.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    &__left-image {
+        position: absolute;
+        width: 16%;
+        bottom: 100px;
+        left: 30px;
+        
+    }
+    &__right-image {
+        position: absolute;
+        width: 16%;
+        bottom: 100px;
+        right: 30px;
+        
+    }
 }
+
 
 
 
@@ -95,7 +129,7 @@
     .carousel {
     
         &__block {
-            width: 60vw;
+            width: 90%;
         }
     }
 

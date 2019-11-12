@@ -24,25 +24,36 @@ function HomeMain(props) {
 
                 <div className='carousel'>
                     <div className='carousel__block'>
-                        <div className='carousel-content-wrap'>
-                            <div className='carousel__block__header'>Get Organized</div>
-                            <div className='carousel__block__text'>Plan and structure work in a way that’s best for you. Set priorities and deadlines. Share details and assign tasks. All in one place.</div>
-                        </div>
                         <div className='video-buff'>
                             <video className='main-video' src="https://d1gwm4cf8hecp4.cloudfront.net/videos/homepage/v4/Boards.mp4"></video>
+                            <img className='video-buff__left-image' alt='books illustration' src='https://luna1.co/bbbf3e.png'/>
+                            <img className='video-buff__right-image' alt='books illustration' src='https://luna1.co/48e23c.png'/>
+
                         </div>
+                        <div className='carousel-content-wrap'>
+                            <div className='carousel-content'>
+                                <div className='carousel__block__header'>Get Organized</div>
+                                <div className='carousel__block__text'>Plan and structure work in a way that’s best for you. Set priorities and deadlines. Share details and assign tasks. All in one place.</div>
+                            </div>
+                            <div className='carousel-content'>
+                                <div className='carousel__block__header'>Stay on track</div>
+                                <div className='carousel__block__text'>Follow projects and tasks through every stage. You know where work stands and can keep everyone aligned on goals.</div>
+                            </div>
+                            <div className='carousel-content'>
+                                <div className='carousel__block__header'>Hit Deadlines</div>
+                                <div className='carousel__block__text'>Create visual project plans to see how every step maps out over time. Pinpoint risks. Eliminate roadblocks. Even when plans change.</div>
+                            </div>
+                        </div>
+                        
                     </div>
 
-                    <div className='carousel__block'>
-                        <div className='carousel-content-wrap'>
-                            <div className='carousel__block__header'>Stay on track</div>
-                            <div className='carousel__block__text'>Follow projects and tasks through every stage. You know where work stands and can keep everyone aligned on goals.</div>
-                        </div>
+                    {/* <div className='carousel__block'>
+                        
                         <div className='video-buff'>
                             <video className='main-video' src="https://d1gwm4cf8hecp4.cloudfront.net/videos/homepage/v4/Boards.mp4"></video>
                         </div>
                         
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
